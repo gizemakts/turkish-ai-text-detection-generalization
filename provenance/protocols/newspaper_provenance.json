@@ -1,0 +1,256 @@
+{
+  "schema_version": "newspaper-corpus-provenance-v1",
+  "human_article_publication_date_range": {
+    "start": "2017",
+    "end": "2017"
+  },
+  "abstract_human_publication_date_range": {
+    "start": "2005",
+    "end": "2018"
+  },
+  "human_rows": 500,
+  "human_corpus_type": "Turkish newspaper opinion/column texts",
+  "human_author_count": 10,
+  "human_texts_per_author": 50,
+  "human_author_source_allocation": [
+    {
+      "record_range": "human_001-050",
+      "author": "AUTHOR_01",
+      "source": "Hürriyet",
+      "rows": 50
+    },
+    {
+      "record_range": "human_051-100",
+      "author": "AUTHOR_02",
+      "source": "Habertürk",
+      "rows": 50
+    },
+    {
+      "record_range": "human_101-150",
+      "author": "AUTHOR_03",
+      "source": "Hürriyet",
+      "rows": 50
+    },
+    {
+      "record_range": "human_151-200",
+      "author": "AUTHOR_04",
+      "source": "Hürriyet",
+      "rows": 50
+    },
+    {
+      "record_range": "human_201-250",
+      "author": "AUTHOR_05",
+      "source": "Hürriyet",
+      "rows": 50
+    },
+    {
+      "record_range": "human_251-300",
+      "author": "AUTHOR_06",
+      "source": "Hürriyet",
+      "rows": 50
+    },
+    {
+      "record_range": "human_301-350",
+      "author": "AUTHOR_07",
+      "source": "Karar",
+      "rows": 50
+    },
+    {
+      "record_range": "human_351-400",
+      "author": "AUTHOR_08",
+      "source": "Karar",
+      "rows": 50
+    },
+    {
+      "record_range": "human_401-450",
+      "author": "AUTHOR_09",
+      "source": "Karar",
+      "rows": 50
+    },
+    {
+      "record_range": "human_451-500",
+      "author": "AUTHOR_10",
+      "source": "Yeni Şafak",
+      "rows": 50
+    }
+  ],
+  "human_source_totals": {
+    "Hürriyet": 250,
+    "Habertürk": 50,
+    "Karar": 150,
+    "Yeni Şafak": 50
+  },
+  "ai_rows": 500,
+  "ai_generation_models": [
+    {
+      "family": "GPT",
+      "rows": 100,
+      "display_name": "GPT-5.5 (High)",
+      "dataset_model_identifier": "gpt_5-5-high"
+    },
+    {
+      "family": "Claude",
+      "rows": 100,
+      "display_name": "Claude Opus 4.8 (High)",
+      "dataset_model_identifier": "claude-opus-4-8-high"
+    },
+    {
+      "family": "Qwen",
+      "rows": 100,
+      "display_name": "Qwen 3.7 (Max)",
+      "dataset_model_identifier": "qwen_3-7-max"
+    },
+    {
+      "family": "Gemini",
+      "rows": 100,
+      "display_name": "Gemini 3.1 Pro (extended thinking)",
+      "dataset_model_identifier": "gemini_pro-3-1-extended-thinking"
+    },
+    {
+      "family": "Kimi",
+      "rows": 100,
+      "display_name": "Kimi K2.6 (Fast/High)",
+      "dataset_model_identifier": "kimi_k-2-6_fast-high"
+    }
+  ],
+  "ai_generation_dates": {
+    "start": "2026-06",
+    "end": "2026-08"
+  },
+  "ai_per_author_block_allocation": [
+    {
+      "positions": "1-10",
+      "family": "GPT",
+      "rows": 10
+    },
+    {
+      "positions": "11-20",
+      "family": "Claude",
+      "rows": 10
+    },
+    {
+      "positions": "21-25",
+      "family": "Qwen",
+      "rows": 5
+    },
+    {
+      "positions": "26-30",
+      "family": "Qwen",
+      "rows": 5
+    },
+    {
+      "positions": "31-40",
+      "family": "Gemini",
+      "rows": 10
+    },
+    {
+      "positions": "41-50",
+      "family": "Kimi",
+      "rows": 10
+    }
+  ],
+  "ai_prompting_method": {
+    "full_human_text_supplied": false,
+    "input_fields": [
+      "input_id",
+      "output_id",
+      "title",
+      "keywords",
+      "target_words"
+    ],
+    "requested_output_fields": [
+      "id",
+      "generated_text"
+    ],
+    "original_turkish_column_requested": true,
+    "internet_search_prohibited": true,
+    "real_published_column_retrieval_or_reproduction_prohibited": true,
+    "target_tolerance_words": 15,
+    "outside_tolerance_action": "SEPARATE_LENGTH_CORRECTION",
+    "length_correction_must_preserve": [
+      "topic",
+      "main idea",
+      "viewpoint",
+      "narrative line"
+    ],
+    "length_correction_content_change_prohibited": true,
+    "procedure_classification": "LENGTH_MATCHING_NOT_NEW_GENERATION_CONDITION"
+  },
+  "rows_are_paired": true,
+  "pairing_status": "CONFIRMED_1_TO_1",
+  "n_pairs": 500,
+  "pairing_key": "numeric_record_suffix",
+  "pairing_examples": [
+    "human_001<->AI_record_001",
+    "human_500<->AI_record_500"
+  ],
+  "primary_bootstrap_unit": "pair_id",
+  "invalid_pair_integrity_action": "ABORT_EVALUATION",
+  "human_file_schema": {
+    "row_id_column": "RESOLVE_FROM_LOCKED_HEADER",
+    "text_column": "RESOLVE_FROM_LOCKED_HEADER",
+    "pair_id_column": null,
+    "pair_id_derivation": "NUMERIC_SUFFIX_FROM_RESOLVED_ROW_ID"
+  },
+  "ai_file_schema": {
+    "row_id_column": "RESOLVE_FROM_LOCKED_HEADER",
+    "text_column": "RESOLVE_FROM_LOCKED_HEADER",
+    "pair_id_column": null,
+    "pair_id_derivation": "NUMERIC_SUFFIX_FROM_RESOLVED_ROW_ID"
+  },
+  "schema_resolution_policy": {
+    "mode": "LOCKED_HASH_THEN_HEADER_ONLY_UNIQUE_ALIAS",
+    "raw_hash_verification_before_csv_parser": true,
+    "header_read_after_hash_match_only": true,
+    "row_read_after_unique_resolution_only": true,
+    "header_matching": "EXACT_CASE_SENSITIVE",
+    "ambiguity_rule": "EXACTLY_ONE_CANDIDATE_PRESENT_PER_ROLE_ELSE_ABORT",
+    "manual_selection_after_header": false,
+    "required_columns": {
+      "human": {
+        "row_id_column_candidates": [
+          "id",
+          "input_id",
+          "human_id",
+          "record_id",
+          "source_id"
+        ],
+        "text_column_candidates": [
+          "text",
+          "human_text",
+          "article_text",
+          "column_text",
+          "content",
+          "metin",
+          "yazi",
+          "kose_yazisi"
+        ]
+      },
+      "ai": {
+        "row_id_column_candidates": [
+          "id",
+          "output_id",
+          "ai_id",
+          "record_id"
+        ],
+        "text_column_candidates": [
+          "generated_text"
+        ]
+      }
+    },
+    "pair_id_derivation": "NUMERIC_SUFFIX_FROM_RESOLVED_ROW_ID",
+    "pair_suffix_regex": "([0-9]+)$",
+    "required_pair_indices": {
+      "first": 1,
+      "last": 500,
+      "exactly_once_per_class": true
+    }
+  },
+  "expected_locked_files": {
+    "human": "human_newspaper_columns_500.csv",
+    "ai": "ai_newspaper_columns_500.csv",
+    "expected_rows_per_class": 500,
+    "human_sha256": "b6a0acafa96b42348b07cbe5dcb295b7c4bf19eb5068e454f5da72f5e0c5fd9d",
+    "ai_sha256": "908185903f00dbabee6098d97f54c037d90fb77ac74adccc4b0272b7c91e8024"
+  }
+}

@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this research code, please cite the repository."
+title: "Research code for training objectives and cross-corpus generalization in Turkish AI-generated text detection"
+type: software
+authors:
+  - family-names: "Aktaş"
+    given-names: "Gizem"
+    orcid: "https://orcid.org/0009-0007-3490-3442"
+  - family-names: "Gök"
+    given-names: "Murat"
+    orcid: "https://orcid.org/0000-0003-2261-9288"
+repository-code: "https://github.com/gizemakts/turkish-ai-text-detection-generalization"
+license: "MIT"
+keywords:
+  - Turkish
+  - AI-generated text detection
+  - cross-corpus generalization
+  - supervised contrastive learning
+abstract: "Research implementations and selected aggregate results for a controlled comparison of CE and CE with supervised contrastive learning under Turkish cross-corpus evaluation."

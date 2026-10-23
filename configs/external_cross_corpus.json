@@ -1,0 +1,506 @@
+{
+  "schema_version": "external-cross-corpus-v2-draft-3",
+  "protocol_id": "EXTERNAL_CROSS_CORPUS_V2",
+  "status": "FROZEN_READY_TO_RUN",
+  "created_date": "2026-10-07",
+  "execution_permitted": true,
+  "purpose": "No-adaptation transfer evaluation of current Turkish AI Detection-trained CE, SupCon, and LIT2026 realizations on three independent Turkish corpora.",
+  "historical_relationship": {
+    "supersedes_for_current_study": "provenance/history/external_eval_v1/PREEXECUTION_FREEZE.INVALID_PATHS.json",
+    "historical_record_must_remain_unchanged": true,
+    "historical_m1_permitted": false,
+    "historical_m5_substitution_permitted": false
+  },
+  "external_data_bindings": {
+    "source_lock": {
+      "path": "data/external_raw/EXTERNAL_DATASETS_SOURCE_LOCK.json",
+      "sha256": "ca774d670b4d3058e0a9b8c3def190b6fb808d4fe70da7682320bd3cdfe161b3"
+    },
+    "raw_manifest": {
+      "path": "data/external_raw/EXTERNAL_RAW_SHA256.txt",
+      "sha256": "d7400f26e367373a425580b9d7d7ed15d6e190a165ebb66bdab49d200d439346",
+      "verified_entries": 82
+    },
+    "preparation_mapping": {
+      "path": "data/external_prepared/EXTERNAL_PREP_MAPPING.json",
+      "sha256": "f355bf33a029f80f0d2353da1c7a607d512ebf62fee3e0835494c33b98edcf47"
+    },
+    "preparation_audit": {
+      "path": "data/external_prepared/EXTERNAL_PREP_AUDIT.json",
+      "sha256": "594ca39a1021293ec3b78e53ed462546443980f0f1e025daa8ae27e07d72fb22"
+    },
+    "prepared_manifest": {
+      "path": "data/external_prepared/EXTERNAL_PREP_SHA256.txt",
+      "sha256": "44e846116134af3e5dcb4fd137efedbdd1b88beaf58fa16cd6bdb0ed0d3107a6",
+      "verified_entries": 7
+    },
+    "label_contract": {
+      "human": 0,
+      "ai": 1
+    },
+    "primary": [
+      {
+        "dataset_id": "renklier2026",
+        "path": "data/external_prepared/renklier2026_test_standardized.csv",
+        "sha256": "1ec79d25ae852321cd5659691643eda58e407bcc17e169e6559413587ed8acb5",
+        "rows": 2398,
+        "human": 600,
+        "ai": 1798,
+        "bootstrap_unit": "source_group_id",
+        "bootstrap_units": 1223
+      },
+      {
+        "dataset_id": "tum2024_tr",
+        "path": "data/external_prepared/tum2024_tr_test_standardized.csv",
+        "sha256": "8ab15a4ace28674d20ce94faf4a63e1c5885254051ac2a795bd2033c961e557a",
+        "rows": 3600,
+        "human": 1800,
+        "ai": 1800,
+        "bootstrap_unit": "text_sha256"
+      },
+      {
+        "dataset_id": "bostancioglu2026_tr",
+        "path": "data/external_prepared/bostancioglu2026_tr_full_standardized.csv",
+        "sha256": "dfcde6dadf0c3f7bea719e4b54a61cea8ffb7c29a47adb0413de22cba39b578c",
+        "rows": 3104,
+        "human": 1560,
+        "ai": 1544,
+        "bootstrap_unit": "text_sha256"
+      }
+    ],
+    "sensitivity": [
+      {
+        "dataset_id": "tum2024_tr_exact_dedup",
+        "parent_primary": "tum2024_tr",
+        "path": "data/external_prepared/tum2024_tr_test_exact_dedup_standardized.csv",
+        "sha256": "34debf02f9873e088bc4598b7f8fba90b80909d713f9f3f31f68adcdc0a10df2",
+        "rows": 3580,
+        "human": 1800,
+        "ai": 1780,
+        "bootstrap_unit": "text_sha256"
+      },
+      {
+        "dataset_id": "bostancioglu2026_tr_exact_dedup",
+        "parent_primary": "bostancioglu2026_tr",
+        "path": "data/external_prepared/bostancioglu2026_tr_exact_dedup_standardized.csv",
+        "sha256": "fede31e20988e8456efa7431ecd2499826e18f66db4c5b1558633372974fb1d9",
+        "rows": 3092,
+        "human": 1559,
+        "ai": 1533,
+        "bootstrap_unit": "text_sha256"
+      }
+    ]
+  },
+  "internal_training_bindings": {
+    "dataset": {
+      "path": "data/study/paired_study.csv",
+      "sha256": "ea5797ac19348957472626d1a23b740de531cd19577f613e1a73894e34d66b44"
+    },
+    "folds": {
+      "path": "data/study/nested_folds.csv",
+      "sha256": "16ffae53a5d9027a95e12f3975fd062f17038ef5bf8970a74dd3ef7339d9a100"
+    },
+    "primary_historical_config": {
+      "path": "provenance/experiments/primary/migration_config_snapshot.json",
+      "sha256": "7e825c0f97f1763c6b4db69164feda04743f9fa30f27e254e1c52f953dd07f13"
+    },
+    "primary_active_config": {
+      "path": "configs/primary_evaluation.json",
+      "sha256": "c187785e27dfe862cca524b2b70b000307ea74e64d0fc473121682e828b4d297"
+    },
+    "primary_freeze": {
+      "path": "provenance/experiments/primary/PREEXECUTION_FREEZE.json",
+      "sha256": "162a120d624c830e3b0f93a07504a30be58ac602f4089aa2349527d52882548e"
+    },
+    "primary_result_manifest": {
+      "path": "results/primary/final_statistics/final_statistics_manifest.json",
+      "sha256": "ed30975ecb16f49715352f6b11ef1c29aa6e4df2e0d2a0bf55f93a69fcc2187a"
+    },
+    "current_primary_runner": {
+      "path": "src/turkish_ai_detection/experiments/primary/run_fit.py",
+      "sha256": "c22573a4b3892f2655033499945d79cc2f045e65148a4a6b14f0954e2a0056c0",
+      "reproduction_mode": "CURRENT_MIGRATED_REPRODUCTION"
+    },
+    "current_supcon_implementation": {
+      "path": "src/turkish_ai_detection/experiments/model_development/supcon/train.py",
+      "sha256": "3848241e085b71835e07f4291af3b6cbb6840ec9509b396014622ad425b819b3"
+    },
+    "dedicated_protocol_faithful_rerun_runner": {
+      "status": "IMPLEMENTED_DRAFT_PILOTS_COMPLETE_FINAL_NOT_EXECUTED_NOT_AUTHORIZED",
+      "plan": "provenance/experiments/external_cross_corpus_v2/CE_SUPCON_RERUN_PLAN_DRAFT.md",
+      "plan_sha256": "f58935664145c11a80cc1e76d9e463908ceef79005d8325fa9f958ebcd73da4c",
+      "path": "src/turkish_ai_detection/experiments/external_cross_corpus/rerun_fit.py",
+      "sha256": null,
+      "identity_policy": "FINAL_FREEZE_ONLY",
+      "execution_permitted": true,
+      "permitted_differences": [
+        "replace obsolete historical self-hash/config execution guard with validation against the V2 contract and bound historical scientific config/data/fold identities",
+        "save the terminal checkpoint and required inference payload"
+      ],
+      "all_scientific_training_behavior_must_match": true,
+      "reviewed_semantic_diff_audit_required": false,
+      "prospective_protocol_amendment": "docs/audits/EXTERNAL_V2_PROSPECTIVE_PROTOCOL_AMENDMENT.md",
+      "development_only_pilot_commands": [
+        "& \".\\.venv-gpu\\Scripts\\python.exe\" \".\\src\\turkish_ai_detection\\experiments\\external_cross_corpus\\rerun_fit.py\" --objective ce --seed 42 --outer-fold 0 --development-only",
+        "& \".\\.venv-gpu\\Scripts\\python.exe\" \".\\src\\turkish_ai_detection\\experiments\\external_cross_corpus\\rerun_fit.py\" --objective supcon --seed 42 --outer-fold 0 --development-only"
+      ],
+      "pilot_execution_status": "PASS_DEVELOPMENT_ONLY_CE42_AND_SUPCON42_PENDING_RECORD_REVIEW"
+    },
+    "semantic_equivalence_audit_implementation": {
+      "status": "IMPLEMENTED_STATIC_CHECKS_PASS",
+      "path": "src/turkish_ai_detection/experiments/external_cross_corpus/audit_semantic_equivalence.py",
+      "sha256": null,
+      "identity_policy": "FINAL_FREEZE_ONLY",
+      "reviewed_report_required_before_scientific_execution": true
+    },
+    "historical_primary_runner_sha256": "eafe1e66c5d8324cf547571144a1a2f70f9cf1b4406c22f9eabd4e0b8587b92e",
+    "supcon_runner_sha256": "a50e2f0f36df5c0c5caf09c74360dede17af6b85b7d9c2b78de7ba1ada4f2ce4",
+    "historical_runner_bytes_present_at_recorded_path": false,
+    "backbone": "dbmdz/bert-base-turkish-cased",
+    "backbone_revision": "b6e1de16c983e0f2c70664591ea3f22810072608"
+  },
+  "model_grid": {
+    "seeds": [
+      42,
+      314,
+      2026
+    ],
+    "outer_folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "realizations_per_method": 15,
+    "total_realizations_per_dataset": 45,
+    "primary_ensemble": false,
+    "methods": {
+      "CE_ONLY_MATCHED": {
+        "availability": "PROTOCOL_FAITHFUL_RERUN_REQUIRED",
+        "fits": 15,
+        "inference_text_contract": "Condition-A text; BERTurk [CLS] + first 128 WordPieces + last 382 WordPieces + [SEP], maximum 512"
+      },
+      "SUPCON": {
+        "availability": "PROTOCOL_FAITHFUL_RERUN_REQUIRED",
+        "fits": 15,
+        "inference_text_contract": "Condition-A text; BERTurk [CLS] + first 128 WordPieces + last 382 WordPieces + [SEP], maximum 512"
+      },
+      "LIT2026_REIMPL_V1_1": {
+        "availability": "EXISTING_CHECKPOINTS",
+        "fits": 15,
+        "checkpoint_root": "artifacts/checkpoints/literature_comparison",
+        "checkpoint_index": "provenance/experiments/external_cross_corpus_v2/LIT2026_CHECKPOINT_BINDING.json",
+        "inference_text_contract": "Raw standardized text; pinned BERTurk tokenizer; first-512 truncation exactly as LIT2026_REIMPL_V1_1",
+        "freeze": "provenance/experiments/literature_comparison/PREEXECUTION_FREEZE.json",
+        "freeze_sha256": "25600506c02907c59ec807c4b8b2112fc5a01900f63349c3cd47b02cdb79afd7",
+        "result_manifest_sha256": "a547d2b4d9d215362f6d225ea85ae59dcd83e3cd6ec14978a8fec0520d4041c2",
+        "checkpoint_selection_semantics": "Each checkpoint was selected once by the original frozen LIT2026 internal-validation recipe. V2 fixes all 15 before external prediction and performs no selection or reselection.",
+        "pre_external_identity_gate": "Verify payload/config/cell/test-pair identities. Internal rescoring is QA only and never checkpoint selection."
+      }
+    }
+  },
+  "protocol_faithful_rerun_validation": {
+    "reference_predictions": "results/primary/{objective}/seed_{seed}/outer_{outer_fold}_predictions.csv",
+    "reference_sidecars": "results/primary/{objective}/seed_{seed}/outer_{outer_fold}_run.json",
+    "hard_structural_requirements": [
+      "dataset/fold/backbone identities",
+      "objective, seed, fold, hyperparameters, sampler, batching, architecture, and train/test pair hashes",
+      "reference prediction SHA-256 as declared by its sidecar",
+      "text_id, pair_id, label, domain, generator, and row order",
+      "600 outer-test rows and 300 outer-test pairs",
+      "finite rerun raw scores",
+      "checkpoint strictly reloads into the bound architecture",
+      "checkpoint reload reproduces its own just-generated validation scores under evaluation mode"
+    ],
+    "historical_numerical_comparison_qa_only": {
+      "rtol": 0.0001,
+      "atol": 1e-05,
+      "metric_absolute_tolerance": 1e-06,
+      "metrics": [
+        "auroc",
+        "average_precision",
+        "standardized_pauc_003"
+      ],
+      "additional_quantities": [
+        "maximum absolute difference",
+        "mean absolute difference",
+        "RMSE",
+        "sign agreement fraction"
+      ],
+      "acceptance_gate": false,
+      "interpretation": "Prespecified QA/review diagnostic; no exact-checkpoint-reproduction claim and no automatic rejection based solely on numerical divergence."
+    },
+    "hard_gate_failure_action": "STOP_BEFORE_EXTERNAL_INFERENCE",
+    "semantic_diff_audit": {
+      "required_before_execution": true,
+      "must_bind_dedicated_runner_sha256": true,
+      "must_cover": [
+        "model construction",
+        "tokenizer and revision",
+        "sampling and folds",
+        "seeds and batching",
+        "32-example SupCon behavior",
+        "loss, optimizer, scheduler, and epochs",
+        "scoring",
+        "only the two permitted guard/persistence differences"
+      ]
+    }
+  },
+  "calibration_transfer": {
+    "status": "SECONDARY_CONDITIONAL",
+    "applies_to": [
+      "CE_ONLY_MATCHED",
+      "SUPCON"
+    ],
+    "implementation_bindings": {
+      "active_config": {
+        "path": "configs/calibration.json",
+        "sha256": "c2c7706d4a193069bd746bb35f2b02bbdbdb75bb2c0854256e25877de51bb3e1"
+      },
+      "historical_freeze": {
+        "path": "provenance/experiments/calibration/PREEXECUTION_FREEZE.json",
+        "sha256": "30010ce41e7cf4983482372e9da6d0831499b3fc0648aa15ca33d92eef24a137"
+      },
+      "run_integrity": {
+        "path": "provenance/experiments/calibration/RUN_INTEGRITY.json",
+        "sha256": "4457750865524d517b2530ae5f5a8767baa5835bf2647a23341eb0f826ee86f9"
+      },
+      "current_inner_fit_implementation": {
+        "path": "src/turkish_ai_detection/experiments/calibration/run_fit.py",
+        "sha256": "68ca8e7f8383376b89c458afcc76342cc4632737a776047e3950b43b65b258c5"
+      },
+      "current_platt_and_threshold_statistics_implementation": {
+        "path": "src/turkish_ai_detection/experiments/calibration/summarize_statistics.py",
+        "sha256": "b30ada4840b359a1c255fe7c10890aaa8ec3f07923d333f87f9553dc505308c0"
+      },
+      "current_order_statistic_helper": {
+        "path": "src/turkish_ai_detection/data/study.py",
+        "sha256": "58c9f58a0acae9c92fcd6b90889cf21334e396d21246d862e5c64029c259b486",
+        "function": "np_umbrella_k"
+      },
+      "current_platt_implementation": {
+        "path": "src/turkish_ai_detection/evaluation/metrics.py",
+        "sha256": "28bc63d6c01b86729b49d5209c725ddead1b6cf58a2813fbf59a67d0abb7c944",
+        "functions": [
+          "fit_platt",
+          "calibrated_score"
+        ]
+      },
+      "current_ece_implementation": {
+        "path": "src/turkish_ai_detection/features/core.py",
+        "sha256": "c634da0aecbca737f1b44e2ddb8b3cc494b57f675fda0a0e8ebc55d37a076870",
+        "function": "ece_equal_width"
+      },
+      "historical_recorded_identities": {
+        "config_sha256": "8184e8f792969e5f4e1ec5f2bdf2d424bfa140fbfe16692f43b67c5e8c582797",
+        "inner_fit_runner_sha256": "57cb1a3d4ceb5b9a19348db74ff5f30b6eb23d5a194bc11948e96ca9a3de62a5",
+        "statistics_sha256": "bdafb907dd70b979c3e09cce23a8ee9091a69b1d8471fb76952da7fcdc1e0b1a",
+        "helper_sha256": "a9cb9e71b95b039e0b53ca3fd4544707c7f32ee38c61fece873e75ad58d25ffd",
+        "note": "Recorded in the historical calibration freeze; original bytes are not asserted to exist at the historical paths. Current migrated implementations require semantic review and must not be called byte-identical."
+      }
+    },
+    "existing_parameters": {
+      "path": "results/calibration/final_statistics/calibration_parameters_and_thresholds.csv",
+      "sha256": "15142fdbe9aabb49a0b7ad9dfeb3c3cf727c9f3dd948f253ad65d0799e0cc937",
+      "rows": 50
+    },
+    "existing_manifest": {
+      "path": "results/calibration/final_statistics/final_statistics_manifest.json",
+      "sha256": "287f4ce665c58f9cacfbbe16a53d2e7e8a2f70690b241754653d2e44f24af4e9"
+    },
+    "existing_integrity": {
+      "path": "provenance/experiments/calibration/RUN_INTEGRITY.json",
+      "sha256": "4457750865524d517b2530ae5f5a8767baa5835bf2647a23341eb0f826ee86f9"
+    },
+    "method": "Platt logistic",
+    "fit_source": "outer-training inner-OOF raw scores only",
+    "nominal_fpr_alpha": [
+      0.01,
+      0.02,
+      0.03,
+      0.05
+    ],
+    "delta": 0.05,
+    "decision_rule": "AI iff calibrated_probability > realization-specific threshold",
+    "compatibility_decision": {
+      "compatible": "Reuse the exact matching historical mapping only after internal compatibility review; report as conditional secondary.",
+      "not_compatible": "Report calibration and frozen-threshold metrics as NA_INCOMPATIBLE_MAPPING. Do not regenerate inner models, calibration, or thresholds.",
+      "external_data_use": "PROHIBITED"
+    },
+    "automatic_or_optional_regeneration": "PROHIBITED",
+    "incompatible_cell_value": "NA_INCOMPATIBLE_MAPPING",
+    "lit2026": "No model-specific frozen Platt/low-FPR mapping exists in the current calibration package; do not report calibrated probability metrics or Turkish AI Detection low-FPR transfer for LIT2026 under this draft."
+  },
+  "evaluation": {
+    "prediction_first_label_later": true,
+    "prediction_input_columns_exact": [
+      "external_id",
+      "text",
+      "text_sha256"
+    ],
+    "preseal_output_columns_allowed": [
+      "external_id",
+      "text_sha256",
+      "method",
+      "seed",
+      "outer_fold",
+      "raw_score_or_logit",
+      "calibrated_probability_if_valid_frozen_mapping"
+    ],
+    "preseal_columns_forbidden": [
+      "label",
+      "binary_label",
+      "generator",
+      "domain",
+      "scenario",
+      "generation_type",
+      "subgroup_metadata"
+    ],
+    "labels_and_subgroups_join_only_after_complete_manifest_sealed": true,
+    "external_adaptation": false,
+    "primary_metric": "auroc",
+    "conditional_secondary_operational_metrics": [
+      "realized_fpr",
+      "tpr",
+      "fnr"
+    ],
+    "calibration_metrics_when_mapping_valid": [
+      "brier",
+      "log_loss",
+      "ece_10_equal_width"
+    ],
+    "descriptive_fpr_transfer_quantity": "realized_fpr minus nominal_alpha",
+    "removed_redundant_metrics": [
+      "balanced_accuracy",
+      "sensitivity",
+      "specificity"
+    ],
+    "lit2026_threshold_metrics": "NONE_NO_VALID_FROZEN_THRESHOLD",
+    "primary_corpora_reported_separately": true,
+    "primary_external_pooling": false,
+    "primary_model_aggregation": "equal mean of realization-specific metrics over the fixed 3-seed x 5-fold grid",
+    "descriptive_matched_transfer_delta": "external_auc minus rerun_internal_auc for the same model realization; external sampling uncertainty only, internal observed value held fixed",
+    "contrasts": [
+      "SUPCON minus CE_ONLY_MATCHED",
+      "LIT2026_REIMPL_V1_1 minus CE_ONLY_MATCHED",
+      "LIT2026_REIMPL_V1_1 minus SUPCON"
+    ]
+  },
+  "statistics": {
+    "bootstrap_replicates": 5000,
+    "bootstrap_seed": 2607,
+    "ci": "95% percentile",
+    "ci_interpretation": "Estimation intervals only; not unadjusted familywise confirmatory hypothesis tests.",
+    "renklier2026_unit": "source_group_id",
+    "tum2024_tr_unit": "text_sha256",
+    "bostancioglu2026_tr_unit": "text_sha256",
+    "same_resample_indices_across_methods_and_realizations": true,
+    "seeds_resampled": false,
+    "folds_resampled": false,
+    "model_realizations_treated_as_independent_observations": false,
+    "training_variability": "For each method and corpus, average five folds within each seed; report the three seed means individually and their mean, sample SD, and range. Fold-level values are descriptive.",
+    "cross_corpus_macro_summary": "NOT_PART_OF_PROTOCOL"
+  },
+  "turkish_ai_detection_external_overlap_audit": {
+    "status": "PRESPECIFIED_MUST_BE_FROZEN_BEFORE_EXTERNAL_PREDICTION",
+    "inputs": {
+      "turkish_ai_detection": "data/study/paired_study.csv",
+      "external": [
+        "data/external_prepared/renklier2026_test_standardized.csv",
+        "data/external_prepared/tum2024_tr_test_standardized.csv",
+        "data/external_prepared/bostancioglu2026_tr_full_standardized.csv"
+      ]
+    },
+    "labels_or_model_scores_used": false,
+    "exact": "SHA-256 of the prepared UTF-8 text bytes",
+    "normalized_exact": {
+      "implementation": "turkish_ai_detection.data.study.normalized_duplicate_key",
+      "normalization": "Unicode NFC, collapse whitespace runs to one ASCII space, strip ends",
+      "comparison": "SHA-256 of normalized UTF-8 text"
+    },
+    "near_duplicate_reuse": {
+      "config": "configs/near_duplicate_sensitivity.json",
+      "config_sha256": "6b747fed506767de0f8cac7979eb99c24a64f04bbbc84bede0bd126796bdbeb0",
+      "method_freeze": "provenance/experiments/near_duplicate_sensitivity/METHOD_PREEXECUTION_FREEZE.json",
+      "method_freeze_sha256": "b25e6894f62e0b0bdf4a1821f8edb3e34dae58ceaad727ff3aae03f0a730666c",
+      "current_migrated_builder": "src/turkish_ai_detection/experiments/near_duplicate_sensitivity/build_clusters.py",
+      "current_migrated_builder_sha256": "7e67164a926ecfe3f41a342f0cb84e45397fcf67eeef63e53979d8c9e26296f9",
+      "method": "Exact Jaccard on unique Turkish-aware normalized contiguous word 5-shingle sets",
+      "threshold": 0.8,
+      "operator": ">=",
+      "new_threshold_permitted": false
+    },
+    "primary_population_changed": false,
+    "overlap_excluded_sensitivity": {
+      "exclude_union_of": [
+        "exact",
+        "normalized_exact",
+        "near_duplicate"
+      ],
+      "freeze_exclusion_manifest_before_external_prediction": true,
+      "bootstrap_units": {
+        "renklier2026": "source_group_id",
+        "tum2024_tr": "text_sha256",
+        "bostancioglu2026_tr": "text_sha256"
+      },
+      "auroc_minimum": "at least 2 retained rows in each label; otherwise NA",
+      "performance_guided_exclusion": false
+    }
+  },
+  "subgroups": {
+    "status": "SECONDARY_DESCRIPTIVE",
+    "minimum_for_auroc": "at least 20 human and 20 AI rows",
+    "renklier2026": [
+      "domain",
+      "scenario",
+      "generator"
+    ],
+    "tum2024_tr": [
+      "generator",
+      "original_split"
+    ],
+    "bostancioglu2026_tr": [],
+    "generator_rule": "For generator-specific discrimination, compare that generator's AI rows with the corpus human reference rows; label this one-generator-versus-common-human and do not call a family seen unless exact model identity is documented."
+  },
+  "dataset_shift_audit": {
+    "status": "DESCRIPTIVE",
+    "stratify_by": [
+      "dataset",
+      "label"
+    ],
+    "text_normalization": "NONE; operate on the prepared text string",
+    "features": {
+      "whitespace_word_count": "len(text.split()) using Python str.split with no explicit separator",
+      "unicode_character_count": "len(text), counting Python Unicode code points",
+      "berturk_untruncated_token_count": "len(tokenizer.encode(text, add_special_tokens=True, truncation=False)) using the pinned BERTurk revision",
+      "proportion_over_512_berturk_tokens": "Arithmetic mean of int(berturk_untruncated_token_count > 512)",
+      "lowercase_letter_fraction": "sum(ch.islower() for ch in text) / sum(ch.isalpha() for ch in text); 0.0 if denominator is zero",
+      "uppercase_letter_fraction": "sum(ch.isupper() for ch in text) / sum(ch.isalpha() for ch in text); 0.0 if denominator is zero",
+      "unicode_punctuation_density": "sum(unicodedata.category(ch).startswith('P') for ch in text) / max(len(text), 1)",
+      "unicode_digit_density": "sum(ch.isdecimal() for ch in text) / max(len(text), 1)",
+      "newline_density": "text.count('\\n') / max(len(text), 1), with no newline normalization",
+      "markdown_heading_indicator": "1 iff any text.splitlines() line matches Unicode-aware Python regex ^\\s{0,3}#{1,6}\\s+; else 0",
+      "list_line_indicator": "1 iff any text.splitlines() line matches Unicode-aware Python regex ^\\s*(?:[-*+]|[0-9]+[.)])\\s+; else 0"
+    },
+    "performance_guided_population_changes": false,
+    "causal_interpretation": false
+  },
+  "stop_rule": "After the specified protocol-faithful reruns, three-corpus evaluation, duplicate and frozen overlap-excluded sensitivities, descriptive subgroups, and dataset-shift audit, add no architecture, model family, seed expansion, paraphrase attack, reverse-direction training, or robustness experiment solely in response to external results. Later work must be labeled future/exploratory.",
+  "reproducibility": {
+    "separate_runtime_lineages": {
+      "RERUN_CE_SUPCON": "Record rerun training and inference code/config/checkpoint hashes, commands, Python/packages/CUDA/GPU, and semantic-audit lineage.",
+      "RETAINED_LIT2026": "Record original frozen training sidecar/config/checkpoint/runtime lineage separately from current location verification and external inference runtime."
+    },
+    "record": [
+      "source identifiers, URLs, and commits",
+      "source-lock and prepared-file hashes",
+      "code and configuration hashes",
+      "checkpoint and calibration hashes",
+      "Python/package/CUDA/GPU/runtime information",
+      "exact commands",
+      "prediction and output manifests"
+    ],
+    "third_party_redistribution": "Do not redistribute source datasets unless licensing permits; for Renklier prefer URL, commit, verification instructions, and local hashes."
+  }
+}

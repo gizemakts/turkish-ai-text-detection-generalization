@@ -1,0 +1,93 @@
+{
+  "schema_version": "combined-v2-calibration-v1",
+  "experiment": "COMBINED_V2_CALIBRATION_V1",
+  "status": "PRESPECIFIED_NOT_LAUNCHED",
+  "purpose": "Cross-fitted probability calibration and training-side NP-inspired low-FPR operating-point evaluation for the frozen primary CE-vs-SupCon comparison",
+  "condition": "A",
+  "dataset_sha256": "ea5797ac19348957472626d1a23b740de531cd19577f613e1a73894e34d66b44",
+  "fold_sha256": "16ffae53a5d9027a95e12f3975fd062f17038ef5bf8970a74dd3ef7339d9a100",
+  "source_primary": {
+    "experiment": "COMBINED_V2_PRIMARY_ABLATION_V1",
+    "config_sha256": "7e825c0f97f1763c6b4db69164feda04743f9fa30f27e254e1c52f953dd07f13",
+    "runner_sha256": "eafe1e66c5d8324cf547571144a1a2f70f9cf1b4406c22f9eabd4e0b8587b92e",
+    "preexecution_freeze_sha256": "162a120d624c830e3b0f93a07504a30be58ac602f4089aa2349527d52882548e",
+    "outer_predictions": "reuse frozen primary raw_decision_score files; do not retrain final outer models",
+    "primary_discrimination_results_remain_unchanged": true
+  },
+  "objectives": ["ce", "supcon"],
+  "objective_labels": {
+    "ce": "CE_ONLY_MATCHED",
+    "supcon": "SUPCON"
+  },
+  "seeds": [42, 137, 314, 2026, 3407],
+  "outer_folds": [0, 1, 2, 3, 4],
+  "inner_folds": [0, 1, 2, 3],
+  "planned_inner_fits": 200,
+  "fit_definition": "5 outer folds x 5 seeds x 2 objectives x 4 inner folds",
+  "cross_fitting": {
+    "unit": "pair_id",
+    "outer_training_pairs": 1200,
+    "inner_fit_pairs": 900,
+    "inner_heldout_pairs": 300,
+    "outer_training_rows": 2400,
+    "inner_fit_rows": 1800,
+    "inner_heldout_rows": 600,
+    "each_outer_training_pair_receives_exactly_one_oof_score": true,
+    "outer_test_used_for_inner_training_or_calibration": false
+  },
+  "training_identity": {
+    "shared_training_path": "import and reuse run_primary_ablation.py helpers",
+    "learning_rate": 2e-5,
+    "epochs": 3,
+    "weight_decay": 0.01,
+    "warmup_steps": 0.1,
+    "physical_batch_size": 16,
+    "effective_batch_size": 32,
+    "same_seed_within_each_seed_objective_outer_across_inner_folds": true,
+    "only_objective_difference": "SupCon contribution to the loss"
+  },
+  "calibration": {
+    "method": "Platt logistic",
+    "implementation": "sklearn LogisticRegression(penalty=None, solver=lbfgs, max_iter=5000)",
+    "fit_source": "outer-training inner-OOF raw_decision_score only",
+    "application_target": "existing frozen primary outer-test raw_decision_score",
+    "outer_test_labels_used_for_calibrator_fit": false,
+    "model_selection": false,
+    "calibration_method_search": false
+  },
+  "calibration_metrics": {
+    "primary": ["brier", "log_loss"],
+    "supportive": ["ece_10_equal_width"],
+    "reliability_bins": 10,
+    "reliability_binning": "equal-width on [0,1]"
+  },
+  "operating_points": {
+    "score_space": "Platt-calibrated study AI score",
+    "nominal_fpr_alpha": [0.01, 0.02, 0.03, 0.05],
+    "delta": 0.05,
+    "threshold_rule": "sort outer-training inner-OOF HUMAN probabilities descending; k=np_umbrella_k(n_human, alpha, delta); threshold=human[k]",
+    "classification_rule": "AI iff calibrated_probability > threshold",
+    "terminology": "training-side NP-inspired order-statistic threshold",
+    "report": ["realized_fpr", "tpr"],
+    "outer_test_threshold_tuning": false
+  },
+  "statistics": {
+    "seed_summary": "pool five outer-test folds per seed/objective; compute metric; then mean and sample SD across five seeds",
+    "paired_delta": "SUPCON minus CE_ONLY_MATCHED",
+    "bootstrap_unit": "pair_id",
+    "bootstrap_replicates": 5000,
+    "bootstrap_seed": 2604,
+    "paired_across_objectives": true,
+    "paired_across_seeds": true,
+    "ci": "95% percentile interval",
+    "point_estimate": "observed paired mean across the five seed-level pooled metrics; bootstrap mean is not the primary point estimate",
+    "bootstrap_scope": "pair-sampling uncertainty conditional on the frozen 1500-pair corpus and five tested seeds; seeds are not resampled"
+  },
+  "blinding": {
+    "prior_discrimination_results_already_unblinded": true,
+    "calibration_or_operating_point_results_seen_before_this_design": false,
+    "inner_fit_runner_prints_scientific_metrics": false,
+    "preunblinding_verifier_computes_scientific_metrics": false,
+    "statistics_unblinding_only_after_200_inner_fits_pass_integrity": true
+  }
+}

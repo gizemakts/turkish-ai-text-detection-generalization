@@ -1,0 +1,9 @@
+dataset,label,n,truncated_n,truncated_proportion,median_wordpieces,method_note
+bostancioglu2026_tr,ai,1544,0,0.0,110.0,CE/SupCon head-tail; LIT2026 first-512; same untruncated token count
+bostancioglu2026_tr,human,1560,6,0.0038461538461538464,123.0,CE/SupCon head-tail; LIT2026 first-512; same untruncated token count
+combined_v2,AI,1500,465,0.31,331.0,CE/SupCon head-tail; LIT2026 first-512; same untruncated token count
+combined_v2,HUMAN,1500,502,0.33466666666666667,353.0,CE/SupCon head-tail; LIT2026 first-512; same untruncated token count
+renklier2026,ai,1798,7,0.00389321468298109,233.5,CE/SupCon head-tail; LIT2026 first-512; same untruncated token count
+renklier2026,human,600,181,0.3016666666666667,269.5,CE/SupCon head-tail; LIT2026 first-512; same untruncated token count
+tum2024_tr,ai,1800,435,0.24166666666666667,302.0,CE/SupCon head-tail; LIT2026 first-512; same untruncated token count
+tum2024_tr,human,1800,241,0.1338888888888889,235.0,CE/SupCon head-tail; LIT2026 first-512; same untruncated token count

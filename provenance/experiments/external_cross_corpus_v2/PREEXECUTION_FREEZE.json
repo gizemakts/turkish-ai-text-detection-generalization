@@ -1,0 +1,131 @@
+{
+  "schema_version": "external-cross-corpus-v2-preexecution-freeze-v1",
+  "status": "FROZEN_READY_TO_RUN",
+  "execution_permitted": true,
+  "contract": {
+    "path": "configs/external_cross_corpus.json",
+    "scientific_identity_sha256": "75b6dc6ddd454d4e10793e071fe3c784deed4c7bca9d864a736c372a4a633519"
+  },
+  "bindings": [
+    {
+      "path": "configs/calibration.json",
+      "sha256": "c2c7706d4a193069bd746bb35f2b02bbdbdb75bb2c0854256e25877de51bb3e1"
+    },
+    {
+      "path": "configs/primary_evaluation.json",
+      "sha256": "c187785e27dfe862cca524b2b70b000307ea74e64d0fc473121682e828b4d297"
+    },
+    {
+      "path": "data/external_prepared/EXTERNAL_PREP_AUDIT.json",
+      "sha256": "594ca39a1021293ec3b78e53ed462546443980f0f1e025daa8ae27e07d72fb22"
+    },
+    {
+      "path": "data/external_prepared/EXTERNAL_PREP_MAPPING.json",
+      "sha256": "f355bf33a029f80f0d2353da1c7a607d512ebf62fee3e0835494c33b98edcf47"
+    },
+    {
+      "path": "data/external_prepared/EXTERNAL_PREP_SHA256.txt",
+      "sha256": "44e846116134af3e5dcb4fd137efedbdd1b88beaf58fa16cd6bdb0ed0d3107a6"
+    },
+    {
+      "path": "data/external_raw/EXTERNAL_DATASETS_SOURCE_LOCK.json",
+      "sha256": "ca774d670b4d3058e0a9b8c3def190b6fb808d4fe70da7682320bd3cdfe161b3"
+    },
+    {
+      "path": "data/external_raw/EXTERNAL_RAW_SHA256.txt",
+      "sha256": "d7400f26e367373a425580b9d7d7ed15d6e190a165ebb66bdab49d200d439346"
+    },
+    {
+      "path": "data/study/nested_folds.csv",
+      "sha256": "16ffae53a5d9027a95e12f3975fd062f17038ef5bf8970a74dd3ef7339d9a100"
+    },
+    {
+      "path": "data/study/paired_study.csv",
+      "sha256": "ea5797ac19348957472626d1a23b740de531cd19577f613e1a73894e34d66b44"
+    },
+    {
+      "path": "provenance/experiments/calibration/RUN_INTEGRITY.json",
+      "sha256": "4457750865524d517b2530ae5f5a8767baa5835bf2647a23341eb0f826ee86f9"
+    },
+    {
+      "path": "provenance/experiments/calibration/PREEXECUTION_FREEZE.json",
+      "sha256": "30010ce41e7cf4983482372e9da6d0831499b3fc0648aa15ca33d92eef24a137"
+    },
+    {
+      "path": "provenance/experiments/primary/PREEXECUTION_FREEZE.json",
+      "sha256": "162a120d624c830e3b0f93a07504a30be58ac602f4089aa2349527d52882548e"
+    },
+    {
+      "path": "provenance/experiments/primary/migration_config_snapshot.json",
+      "sha256": "7e825c0f97f1763c6b4db69164feda04743f9fa30f27e254e1c52f953dd07f13"
+    },
+    {
+      "path": "results/calibration/final_statistics/final_statistics_manifest.json",
+      "sha256": "287f4ce665c58f9cacfbbe16a53d2e7e8a2f70690b241754653d2e44f24af4e9"
+    },
+    {
+      "path": "results/primary/final_statistics/final_statistics_manifest.json",
+      "sha256": "ed30975ecb16f49715352f6b11ef1c29aa6e4df2e0d2a0bf55f93a69fcc2187a"
+    },
+    {
+      "path": "src/turkish_ai_detection/data/study.py",
+      "sha256": "58c9f58a0acae9c92fcd6b90889cf21334e396d21246d862e5c64029c259b486"
+    },
+    {
+      "path": "src/turkish_ai_detection/evaluation/metrics.py",
+      "sha256": "28bc63d6c01b86729b49d5209c725ddead1b6cf58a2813fbf59a67d0abb7c944"
+    },
+    {
+      "path": "src/turkish_ai_detection/experiments/calibration/run_fit.py",
+      "sha256": "68ca8e7f8383376b89c458afcc76342cc4632737a776047e3950b43b65b258c5"
+    },
+    {
+      "path": "src/turkish_ai_detection/experiments/calibration/summarize_statistics.py",
+      "sha256": "b30ada4840b359a1c255fe7c10890aaa8ec3f07923d333f87f9553dc505308c0"
+    },
+    {
+      "path": "src/turkish_ai_detection/experiments/external_cross_corpus/audit_semantic_equivalence.py",
+      "sha256": "09a97196fa9aa4eab1c93ae75e00fbfece93f7469332c825c7815391b25cefa2"
+    },
+    {
+      "path": "src/turkish_ai_detection/experiments/external_cross_corpus/freeze_v2.py",
+      "sha256": "71e8d6d740de99322231069ec18ca096c528ffeac7abb5f24a5d488c1f3b69b9"
+    },
+    {
+      "path": "src/turkish_ai_detection/experiments/external_cross_corpus/inference.py",
+      "sha256": "6da65e51c1bc0b624d64211420b82c2d267ad0541dff4d405c611fe946bcf49d"
+    },
+    {
+      "path": "src/turkish_ai_detection/experiments/external_cross_corpus/rerun_fit.py",
+      "sha256": "96f2af846f15cb3bb66bea7e8addba3f49da0c1b3457f96b8b1eb1d46f30e558"
+    },
+    {
+      "path": "src/turkish_ai_detection/experiments/external_cross_corpus/seal_predictions.py",
+      "sha256": "7cb2ba79584d2f5aa822491ea04ea3fe0f9e07b23b9f437fa2557351ac4cb708"
+    },
+    {
+      "path": "src/turkish_ai_detection/experiments/external_cross_corpus/statistics.py",
+      "sha256": "e33a77f3ac6bcebfcaeff069a3147c937668d87d40216410b0a04abd3da10f51"
+    },
+    {
+      "path": "src/turkish_ai_detection/experiments/model_development/supcon/train.py",
+      "sha256": "3848241e085b71835e07f4291af3b6cbb6840ec9509b396014622ad425b819b3"
+    },
+    {
+      "path": "src/turkish_ai_detection/experiments/primary/run_fit.py",
+      "sha256": "c22573a4b3892f2655033499945d79cc2f045e65148a4a6b14f0954e2a0056c0"
+    },
+    {
+      "path": "src/turkish_ai_detection/features/core.py",
+      "sha256": "c634da0aecbca737f1b44e2ddb8b3cc494b57f675fda0a0e8ebc55d37a076870"
+    }
+  ],
+  "hash_policy": {
+    "runtime_config_fields_excluded": [
+      "execution_permitted",
+      "status"
+    ],
+    "freeze_hash_excluded_from_own_payload": true
+  },
+  "freeze_sha256": "ff228a291da66e9042427b89255c8b0a9f948f376b8d49c907cc4a04185747db"
+}

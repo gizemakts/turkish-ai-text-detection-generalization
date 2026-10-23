@@ -1,0 +1,51 @@
+{
+  "schema_version": "posthoc-terminal-calibration-v1",
+  "status": "POSTHOC_SECONDARY_ANALYSIS",
+  "purpose": "Internal-only Platt calibration and nominal-FPR threshold transfer for the 30 final CE/SupCon terminal realizations.",
+  "methods": {
+    "CE_ONLY_MATCHED": "ce",
+    "SUPCON": "supcon"
+  },
+  "seeds": [42, 314, 2026],
+  "outer_folds": [0, 1, 2, 3, 4],
+  "inner_folds": [0, 1, 2, 3],
+  "calibration": {
+    "method": "Platt logistic",
+    "source": "outer-training inner-OOF raw_decision_score",
+    "rows_per_realization": 2400,
+    "human_rows": 1200,
+    "ai_rows": 1200,
+    "outer_test_rows_used": 0,
+    "external_rows_used": 0,
+    "random_seed": 0
+  },
+  "operating_points": {
+    "nominal_fpr_alpha": [0.01, 0.02, 0.03, 0.05],
+    "delta": 0.05,
+    "negative_class": "HUMAN",
+    "decision_rule": "AI iff calibrated_probability > threshold",
+    "threshold_source": "internal inner-OOF HUMAN probabilities only"
+  },
+  "evaluation": {
+    "external_prediction_manifest": "provenance/experiments/external_cross_corpus_v2/prediction_seal/PRESEAL_PREDICTION_MANIFEST.json",
+    "external_datasets": [
+      "renklier2026",
+      "tum2024_tr",
+      "bostancioglu2026_tr"
+    ],
+    "lit2026": "UNAVAILABLE_BY_DESIGN",
+    "ece": "10 equal-width bins on [0,1]",
+    "uncertainty": {
+      "status": "LIMITATION_DOCUMENTED",
+      "confidence_intervals": "not claimed",
+      "reason": "The frozen protocol does not define a valid paired resampling estimand for these post-hoc calibrated threshold metrics; realization means and sample SDs are reported instead."
+    }
+  },
+  "disclosure": {
+    "analysis_class": "post-hoc exploratory secondary analysis",
+    "external_performance_known_before_design": true,
+    "external_data_used_for_parameter_estimation": false,
+    "external_data_used_for_method_selection": false,
+    "primary_auroc_or_sealed_predictions_modified": false
+  }
+}

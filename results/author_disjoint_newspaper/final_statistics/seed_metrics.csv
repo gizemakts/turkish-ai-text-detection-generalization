@@ -1,0 +1,7 @@
+objective,seed,test_pairs,pooled_author_disjoint_roc_auc
+ce,42,500,1.0
+ce,314,500,0.999984
+ce,2026,500,0.999996
+supcon,42,500,1.0
+supcon,314,500,0.999948
+supcon,2026,500,0.999996

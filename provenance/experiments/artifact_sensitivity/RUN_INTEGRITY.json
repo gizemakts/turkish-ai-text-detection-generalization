@@ -1,0 +1,23 @@
+{
+  "schema_version": "combined-v2-condition-b-completion-integrity-v1",
+  "status": "PASS",
+  "results_unblinded": false,
+  "scientific_metrics_computed": false,
+  "verified_fits": 30,
+  "verified_predictions": 30,
+  "rows_per_fit": 600,
+  "pairs_per_fit": 300,
+  "five_outer_folds_cover_all_1500_pairs_per_seed_objective": true,
+  "outer_test_training_use_verified_zero": true,
+  "outer_test_model_selection_use_verified_false": true,
+  "calibration_absent": true,
+  "thresholding_absent": true,
+  "prediction_hashes_verified": true,
+  "freeze_runner_config_bindings_verified": true,
+  "paired_ce_supcon_alignment_verified": true,
+  "finite_raw_scores_verified_without_revealing_values": true,
+  "freeze_sha256": "5210baf7ae82e4c233b089d93b737118656e5286da004866e72ccc24cd957809",
+  "config_sha256": "eaea667604f6649aaed8332dd0e8b6d55f2d47e959adede9957fb9453f5d744d",
+  "runner_sha256": "b9f237390f0dea5c29b31c1d9a560888440e37456b9800a4f61d9affb72e759b",
+  "next_step": "Run scripts/condition_b_sensitivity_statistics.py for one-time Condition-B unblinding."
+}

@@ -1,0 +1,4 @@
+estimand,bootstrap_unit,replicates,bootstrap_seed,bootstrap_mean,ci95_lower,ci95_upper
+ce_mean_auc,pair_id,5000,2602,0.9999932560000001,0.999972,1.0
+supcon_mean_auc,pair_id,5000,2602,0.9999810349333332,0.9999319999999999,1.0
+supcon_minus_ce,pair_id,5000,2602,-1.2221066666667956e-05,-4.799999999993698e-05,0.0

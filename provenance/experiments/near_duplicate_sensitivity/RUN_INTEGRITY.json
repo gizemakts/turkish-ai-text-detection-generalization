@@ -1,0 +1,22 @@
+{
+  "schema_version": "combined-v2-near-duplicate-completion-integrity-v1",
+  "status": "PASS",
+  "results_unblinded": false,
+  "scientific_metrics_computed": false,
+  "verified_fits": 50,
+  "verified_predictions": 50,
+  "rows_per_fit": 600,
+  "pairs_per_fit": 300,
+  "pooled_rows_per_seed_objective": 3000,
+  "pooled_pairs_per_seed_objective": 1500,
+  "historical_primary_inputs_verified": 50,
+  "prediction_hashes_verified": true,
+  "freeze_file_bindings_verified": true,
+  "cluster_disjoint_train_test_verified": true,
+  "finite_scores_verified_without_revealing_values": true,
+  "ce_supcon_alignment_verified": true,
+  "freeze_sha256": "438cd925555de7c95fe5e194b05d289a075cffed819d0cc83be60bff51bd1f69",
+  "config_sha256": "65f8847823c282d027b1265a8d51741038a195d632eeb086504461fdf09d0a8b",
+  "runner_sha256": "d9505192814b9fb06ce5f117f7698c3218bb0b4c3802eb6fb2156612c18e1af0",
+  "next_step": "Run scripts/near_duplicate_sensitivity_statistics_v1.py for the prespecified one-time RQ5 unblinding."
+}

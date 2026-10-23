@@ -1,0 +1,47 @@
+{
+  "schema_version": "combined-v2-primary-ablation-final-statistics-v1",
+  "status": "COMPLETE",
+  "unblinded": true,
+  "fits_verified": 50,
+  "seeds": [
+    42,
+    137,
+    314,
+    2026,
+    3407
+  ],
+  "outer_folds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "primary_metric": "roc_auc",
+  "statistics_config": {
+    "bootstrap_unit": "pair_id",
+    "bootstrap_replicates": 5000,
+    "bootstrap_seed": 2602,
+    "paired_across_objectives": true,
+    "paired_across_seeds": true,
+    "primary_delta": "SUPCON minus CE_ONLY_MATCHED",
+    "metrics": [
+      "roc_auc",
+      "average_precision",
+      "standardized_pauc_003"
+    ],
+    "ci": "95% percentile interval",
+    "seed_summary": "per-seed pooled OOF metric, then mean and standard deviation across five seeds"
+  },
+  "config_sha256": "7e825c0f97f1763c6b4db69164feda04743f9fa30f27e254e1c52f953dd07f13",
+  "runner_sha256": "eafe1e66c5d8324cf547571144a1a2f70f9cf1b4406c22f9eabd4e0b8587b92e",
+  "freeze_sha256": "162a120d624c830e3b0f93a07504a30be58ac602f4089aa2349527d52882548e",
+  "outputs": {
+    "final_statistics_manifest.json": "b1c729a754cef3120ac7ca5bd12c5fdcb56c73608de58141407cdc46a233e909",
+    "method_seed_summary.csv": "aa99c9ea81934d1d5b2ec29a0dd819e3437bb3389f3a17667f948772bc1b8b86",
+    "paired_pair_bootstrap_draws.csv": "8de635ec8a0e15c0f4fae204f9d6055caf98f76223f58225423672f0dc75ed90",
+    "paired_pair_bootstrap_summary.csv": "2ff7ebbeae2c9747ad4730009cca6b37f431d3db19582ee6539a8cb4f8cb624a",
+    "paired_seed_delta_summary.csv": "4a9800770844f2b7b2aa3c4b76f39935fae3dbc0e1dd69a1c9c222443b11ce10",
+    "per_seed_pooled_metrics.csv": "4046d0ac29a4d63135f6ffd887c6fff4a6942d65abfecc67af3a7c6c5adf0404"
+  }
+}

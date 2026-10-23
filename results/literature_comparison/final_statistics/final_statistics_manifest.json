@@ -1,0 +1,46 @@
+{
+  "schema_version": "combined-v2-lit2026-final-statistics-v1",
+  "status": "COMPLETE",
+  "unblinded": true,
+  "fits_verified": 15,
+  "seeds": [
+    42,
+    314,
+    2026
+  ],
+  "outer_folds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "literature_doi": "10.28948/ngumuh.1930411",
+  "published_score_directly_comparable": false,
+  "statistics_config": {
+    "bootstrap_unit": "pair_id",
+    "bootstrap_replicates": 5000,
+    "bootstrap_seed": 2606,
+    "same_resampled_pairs_across_lit_ce_supcon_and_seeds": true,
+    "paired_deltas": [
+      "LIT2026_REIMPL - CE",
+      "LIT2026_REIMPL - SupCon"
+    ],
+    "ci": "95% percentile interval",
+    "seed_summary": "pooled five-fold OOF metric per seed, then mean and SD across three seeds",
+    "inference_scope": "pair-sampling uncertainty conditional on the frozen 1,500-pair corpus and the three tested seeds; seed variability is reported separately and is not resampled"
+  },
+  "config_sha256": "86e435fb05d9c11a7285364c145077f19de46e7b7214149cd3a1acf799d3545e",
+  "runner_sha256": "6105646dfcc88cb24a8c32953a1751ece5e4daa14a3b7efacd0ddefa9f8e1d6a",
+  "statistics_sha256": "7bbcc3d8572b09b9ffae669cc33b159dd3b8f8a0549e48f45fbfac4f052c5e1a",
+  "freeze_sha256": "25600506c02907c59ec807c4b8b2112fc5a01900f63349c3cd47b02cdb79afd7",
+  "primary_reference_manifest_sha256": "ed30975ecb16f49715352f6b11ef1c29aa6e4df2e0d2a0bf55f93a69fcc2187a",
+  "outputs": {
+    "per_seed_same_data_metrics.csv": "b703559f3981308206d52838c36558a18d7a32f45cd0ad46808a358369ea39d8",
+    "method_same_data_summary.csv": "07878ee7de98cbdf08358388a976bd5f8befd4999de9a0f677bc072c618a9812",
+    "paired_seed_deltas.csv": "6178c65f6336dddb545d0fb07aea5fe3c432050a5d2a27e2171ce643839ed4e4",
+    "paired_pair_bootstrap_draws.csv": "66d5c403b877360df5bb2adf9f30f3af650432439d03dffd182d3773887a4685",
+    "paired_pair_bootstrap_summary.csv": "5ba47eb6a4425bca954d91900b02004ad12161649a81381cff7b7a5b474bbf4f",
+    "published_context_only.csv": "6b7892e42171e24aa9f924284d7c7c99cc08fa7d7d18be4359b66792a3dc7848"
+  }
+}

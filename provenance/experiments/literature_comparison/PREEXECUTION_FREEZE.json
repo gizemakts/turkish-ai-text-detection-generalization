@@ -1,0 +1,214 @@
+{
+  "schema_version": "combined-v2-lit2026-preexecution-freeze-v1",
+  "created_utc": "2026-10-03T11:51:53.044179+00:00",
+  "status": "FROZEN_READY_TO_RUN",
+  "experiment": "LIT2026_REIMPL_V1_1",
+  "planned_fits": 15,
+  "matrix": [
+    {
+      "outer_fold": 0,
+      "seed": 42
+    },
+    {
+      "outer_fold": 0,
+      "seed": 314
+    },
+    {
+      "outer_fold": 0,
+      "seed": 2026
+    },
+    {
+      "outer_fold": 1,
+      "seed": 42
+    },
+    {
+      "outer_fold": 1,
+      "seed": 314
+    },
+    {
+      "outer_fold": 1,
+      "seed": 2026
+    },
+    {
+      "outer_fold": 2,
+      "seed": 42
+    },
+    {
+      "outer_fold": 2,
+      "seed": 314
+    },
+    {
+      "outer_fold": 2,
+      "seed": 2026
+    },
+    {
+      "outer_fold": 3,
+      "seed": 42
+    },
+    {
+      "outer_fold": 3,
+      "seed": 314
+    },
+    {
+      "outer_fold": 3,
+      "seed": 2026
+    },
+    {
+      "outer_fold": 4,
+      "seed": 42
+    },
+    {
+      "outer_fold": 4,
+      "seed": 314
+    },
+    {
+      "outer_fold": 4,
+      "seed": 2026
+    }
+  ],
+  "checks": {
+    "identity_pass": true,
+    "identity_runner_binding": true,
+    "identity_config_binding": true,
+    "smoke_pass": true,
+    "smoke_runner_binding": true,
+    "smoke_config_binding": true,
+    "smoke_no_scientific_training": true,
+    "smoke_no_scientific_scores": true,
+    "dataset_hash": true,
+    "fold_hash": true,
+    "protocol_hash": true,
+    "source_transcription_hash": true,
+    "primary_manifest_hash": true,
+    "primary_complete": true,
+    "generator_manifest_hash": true,
+    "generator_complete": true,
+    "domain_manifest_hash": true,
+    "domain_complete": true,
+    "condition_b_manifest_hash": true,
+    "condition_b_complete": true,
+    "superseded_v1_freeze_hash": true,
+    "amendment_hash": true,
+    "model_revision_pin": true,
+    "planned_fits": true,
+    "lit2026_results_seen": true,
+    "statistics_frozen": true,
+    "published_scores_marked_context_only": true
+  },
+  "files": {
+    "config": {
+      "path": "configs/combined_v2/LIT2026_REIMPL_V1_1.json",
+      "sha256": "86e435fb05d9c11a7285364c145077f19de46e7b7214149cd3a1acf799d3545e",
+      "bytes": 5839
+    },
+    "runner": {
+      "path": "scripts/run_lit2026_reimpl_v1.py",
+      "sha256": "6105646dfcc88cb24a8c32953a1751ece5e4daa14a3b7efacd0ddefa9f8e1d6a",
+      "bytes": 15057
+    },
+    "matrix_launcher": {
+      "path": "scripts/run_lit2026_reimpl_matrix_v1.py",
+      "sha256": "1a86932e3c3c3bcb5159c749de5e645fa779ec59ecf8a23bf350f81ab56ee84f",
+      "bytes": 1934
+    },
+    "statistics_module": {
+      "path": "scripts/lit2026_reimpl_statistics.py",
+      "sha256": "7bbcc3d8572b09b9ffae669cc33b159dd3b8f8a0549e48f45fbfac4f052c5e1a",
+      "bytes": 10732
+    },
+    "completion_verifier": {
+      "path": "scripts/verify_lit2026_reimpl_completion_v1.py",
+      "sha256": "55757a111ea1c20ae6cb7147d6854b4a86804268a567ec9ddfd6710fa2976262",
+      "bytes": 5151
+    },
+    "identity_test": {
+      "path": "tests/test_lit2026_reimpl_identity.py",
+      "sha256": "85c8bd3cc4c78b1e139902119d2d4b3137b719462f2d9460d4c92d86fe2c1b3b",
+      "bytes": 7019
+    },
+    "smoke_test": {
+      "path": "tests/test_lit2026_reimpl_smoke.py",
+      "sha256": "ae5dbdc5b9109a0b2c101924dcac29ab943562a0ee5dd50faac0e701897ac237",
+      "bytes": 2990
+    },
+    "source_transcription": {
+      "path": "provenance/combined_v2/lit2026_reimpl_v1/LIT2026_SOURCE_TRANSCRIPTION.md",
+      "sha256": "06a91336f2b37f5c99f334914170f4c6ae06f4edff1eef481c97ab59861de83c",
+      "bytes": 2386
+    },
+    "preexecution_amendment_v1_1": {
+      "path": "provenance/combined_v2/lit2026_reimpl_v1_1/PREEXECUTION_AMENDMENT_V1_1.md",
+      "sha256": "21c6cab10841ad6bda3667bb9af1ff36e9b44c94740b1d9df0f8b35d08ade5aa",
+      "bytes": 1084
+    },
+    "superseded_v1_freeze": {
+      "path": "provenance/combined_v2/lit2026_reimpl_v1/PREEXECUTION_FREEZE.json",
+      "sha256": "5dfd9125312a2464d0110b24396e9bac02cf15cfcf35a57524088ccdd5a90b92",
+      "bytes": 6659
+    },
+    "dataset": {
+      "path": "data/COMBINED_V2/combined_v2.csv",
+      "sha256": "ea5797ac19348957472626d1a23b740de531cd19577f613e1a73894e34d66b44",
+      "bytes": 10739891
+    },
+    "folds": {
+      "path": "data/COMBINED_V2/nested_folds_v2.csv",
+      "sha256": "16ffae53a5d9027a95e12f3975fd062f17038ef5bf8970a74dd3ef7339d9a100",
+      "bytes": 79934
+    },
+    "protocol": {
+      "path": "provenance/combined_v2/protocol/FINAL_EXPERIMENT_PROTOCOL_V1.md",
+      "sha256": "c848bae3278a69a36ed8961d6583d1c915cf199fe9f6072937b994b82c17cae8",
+      "bytes": 21736
+    },
+    "primary_final_statistics_manifest": {
+      "path": "outputs/combined_v2/primary_ablation_v1/final_statistics/final_statistics_manifest.json",
+      "sha256": "ed30975ecb16f49715352f6b11ef1c29aa6e4df2e0d2a0bf55f93a69fcc2187a",
+      "bytes": 1746
+    },
+    "generator_final_statistics_manifest": {
+      "path": "outputs/combined_v2/generator_holdout_v1/final_statistics/final_statistics_manifest.json",
+      "sha256": "c56edf9dd75b2c4587068c7356071dae3c9fb492a56b8f18d5d244e36981a45e",
+      "bytes": 2598
+    },
+    "domain_shift_final_statistics_manifest": {
+      "path": "outputs/combined_v2/domain_shift_v1/final_statistics/final_statistics_manifest.json",
+      "sha256": "4f6d35a98603d51fe2542fd0dd1a68ff0210fb7e2a6c404fe4a632337fe874e9",
+      "bytes": 2619
+    },
+    "condition_b_final_statistics_manifest": {
+      "path": "outputs/combined_v2/condition_b_sensitivity_v1/final_statistics/final_statistics_manifest.json",
+      "sha256": "06e9d41c8e0dccabf30afec9687770d7d16b9f25076a648b09916a633e2bb05e",
+      "bytes": 2289
+    },
+    "identity_report": {
+      "path": "provenance/combined_v2/lit2026_reimpl_v1_1/preflight/identity_audit.json",
+      "sha256": "f65376a50632d7405061061d8e696bcb4a2d95089c6493a29fffe3eaa1724780",
+      "bytes": 11580
+    },
+    "smoke_report": {
+      "path": "provenance/combined_v2/lit2026_reimpl_v1_1/preflight/smoke_test.json",
+      "sha256": "75ea4ff3172147853fedcb6e02d90bbd5681facda7562942c5e1ce7db13e0fca",
+      "bytes": 697
+    }
+  },
+  "rq1_generator_domain_condition_b_results_already_unblinded_before_freeze": true,
+  "lit2026_results_unblinded_before_freeze": false,
+  "lit2026_scientific_outputs_present_before_freeze": false,
+  "published_paper_scores_context_only": true,
+  "environment": {
+    "python": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.16.1",
+    "cuda": "12.8",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 5080 Laptop GPU"
+  },
+  "git": {
+    "commit": null,
+    "dirty_paths": null
+  },
+  "execution_command": "& \".\\.venv-gpu\\Scripts\\python.exe\" \".\\scripts\\run_lit2026_reimpl_matrix_v1.py\" --execute",
+  "preunblind_verification_command": "& \".\\.venv-gpu\\Scripts\\python.exe\" \".\\scripts\\verify_lit2026_reimpl_completion_v1.py\"",
+  "unblinding_command": "& \".\\.venv-gpu\\Scripts\\python.exe\" \".\\scripts\\lit2026_reimpl_statistics.py\""
+}

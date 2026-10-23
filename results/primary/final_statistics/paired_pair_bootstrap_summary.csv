@@ -1,0 +1,4 @@
+comparison,metric,bootstrap_unit,replicates,bootstrap_seed,observed_bootstrap_mean_delta,ci95_lower,ci95_upper
+supcon_minus_ce,roc_auc,pair_id,5000,2602,-0.00014561934222222142,-0.0004422311111111421,1.2446666666660025e-05
+supcon_minus_ce,average_precision,pair_id,5000,2602,-0.00024853023291207223,-0.0007532536848332521,1.2196758033086728e-05
+supcon_minus_ce,standardized_pauc_003,pair_id,5000,2602,-0.0024988378266591455,-0.007514570407971433,0.00016694867456286177

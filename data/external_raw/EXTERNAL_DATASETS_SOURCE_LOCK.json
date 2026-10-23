@@ -1,0 +1,24 @@
+﻿{
+    "created_at":  "2026-10-04T15:28:28.0412694+03:00",
+    "purpose":  "Raw external dataset source lock before preprocessing or evaluation",
+    "datasets":  [
+                     {
+                         "id":  "renklier2026_bertturkdata",
+                         "path":  "data/EXTERNAL_RAW/renklier2026_bertturkdata",
+                         "source":  "https://github.com/arenklier/bertturkdata.git",
+                         "commit":  "d35cd84d7af13a26e1995e9157b98f45e614a421"
+                     },
+                     {
+                         "id":  "tum2024_neural_news_benchmark",
+                         "path":  "data/EXTERNAL_RAW/tum2024_neural_news_benchmark",
+                         "source":  "https://huggingface.co/datasets/tum-nlp/neural-news-benchmark",
+                         "commit":  "171f6ea3f9b36fd68191d28414f2f9bfd973d094"
+                     },
+                     {
+                         "id":  "bostancioglu2026_multilingual_ai_human",
+                         "path":  "data/EXTERNAL_RAW/bostancioglu2026_multilingual_ai_human",
+                         "source":  "https://huggingface.co/datasets/aycabostancioglu/Arabic-English-Turkish-AI-Human-Text",
+                         "commit":  "55ad8ab14b1bc2e2510a3d66903be95da1eae4b6"
+                     }
+                 ]
+}

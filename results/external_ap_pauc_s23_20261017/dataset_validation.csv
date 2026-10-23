@@ -1,0 +1,4 @@
+corpus,path,sha256,rows,human,ai,ai_prevalence,unique_external_id,unique_text_sha256,rows_in_repeated_text_sha256_groups,positive_class
+Renklier2026,data/external_prepared/renklier2026_test_standardized.csv,1ec79d25ae852321cd5659691643eda58e407bcc17e169e6559413587ed8acb5,2398,600,1798,0.749791492910759,2398,2398,0,AI (binary_label=1)
+TUM2024_TR,data/external_prepared/tum2024_tr_test_standardized.csv,8ab15a4ace28674d20ce94faf4a63e1c5885254051ac2a795bd2033c961e557a,3600,1800,1800,0.5,3600,3580,37,AI (binary_label=1)
+Bostancioglu2026_TR,data/external_prepared/bostancioglu2026_tr_full_standardized.csv,dfcde6dadf0c3f7bea719e4b54a61cea8ffb7c29a47adb0413de22cba39b578c,3104,1560,1544,0.49742268041237114,3104,3092,24,AI (binary_label=1)

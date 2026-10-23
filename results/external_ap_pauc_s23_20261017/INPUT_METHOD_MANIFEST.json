@@ -1,0 +1,1873 @@
+{
+  "schema_version": "external-ap-pauc-s23-posthoc-v1",
+  "created_utc": "2026-10-17T09:00:35.559060+00:00",
+  "analysis_status": "PASS_ROC_AUC_RECONCILIATION",
+  "analysis_type": "post-hoc exploratory; saved predictions only; no training",
+  "positive_class": "AI (binary_label=1)",
+  "score_contracts": {
+    "CE_ONLY_MATCHED": "higher=AI; logit_AI-logit_HUMAN; fixed terminal checkpoint inference",
+    "CE + 0.1 × SupCon": "higher=AI; logit_AI-logit_HUMAN; fixed terminal checkpoint inference",
+    "TF-IDF M4": "higher=AI; LogisticRegression decision_function with AI=1; external_fit_count=0"
+  },
+  "metrics": {
+    "average_precision": "sklearn.metrics.average_precision_score(y_true, y_score)",
+    "standardized_partial_roc_auc": "sklearn.metrics.roc_auc_score(y_true, y_score, max_fpr=0.03)",
+    "pauc_random_reference": 0.5
+  },
+  "aggregation": {
+    "CE_and_SupCon": "mean 5 folds within each seed, then mean 5 seed means",
+    "TF-IDF_M4": "mean 5 dependent outer-fold estimator metrics; not treated as independent seeds",
+    "score_pooling": false
+  },
+  "m4_definition_reconciliation": "PASS: recomputed fold-level ROC-AUC, AP, and standardized pAUC match the original Task-2 fold table within 5e-12 absolute tolerance",
+  "input_files": [
+    {
+      "role": "external_evaluation_dataset",
+      "path": "data/external_prepared/renklier2026_test_standardized.csv",
+      "bytes": 4212091,
+      "sha256": "1ec79d25ae852321cd5659691643eda58e407bcc17e169e6559413587ed8acb5"
+    },
+    {
+      "role": "external_evaluation_dataset",
+      "path": "data/external_prepared/tum2024_tr_test_standardized.csv",
+      "bytes": 7754658,
+      "sha256": "8ab15a4ace28674d20ce94faf4a63e1c5885254051ac2a795bd2033c961e557a"
+    },
+    {
+      "role": "external_evaluation_dataset",
+      "path": "data/external_prepared/bostancioglu2026_tr_full_standardized.csv",
+      "bytes": 2975549,
+      "sha256": "dfcde6dadf0c3f7bea719e4b54a61cea8ffb7c29a47adb0413de22cba39b578c"
+    },
+    {
+      "role": "m4_external_predictions",
+      "path": "supplementary_analyses/results/tfidf_external/tfidf_external_predictions.csv",
+      "bytes": 2818416,
+      "sha256": "2fca29d324f0b26fcbf6f2cee3df3533c3cf73e165c6f9f191d727e9785dcdce"
+    },
+    {
+      "role": "m4_original_fold_metrics",
+      "path": "supplementary_analyses/results/tfidf_external/tfidf_external_fold_metrics.csv",
+      "bytes": 1446,
+      "sha256": "f5b7dc00d9c35eda743f291ce7c0b43ff6adc1d2e997264473827ff7acf0bc16"
+    },
+    {
+      "role": "m4_original_inner_tuning",
+      "path": "supplementary_analyses/results/tfidf_external/tfidf_inner_tuning.csv",
+      "bytes": 1407,
+      "sha256": "2c62097bbc94961568d19812eeab04b0715f0dcd650dcc2aa6901ba0658064a0"
+    },
+    {
+      "role": "m4_original_provenance",
+      "path": "supplementary_analyses/results/tfidf_external/provenance.json",
+      "bytes": 1347,
+      "sha256": "261eda5f9ec43bbd7be63d18f818ecd564eb4ef9342390924c046415b763d41f"
+    },
+    {
+      "role": "m4_original_implementation",
+      "path": "supplementary_analyses/scripts/external_tfidf_baseline.py",
+      "bytes": 6170,
+      "sha256": "0eac98c4b20e0f6d9779bc2ae697d1cb3647301fc7e0a53c287bc4484a13e3b6"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_42/outer_0.csv",
+      "bytes": 311104,
+      "sha256": "28ba467313a1f4ee26e81da3d4b233b22556c780ab7a994ba12480a1092b0fe5"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_42/outer_0.json",
+      "bytes": 2938,
+      "sha256": "2f79b964db522e91ed2f749b6116e1cc1516e0851213fdd03073faff10947866"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_42/outer_1.csv",
+      "bytes": 311054,
+      "sha256": "46ffd2c105b0f7742ec6be7d1338da756febf28e2c28c8b27de3fdaf7e9cc9e4"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_42/outer_1.json",
+      "bytes": 2938,
+      "sha256": "937139404a72f950eb3b6bd44f960a4b23d6b014a173276defd67480c8f3add3"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_42/outer_2.csv",
+      "bytes": 311322,
+      "sha256": "39f9f46d4025933069aee558b4be4bad450cc2e97493b27ef8cefbf21e4943a0"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_42/outer_2.json",
+      "bytes": 2938,
+      "sha256": "77218c3176d34038134a79d5466fc286ece3d367380096d215dcce09ede5a6e4"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_42/outer_3.csv",
+      "bytes": 311283,
+      "sha256": "5193e360b9c01243078952d7a6bd034dde910530afd1fc52b5376cb787ace0de"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_42/outer_3.json",
+      "bytes": 2938,
+      "sha256": "73adf0a193d545062260932e5410a89ec17d60e0f46d915c89deee94cab6ad03"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_42/outer_4.csv",
+      "bytes": 311295,
+      "sha256": "d85150732c690491d412e1822e45b25b96f71329dada1c0079ed75873392881a"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_42/outer_4.json",
+      "bytes": 2938,
+      "sha256": "433eeb0d1279367d2883bd12944bb50374c5d2d5e62bb86b2525362eeb9249b7"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_137/outer_0.csv",
+      "bytes": 313506,
+      "sha256": "d031dfa16b1f466c347ac4744b97e02c764deae363782da2447824dd424e9bf5"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_137/outer_0.json",
+      "bytes": 2945,
+      "sha256": "100d5c0fdda12f5bb3bcbe54be53218aaa2843b010b470a597dd3b17cd779ea1"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_137/outer_1.csv",
+      "bytes": 313432,
+      "sha256": "9fee8d27e1a2db2d56052322dc24bb4688036c74cb83be0f6fbb064c522387e5"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_137/outer_1.json",
+      "bytes": 2945,
+      "sha256": "bb9830efdc5c37c393ff9e13fbaa4d40d2fcb89c145608060f562a92b6d498e5"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_137/outer_2.csv",
+      "bytes": 313475,
+      "sha256": "e2d0da51efae518aa74b44a0a996c96c40247bfac554ce27f0e28786fb1890d5"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_137/outer_2.json",
+      "bytes": 2945,
+      "sha256": "e237764df72bb3e2705ea846e951c2cde4a8ad443dfea3ead54f67ff09086abc"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_137/outer_3.csv",
+      "bytes": 313528,
+      "sha256": "b5ee05ec987efbcaa0de853c17dbc6fa3e26596e7d0eaabd81d8ab6ca614b417"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_137/outer_3.json",
+      "bytes": 2945,
+      "sha256": "7c05054e408a79afbf0673d4a37f55d2225afa32e73e8a0cc0e06709c2f7c31f"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_137/outer_4.csv",
+      "bytes": 313542,
+      "sha256": "18726aa70add28ba8be4a7caccd768199670f0d76e69ba9700cb7ce18bc54f2d"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_137/outer_4.json",
+      "bytes": 2945,
+      "sha256": "ab8b94ce7bde3a9da80c3e0cda713d98c2787dd57b9dd00f787ed277ddc97d6b"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_314/outer_0.csv",
+      "bytes": 313587,
+      "sha256": "cb9368937495284aeffbb4dc3b0106b41a1da605507d350365e0c466cfe642c8"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_314/outer_0.json",
+      "bytes": 2945,
+      "sha256": "dde36331afe31f2b7633b3eb1a8ace220dd4e22fe43de01a46ad532c73639d76"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_314/outer_1.csv",
+      "bytes": 313394,
+      "sha256": "f25dba4048d7ffadadd145f2abc7414d26f64e0ff5fb0bad330de133ad0b532c"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_314/outer_1.json",
+      "bytes": 2945,
+      "sha256": "fafd7fbaf23ea1e3171d2317415a572b8d9f4eda6a21fff66f8db74cbf23f57d"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_314/outer_2.csv",
+      "bytes": 313377,
+      "sha256": "1b7724a916c0cbf8918520f2a0b958fbb87d622b33153fe4f0ec0d7141500afe"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_314/outer_2.json",
+      "bytes": 2945,
+      "sha256": "00e298ba58f0dcb84a07061c9eeeb9bb8f6b2f185b68f79da117e597b70b9eb2"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_314/outer_3.csv",
+      "bytes": 313463,
+      "sha256": "f2035d3051bb6779ffdd17155a53ab7d084af06fd92b677c0c24dc16abfec9d7"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_314/outer_3.json",
+      "bytes": 2945,
+      "sha256": "a35f388d3ccd923458ea60dc7f9c514e98092fb7d96d80dcb445866eb32463d2"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_314/outer_4.csv",
+      "bytes": 313694,
+      "sha256": "c7799dd2b3336d9c3a082b612f4c3a5b756929c4fee320a187c7b953abdf6535"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_314/outer_4.json",
+      "bytes": 2945,
+      "sha256": "3c5db8567f83e735aaaa3af19be60597118609cfb6516146aa6ffed34e284d73"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_2026/outer_0.csv",
+      "bytes": 315822,
+      "sha256": "fa50057f078c9b11fe9381b29636baada1d891449ffff531e96722fa621428a6"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_2026/outer_0.json",
+      "bytes": 2952,
+      "sha256": "7a0bf4e370e7ee3de8efe7652d450c886bee3f0406525ca387c3b9e53052b7b4"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_2026/outer_1.csv",
+      "bytes": 315865,
+      "sha256": "9ea4cde84a7d5ceb41a8f25e4ef580fd22b34e706c19ce9a75b702aa430ab1b6"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_2026/outer_1.json",
+      "bytes": 2952,
+      "sha256": "dbf08532dfbce1af8cca5c532ceb8007d9cc50aa6fb79a3c06b8757d6849a7e8"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_2026/outer_2.csv",
+      "bytes": 316098,
+      "sha256": "326d6d3a381cfa4e184d7b0a82cb97833f0b0e8ffc19005d7bb75b440fddf039"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_2026/outer_2.json",
+      "bytes": 2952,
+      "sha256": "f45a431aa093748fee0d83f85f9af18149aee68b4a61ec767ae6b8977a84496a"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_2026/outer_3.csv",
+      "bytes": 315988,
+      "sha256": "57f9f4f647dcbf74c5be69d7bde61cf623baafd01b62217353d28ffaca3a25cc"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_2026/outer_3.json",
+      "bytes": 2952,
+      "sha256": "a3e727e77dbd73462bd0dab3394fbe5c6b3095d935b39a83701bf1fd31fe681f"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_2026/outer_4.csv",
+      "bytes": 315832,
+      "sha256": "6d5cb2fb9adf947fba51790af2eedd9feb88654a747c65fcfbbd19c5b16484b8"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_2026/outer_4.json",
+      "bytes": 2952,
+      "sha256": "2bf0f02e337cb52bec9f426e9940130c5baeba6b353d7ec5c2f06cc4b689cf18"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_3407/outer_0.csv",
+      "bytes": 316114,
+      "sha256": "400f0b85376314659cffb7ed845881439398fa3a8aeb511e4520658b8a827f25"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_3407/outer_0.json",
+      "bytes": 2952,
+      "sha256": "7fe7fd028da2fcc634319ad011e7b5de7042c23b09360881ab64b86fc60d1c0c"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_3407/outer_1.csv",
+      "bytes": 316032,
+      "sha256": "d70230658b11a7b4d54e1ac3806e080be7224cc245a9e50b139e1b9a89fc1d13"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_3407/outer_1.json",
+      "bytes": 2952,
+      "sha256": "5ac199f6ca8921842aebec2094ca79e46b41318c2b47ad5be865f366804b3606"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_3407/outer_2.csv",
+      "bytes": 316042,
+      "sha256": "811bd4b18defc8a3b51b07d0c4742d1cd1a25f0cb6ff8bace3a5351e42ff7e2f"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_3407/outer_2.json",
+      "bytes": 2952,
+      "sha256": "75dfbc97c1edf7bf47c266a8d51f9ff7a43159326e3472fc8fee8ad3bc0da884"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_3407/outer_3.csv",
+      "bytes": 315994,
+      "sha256": "640aef0d46ad25b403ab9046f8beb9257bc82f5833bee01b68723989ceef6855"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_3407/outer_3.json",
+      "bytes": 2952,
+      "sha256": "c0f908e60e18c35e90efc4fcf4b4f1fb992e30c94c4917c69e96ce3060d19f61"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_3407/outer_4.csv",
+      "bytes": 316027,
+      "sha256": "74bf58c3aa477d8b2d1775235d7d40e1a40ac439317e0dc44c3102afc5853621"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/CE_ONLY_MATCHED/seed_3407/outer_4.json",
+      "bytes": 2952,
+      "sha256": "c6f29e47a3f61afc5a84313c8bc45f6600cc80bbc82b857158f35bd5a5f42178"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_42/outer_0.csv",
+      "bytes": 313402,
+      "sha256": "c22b797300af607b2205591c0a82b7bcade8434f1be4f7125094710d6cbd2da7"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_42/outer_0.json",
+      "bytes": 2960,
+      "sha256": "3fcd1913c81f6d62a6ed818823bcf3b8dae360961b9c39b31b857a3f53b70566"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_42/outer_1.csv",
+      "bytes": 313383,
+      "sha256": "2fad2b44a446b18a0a452f3e6d838c93a2d522b17fe3a9180e8d7c143c94e2d9"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_42/outer_1.json",
+      "bytes": 2960,
+      "sha256": "4ba2e239aa13973618f81eab6015772e1f6b9f9ac567eb3bce7bf324adc2090e"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_42/outer_2.csv",
+      "bytes": 313548,
+      "sha256": "4c2baade7a178ecd2ec920c3dd6aa0a60e90724ac5bce0e676cc5a5e41219322"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_42/outer_2.json",
+      "bytes": 2960,
+      "sha256": "e49470ac72f59cfc31cf190e96adfba143c21562fa3612cbdc81b07060fd7a47"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_42/outer_3.csv",
+      "bytes": 313426,
+      "sha256": "f808d265c62395baefe3d17da9c2558d2e861ad1fcd290561d231ff15e31e0ed"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_42/outer_3.json",
+      "bytes": 2960,
+      "sha256": "876559b8fef3f6ad810295bd1e5cbe22209be31cf1c655b7ba94df2ca1b6ed8a"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_42/outer_4.csv",
+      "bytes": 313411,
+      "sha256": "ef9eead538c5a7d435f79444c54ba65767f5bb987002e8ec1ed53ff879f31ec2"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_42/outer_4.json",
+      "bytes": 2960,
+      "sha256": "0dbee603324cbafb67c259081d6430bed7da166ff5403632b6cb0dda9545bdd6"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_137/outer_0.csv",
+      "bytes": 315832,
+      "sha256": "8e1cf4f5a676e57ca44948be7c86bd0b76b8f1231d4cd310e806677ff375aac3"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_137/outer_0.json",
+      "bytes": 2967,
+      "sha256": "faab7c7320f9e90c39fa6a99f1dc4a22ea9c2b8fe822eeac35ec3ec364c13ed2"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_137/outer_1.csv",
+      "bytes": 315876,
+      "sha256": "08c6ffafcd7256d5ba7303335e10b8ca3a7470ffd969069573e54d0bda50489d"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_137/outer_1.json",
+      "bytes": 2967,
+      "sha256": "116ccf09764d15a2ee2dbac2e1e50a6c6b7d9648846414e195d110ba2eb3975b"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_137/outer_2.csv",
+      "bytes": 315852,
+      "sha256": "ac402dd9b19fa13a808a22d7502aa13bcf49eb26e7e0a14a9d3cb3697a9450f9"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_137/outer_2.json",
+      "bytes": 2967,
+      "sha256": "b4a44ccff23d0955170fb360f4cbc88abe25483fbe24fb83eeffa1af9ba84e92"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_137/outer_3.csv",
+      "bytes": 315797,
+      "sha256": "89712527fcf5d0721d926cd552f8b743064dfccb5dd66472df8602afb1d89cb0"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_137/outer_3.json",
+      "bytes": 2967,
+      "sha256": "2a60b60fb5d59d5c0b62b22e05223964f3900ca074b5560fc65f80fb99e1e6c3"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_137/outer_4.csv",
+      "bytes": 315992,
+      "sha256": "c876c55b23755b3a6b7ad29138272749c49f66e144ae54c58ec3392dd8c41cf3"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_137/outer_4.json",
+      "bytes": 2967,
+      "sha256": "7e29e40678695e9aefb45ed7ec7d2de0bd6e91654060a1bcedc95ca3496eb24d"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_314/outer_0.csv",
+      "bytes": 315804,
+      "sha256": "f147f6fc3c66ddd5d9152b6b77f4561e096c0039a3477475075f8bc804deef86"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_314/outer_0.json",
+      "bytes": 2967,
+      "sha256": "6a112688f3dc82d87c9e4acca3e1c95729fe7884acd4d9e714eb8616014db743"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_314/outer_1.csv",
+      "bytes": 315785,
+      "sha256": "b670394fbea329aa209650d2208ac0beaae6eaf0f4323d21053e40fcc15f122e"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_314/outer_1.json",
+      "bytes": 2967,
+      "sha256": "f0af64e029053ae66ced414b717141c24f4776a82fc4a416bdfae7042c79ee69"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_314/outer_2.csv",
+      "bytes": 315737,
+      "sha256": "5987e4e5dae0aa8ca2d9949c7b04d17a9c4b238f334618212222c49dfc4f79d6"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_314/outer_2.json",
+      "bytes": 2967,
+      "sha256": "7d3f5f42365602afb5c97dfdd5b9db334bc4df33be6a204b8f022fdd3420665a"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_314/outer_3.csv",
+      "bytes": 315789,
+      "sha256": "47361eaf4b70af080da863d751d16b3e64d684757ed77d8c02d15a1b38d2cfdf"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_314/outer_3.json",
+      "bytes": 2967,
+      "sha256": "ff35fc332565294a0c959298577018cc6eac289f62c0fe458d76619be9c2ec03"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_314/outer_4.csv",
+      "bytes": 315609,
+      "sha256": "5f60418cdf3e4b4c142f681ac236bd39151031f8dad6d1af25d15664abd92b85"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_314/outer_4.json",
+      "bytes": 2967,
+      "sha256": "bfd8289b51cc241a2cc9c205e8407117c2ab4764bab4f6b06d11300feb8d3bf8"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_2026/outer_0.csv",
+      "bytes": 318219,
+      "sha256": "79d728f2a5b67a6f80f8c8c79eb2eae5ac095e1ae01947a76eacfa757469a1dc"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_2026/outer_0.json",
+      "bytes": 2974,
+      "sha256": "a62fee54d12be052b6237a55cbb387102eec8be5536479dd20f8b3ad9efc8466"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_2026/outer_1.csv",
+      "bytes": 318194,
+      "sha256": "1f37bc49b068af707f9373022736949a083811399b3e916da54cd20228bc365f"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_2026/outer_1.json",
+      "bytes": 2974,
+      "sha256": "01cb445290758ba575bafc0da69256a90e1a0a72ab9d26376f8edee0486f6133"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_2026/outer_2.csv",
+      "bytes": 318349,
+      "sha256": "78802209372d74cae32216b6043f83503d197691677bbb3c4193cbc931894400"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_2026/outer_2.json",
+      "bytes": 2974,
+      "sha256": "8421ddbc166d7a46e1eff4ccb404e1d1694300803a2308d9e0ff2826a4f2287f"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_2026/outer_3.csv",
+      "bytes": 318177,
+      "sha256": "0d32d17b51c7ea05e26d2d30a07d8c23c84fdbf01290069007ac576136e08902"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_2026/outer_3.json",
+      "bytes": 2974,
+      "sha256": "9b8c02e23a30e83d584581d4cc562a8fb8d35f5cb081266a359b2cf6c2691535"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_2026/outer_4.csv",
+      "bytes": 318153,
+      "sha256": "97b9fba818b214cc23130dfc141854b908716dc80c4eef91e55d6be8ab55b586"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_2026/outer_4.json",
+      "bytes": 2974,
+      "sha256": "468f67a79ef8633c8d4bd3fd5d6481d0e002865bd843053977c9b5055ff5dbdc"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_3407/outer_0.csv",
+      "bytes": 318194,
+      "sha256": "092691691f62e6ad8eea3fc9e0a96762d7594c4ed9a944db73eaa7b26dc9a193"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_3407/outer_0.json",
+      "bytes": 2974,
+      "sha256": "2438889fdc02da94ad3db5595d50674ab663ead85095b6f52081685763e49ecd"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_3407/outer_1.csv",
+      "bytes": 318305,
+      "sha256": "f448dcf83b5a158ad0676dac3104efefd2693823f87c673075c1f85396041d9e"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_3407/outer_1.json",
+      "bytes": 2974,
+      "sha256": "9f7ec955882c0a96859b1e930103b1bb00883ee4cb774596cce74c9b8368f829"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_3407/outer_2.csv",
+      "bytes": 318239,
+      "sha256": "436af4d4c5853f7256714647e7601b88eb6106595aba653a17178bd08cda4386"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_3407/outer_2.json",
+      "bytes": 2974,
+      "sha256": "ae184bd06a3e9c96c270c269b74daff5c3f90aa4a6dbfb1411dc145b17881918"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_3407/outer_3.csv",
+      "bytes": 318276,
+      "sha256": "88557857e0b37b14d1347f7c6f89707ead085110d1e1c7a0ff21dc1ad1df5ac6"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_3407/outer_3.json",
+      "bytes": 2974,
+      "sha256": "5dbab4b4c7cce0c2a757430ee682811bab51a0312b781b0f089aeb5c414bd18d"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_3407/outer_4.csv",
+      "bytes": 318335,
+      "sha256": "4445d21cadec3760d78b57008aac9bae85204b7a1404934e7b03388f9a61b594"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/renklier2026/SUPCON/seed_3407/outer_4.json",
+      "bytes": 2974,
+      "sha256": "62f01e4e0fd8afa4d790f6179866fefb5f663685cefe1fd6e46a856eef04330e"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_42/outer_0.csv",
+      "bytes": 460681,
+      "sha256": "766e937dc8c2b70cd51de3a950d40ab84d8c0e4ea6937d54e050de98cac886b3"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_42/outer_0.json",
+      "bytes": 2932,
+      "sha256": "06546fd8a60af8caa2dc019bce05092cb66fdb794a1c5a633be91f8498bd2bff"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_42/outer_1.csv",
+      "bytes": 460638,
+      "sha256": "2c80360bb72aa74ce25824518a4cb924b8c6c93419d4621fcb55e012343a1ee7"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_42/outer_1.json",
+      "bytes": 2932,
+      "sha256": "f1d842a1d124840a03a6666720d58f307e4a60c0e10ea798106ccf5bb68a9070"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_42/outer_2.csv",
+      "bytes": 460761,
+      "sha256": "af9ba37ae9051eb10307c0db5bef9d76386e67caebc55727cb30a9fb87d8f8d9"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_42/outer_2.json",
+      "bytes": 2932,
+      "sha256": "801e74645fce462b7ffda5c372a14d55e18bbe47f7d01c1c58fb258b60249558"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_42/outer_3.csv",
+      "bytes": 460740,
+      "sha256": "a0a69fe84151521b7eb844b11f229689a9f89d7536c4ac324fb6aa96c45efa5e"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_42/outer_3.json",
+      "bytes": 2932,
+      "sha256": "a118267b2eed786af6f769007463b5e11a9e52ac09be1827ecd30f107bd129b6"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_42/outer_4.csv",
+      "bytes": 460781,
+      "sha256": "c53919266ce27e3140182b262416ffa448571de35b480abde1510d63b886e5b3"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_42/outer_4.json",
+      "bytes": 2932,
+      "sha256": "b22fd7d1eb8cc20a4c1a71952300c9b4c4b0fc33f195ca9d0a8ae8c50a5dec89"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_137/outer_0.csv",
+      "bytes": 464406,
+      "sha256": "bb81fbab952ffa1826b1ed2ec806a568fb53a75ba1562a1af6b93a99ebcda1b5"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_137/outer_0.json",
+      "bytes": 2939,
+      "sha256": "bba684bd49e01bb6a8a7c15750b925652be65962e962bce95125eed73ff4bb59"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_137/outer_1.csv",
+      "bytes": 464163,
+      "sha256": "6c145516f93c11ddf9679186b085a200a7c007c993da2453f8f8ef14b85a6794"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_137/outer_1.json",
+      "bytes": 2939,
+      "sha256": "e1f2b114151880fb3416eaf0c71d708dda81883fa90c8e839c442a6766bc7e98"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_137/outer_2.csv",
+      "bytes": 464325,
+      "sha256": "6af6b98dc9a42824707b4f36fe7ac3e65635e960802e0f7aaf6e9c0d5b673f7c"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_137/outer_2.json",
+      "bytes": 2939,
+      "sha256": "4c7fc778d98329a24c42cb64e9435e1e54dc1671380c8c025bf110c0af09903e"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_137/outer_3.csv",
+      "bytes": 464242,
+      "sha256": "a0229c11f159320c95b7dd45cffe48812861df448ebe683209951143eb61b895"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_137/outer_3.json",
+      "bytes": 2939,
+      "sha256": "c11c9108885fe5714378e9ee0cc4108c26eb5a65e22debcefcaf2597693e3e63"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_137/outer_4.csv",
+      "bytes": 464413,
+      "sha256": "95c58017755da3dc102e9a64a0ed562ae94f6e1b5cd3533a612f993cdbfb4097"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_137/outer_4.json",
+      "bytes": 2939,
+      "sha256": "99281d65286ab2c68a632e8aa6d97859e3ab7efed0ebdbfc5fc5a8c78c6de6c3"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_314/outer_0.csv",
+      "bytes": 464249,
+      "sha256": "e222a1e61c7088e333bef170b66e121566f14be453eac1bbf1046ed0528cc6aa"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_314/outer_0.json",
+      "bytes": 2939,
+      "sha256": "ccaf2052ad4a6fd64df709863c3cde3e1255c3a4f6230e3ad68bffeb50a80fcd"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_314/outer_1.csv",
+      "bytes": 464141,
+      "sha256": "68fc4933679c864a224b8136df9c875d86752f64143187c0751679421103cdca"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_314/outer_1.json",
+      "bytes": 2939,
+      "sha256": "804a5db32507cadb265b06d1c540dfdea81e844f14a1a0a5a13cc71a5de23f98"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_314/outer_2.csv",
+      "bytes": 464219,
+      "sha256": "f139b38d6663facb768532a8ca818a19289dbe7c97430f06684230a34b3f1b7e"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_314/outer_2.json",
+      "bytes": 2939,
+      "sha256": "7d5c665546e5428b7fcaed243b29060aa38830d437eafad001b941fecbacb687"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_314/outer_3.csv",
+      "bytes": 464188,
+      "sha256": "cf82b4cce8281389d3360b825713bc4665e25d8962955518c2aff092820a715d"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_314/outer_3.json",
+      "bytes": 2939,
+      "sha256": "e8169af3b48cbe703bfd10857e783f602ab901166e0d44317dfd62bfab1709d2"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_314/outer_4.csv",
+      "bytes": 464396,
+      "sha256": "07e37431ff2b72c26c325dc62152b07e80650eb50e2d8e6939ceba3fe02809f6"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_314/outer_4.json",
+      "bytes": 2939,
+      "sha256": "0bd85f6dc7d6802122844f14b4ded9a18fb5e490fea71c5385ea0daa93d7f7ed"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_2026/outer_0.csv",
+      "bytes": 467766,
+      "sha256": "ff832222c8981959aafbc99100dc30695cfc19d2dc7728bd0bffb9d7b8af0abe"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_2026/outer_0.json",
+      "bytes": 2946,
+      "sha256": "74a2167bf63a9ba38f474f3ce61546cc9f30ce913c244143961179b9670cea2a"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_2026/outer_1.csv",
+      "bytes": 467926,
+      "sha256": "36e14ad84f1cc0fe794c586bf36b1729f581e67632ced889f641bc4c4cbad7f1"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_2026/outer_1.json",
+      "bytes": 2946,
+      "sha256": "1826fcb04e01e11697fa5e1cb77b97ebcacc7606f470a2631517218d17d2b889"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_2026/outer_2.csv",
+      "bytes": 468030,
+      "sha256": "147ba8646b909c08d816dff4ba90e6ae5136cfa5161705aed6f379ea3fcdfbef"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_2026/outer_2.json",
+      "bytes": 2946,
+      "sha256": "4d3d8155224b38b96dce65c8facef2d6da07548570e73a13ba2a7b56af2dce90"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_2026/outer_3.csv",
+      "bytes": 467926,
+      "sha256": "04df8993846e90535402851b736381f8e5d1f027f450bae218e18411017be024"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_2026/outer_3.json",
+      "bytes": 2946,
+      "sha256": "43564a3d9f8aba56803732f058ff14a3315a8f0025fc0e3a06b4cb1e4a2651ac"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_2026/outer_4.csv",
+      "bytes": 467685,
+      "sha256": "4e237df24e7d172718386aa250f416867742181c30195211966fbf823305db17"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_2026/outer_4.json",
+      "bytes": 2946,
+      "sha256": "e8ab0dceef17745a62e0bdcb29a86d4714d9306822cda710e3142dff0873277d"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_3407/outer_0.csv",
+      "bytes": 468016,
+      "sha256": "f4c9894c754693b9d2c2402d1409a18c5ddd911834c9a8f047d01d6008766ccd"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_3407/outer_0.json",
+      "bytes": 2946,
+      "sha256": "f60efd8ae1d6987e85dbdc0fcf7b33f6c9c3fc563e63f10c3293786b1d015d9f"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_3407/outer_1.csv",
+      "bytes": 468290,
+      "sha256": "daf05b643fba22d9f078ecfa12390322310a8cb758cf4bb6cf26c7ef8234dd4c"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_3407/outer_1.json",
+      "bytes": 2946,
+      "sha256": "9133055f29cd054aa017eb230629407a704ef669a2412881f96a0480819d4b74"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_3407/outer_2.csv",
+      "bytes": 468051,
+      "sha256": "938b35588e12a3bd7d453c5e887d62ea0b92559e52303a7d87d86afa90b43712"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_3407/outer_2.json",
+      "bytes": 2946,
+      "sha256": "6069435e7c7a996fe7ee68bfb662a968e0e386fe0aab85fbd697a9164ca552a9"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_3407/outer_3.csv",
+      "bytes": 467862,
+      "sha256": "da03b2a9df25bbd6220fac757df5a6eef1646102a5ec3e648455598fb9787011"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_3407/outer_3.json",
+      "bytes": 2946,
+      "sha256": "2a343e119906fa14c0b030e0f43886e785b5aa6173ebfbf2fdbba7e85c839f0e"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_3407/outer_4.csv",
+      "bytes": 467900,
+      "sha256": "2d07d04cc1365432c783e16f0bf8877750e87654320e247cdb3f9863216e7a22"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/CE_ONLY_MATCHED/seed_3407/outer_4.json",
+      "bytes": 2946,
+      "sha256": "e19a44de8b580588992881b8c019f5363b06cf36a1e7f8d3ebf1cd06e7f60186"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_42/outer_0.csv",
+      "bytes": 464375,
+      "sha256": "f395716a7552b7b4a1920e541727b2c842d44e1ff452300b7e75ac1bf28d7ae5"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_42/outer_0.json",
+      "bytes": 2954,
+      "sha256": "8aa87fd667b5c3dde851fd0a936b1c53f7493a002b79ba2cc92a4fc5ff65585e"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_42/outer_1.csv",
+      "bytes": 464413,
+      "sha256": "8ad6121c8030665d42e6d644ad1c9899e3325dc32914e67d4875440236100227"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_42/outer_1.json",
+      "bytes": 2954,
+      "sha256": "e4d383284ba4045d902af236d429a987323075f4dd17c97a0e33f6f9bddb28aa"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_42/outer_2.csv",
+      "bytes": 464438,
+      "sha256": "5db9bf6aa70150502237f6f179f0f045bc31ddcb586b873526705ee4944c596f"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_42/outer_2.json",
+      "bytes": 2954,
+      "sha256": "18b2f5bf805d706fddd28947c05391372aa4fa42ee89b7ddeb254428e2c9ae2a"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_42/outer_3.csv",
+      "bytes": 464342,
+      "sha256": "417d7f3b538124067ea1cbaa6ec1a1e83b61816a1884db1686de0262ce85a9aa"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_42/outer_3.json",
+      "bytes": 2954,
+      "sha256": "69f86652dc6c6d021006ff2aeefb6625615d3a437af2098a2168967e1416c2ee"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_42/outer_4.csv",
+      "bytes": 464435,
+      "sha256": "26561942611a0a784aa34af580288627c0f8219af190603c40acec8bc1db6b30"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_42/outer_4.json",
+      "bytes": 2954,
+      "sha256": "7cd962d3e7232bba34f3ff77910fad075f66458f345eb0c279958a2243a7750e"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_137/outer_0.csv",
+      "bytes": 467997,
+      "sha256": "9cd774b0e557bc20fb6102d6cf0cfb33be37b9e39e033f546bb23f731235c4d1"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_137/outer_0.json",
+      "bytes": 2961,
+      "sha256": "5bdfc61b913f23927a0d0fdbcb18e1ab207d208a4f9a4a1baa5b1d83a82c6192"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_137/outer_1.csv",
+      "bytes": 468007,
+      "sha256": "c2d1ffa9de14ef32349efe86a6e66a531f531e2d68532b3b0ee71c205161a8b1"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_137/outer_1.json",
+      "bytes": 2961,
+      "sha256": "8f31394f629dc2a55f034160a4e24154ea49461087f8826350ad7f0cc362a544"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_137/outer_2.csv",
+      "bytes": 468192,
+      "sha256": "0d160e4612ce0bd72aaf0aa3fbb678be2b9e3c3b6f35c7b9053e446e7a26b59f"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_137/outer_2.json",
+      "bytes": 2961,
+      "sha256": "9dc215513071eb8aec7e809c641f00430f1bc7efbce943156795f7be7aa88ace"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_137/outer_3.csv",
+      "bytes": 467985,
+      "sha256": "01de60c6ebaf9e0e3c0898e0937837b90952c3571f9ed934fa90dd29233631b7"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_137/outer_3.json",
+      "bytes": 2961,
+      "sha256": "67f62d4447b858b3c8dc0c5096a617fec5101177772be40ac3fefe4aa287e88b"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_137/outer_4.csv",
+      "bytes": 468069,
+      "sha256": "e642dc411485ae8e4c01e84dc8a90862ed66f082e3a79248076495aae9ed0dea"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_137/outer_4.json",
+      "bytes": 2961,
+      "sha256": "bbf8d6adde4878df195ab86d045dcdccc0c0fcd1725a00c2d340757c87d5ccea"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_314/outer_0.csv",
+      "bytes": 467666,
+      "sha256": "c5c2d8fa23e6fe04e7d456dcf1bb952164f387320d2cc0df11d38f906b526411"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_314/outer_0.json",
+      "bytes": 2961,
+      "sha256": "bd34a564fa6cd4e3fd1ec6fba46efd3b584de4955fb00e0fe89473f338989b06"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_314/outer_1.csv",
+      "bytes": 467829,
+      "sha256": "cfe935c6e22e3357c41199126ea3bf89dc8817884657b971144e5bcddaf72923"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_314/outer_1.json",
+      "bytes": 2961,
+      "sha256": "03ecc5b26ee30e16e4ff91bc3f40d7c097b03e70e1e6a551f80029aae14294bd"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_314/outer_2.csv",
+      "bytes": 467791,
+      "sha256": "1fc15ca58fc3a186d8d1bf7bb7a3da4a944dad81d06b5faac987d82a5b76a340"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_314/outer_2.json",
+      "bytes": 2961,
+      "sha256": "459f6ed6bfccfdeecdfb18835a45f00596255d2b07f7224dae403eb238629241"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_314/outer_3.csv",
+      "bytes": 467794,
+      "sha256": "edbde2d031d4acb401bb9d7b15b9e1d5e58e2f99069d67b29c10baae47a9cf25"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_314/outer_3.json",
+      "bytes": 2961,
+      "sha256": "a3ff759ba10b43f623daf5641decb439cebe31d4c11f82a59c81da4c0d465fe2"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_314/outer_4.csv",
+      "bytes": 467544,
+      "sha256": "3a95d9d35b592ca79f768199ad67d72a1901b7a7136f0ed669f8dcb98ce7b94f"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_314/outer_4.json",
+      "bytes": 2961,
+      "sha256": "615c83d6b911076315cd5041e884f5b01315e07a7c243e34f7eb59578d85453a"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_2026/outer_0.csv",
+      "bytes": 471679,
+      "sha256": "e00d412e9fa5256cdadd4837e2a824b75ea6287278d31826cc156a0d9d674ff7"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_2026/outer_0.json",
+      "bytes": 2968,
+      "sha256": "8a134edd38b45e81036520febb6e32b0bb0437a65b91caf387a4907e43e6b785"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_2026/outer_1.csv",
+      "bytes": 471759,
+      "sha256": "770cdd1e977b2dfdc8a7f15c6fcda80b699609bdcbecfc1a6505e33d2a4accac"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_2026/outer_1.json",
+      "bytes": 2968,
+      "sha256": "cc9889ad4c939b3fd47afe606e4dda573c84374f5b787fc80bd59d7d1fae44b8"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_2026/outer_2.csv",
+      "bytes": 471886,
+      "sha256": "2b42d97a069cdea0e687f074ca9ed26859afe6c57997fc7bc3f7f1682ecebcf6"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_2026/outer_2.json",
+      "bytes": 2968,
+      "sha256": "b07a9ab5f8833a5401eab8869fe577030708550f21b92ac68c726d80638d5f0e"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_2026/outer_3.csv",
+      "bytes": 471693,
+      "sha256": "260eb2e3c16a108648eb5fb1d936df8f1723701ad3dbc96ec0c088f398f259db"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_2026/outer_3.json",
+      "bytes": 2968,
+      "sha256": "773d8644b3acac4b86d4497c291f9c6bc1d59db4166e488a3fae474c8e6d0fab"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_2026/outer_4.csv",
+      "bytes": 471606,
+      "sha256": "aaf38d4ab65a16f92910215b0884fa7dfb99d681fccefd2eb76af34657bdec75"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_2026/outer_4.json",
+      "bytes": 2968,
+      "sha256": "52cbb927ab425d6bd84ef4b0eec2bcca47d1b6c0bcb75c82a2b1b4bff9d4096b"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_3407/outer_0.csv",
+      "bytes": 471640,
+      "sha256": "7bcac746f18e40b5d78868a69c8a7240743fc459a05404156dcf6f8ce0689f9e"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_3407/outer_0.json",
+      "bytes": 2968,
+      "sha256": "1b028dcbbaead51c5ae3d3f9ec0994e9f2cedcdd9eeac1887a6e04635f819c5e"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_3407/outer_1.csv",
+      "bytes": 471687,
+      "sha256": "9e180937d2f30f7f0cabddee9151087a45ee9faf5df6141943e47100c67b0526"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_3407/outer_1.json",
+      "bytes": 2968,
+      "sha256": "242fc268c22a51ba2cdbc7c42db8cab4d2a97d18cbe620259c53d20e03eadf58"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_3407/outer_2.csv",
+      "bytes": 471666,
+      "sha256": "bd7c82d596f8491f33146c64a70bdf1ec565d640dc1ef67d161963f71b24ee3c"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_3407/outer_2.json",
+      "bytes": 2968,
+      "sha256": "ddc81943ff1d5894e39263a48eded39fcaa2546e471841cd12bcdf03162b5918"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_3407/outer_3.csv",
+      "bytes": 471641,
+      "sha256": "836d414a7a53bf920a71573634971942ecacd759c51945230d32c5eb35d9c3b8"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_3407/outer_3.json",
+      "bytes": 2968,
+      "sha256": "0f4687e96b80c9c1668a41ad5e43d02ac49255a665936a898804c7e0794d2594"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_3407/outer_4.csv",
+      "bytes": 471766,
+      "sha256": "788a4cf548ab523d2043912e1fad0cac110ede48bba6fa7ab2dd78c0ab4b10eb"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/tum2024_tr/SUPCON/seed_3407/outer_4.json",
+      "bytes": 2968,
+      "sha256": "07d9522a2b2e2c6b4776d7910b884156dd9d7bb4ae5e3e6eaee66098039ce840"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_42/outer_0.csv",
+      "bytes": 409831,
+      "sha256": "f4520bcc607d8d4cc5094092c9b4cc5e6e92fdd225a062579853af612c41c5e7"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_42/outer_0.json",
+      "bytes": 2959,
+      "sha256": "bad2e2a04b45166f3ab6cc758defa33f1c57f670b413b79f6c400612be86b8bb"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_42/outer_1.csv",
+      "bytes": 409810,
+      "sha256": "c5abaceede5939e70a01028edeebabebfd1a9a113c33123f493ae9d1564a49a3"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_42/outer_1.json",
+      "bytes": 2959,
+      "sha256": "1362b579f4f560fe36736c76b7c093656446c7bc47f33c721dda85e21270cc39"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_42/outer_2.csv",
+      "bytes": 409759,
+      "sha256": "b56571870dacc9480c14a5936ba1f6372358bc54af472f508a13e9b4ae0a5fb8"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_42/outer_2.json",
+      "bytes": 2959,
+      "sha256": "0a628ec56960b6f7b61655c44d38c339baa4397f27cd21d62b33aaae38e60404"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_42/outer_3.csv",
+      "bytes": 409676,
+      "sha256": "357dbe7cc9f483f7091a4ac0533e1f945ff29ab67a25092c3df2639e629725d0"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_42/outer_3.json",
+      "bytes": 2959,
+      "sha256": "c34505df6d767b6f12e6eaea82ec364c2bba3955b2773d78678451e0a01fa0a7"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_42/outer_4.csv",
+      "bytes": 409728,
+      "sha256": "342896d407115151ad8ffefdc6ea4a5014c3c10951bbbb9d77d17b504d078b82"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_42/outer_4.json",
+      "bytes": 2959,
+      "sha256": "e2593f81370ca88060c13133bf4d5eb9e676055b5e14cfba6b60fd36be68feb5"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_137/outer_0.csv",
+      "bytes": 412755,
+      "sha256": "b377db517a3aa3cf726d297733b44be0ada6e9f06c42a6e78530d45452692ec7"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_137/outer_0.json",
+      "bytes": 2966,
+      "sha256": "c3dc15f04b6fe6ec752ef4c00d78a453edb8a1023fe70a969c95ef532a4629e4"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_137/outer_1.csv",
+      "bytes": 412861,
+      "sha256": "f3acd49252aadef67941d1a243e45f80bbfabd5f6f9dbc7d5c12385fb9337eb9"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_137/outer_1.json",
+      "bytes": 2966,
+      "sha256": "03e3019187f4d1d49ebfeae66806ff970df904048c44bc3c53d3111e88e0bb4f"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_137/outer_2.csv",
+      "bytes": 412849,
+      "sha256": "b59416df86924f78cee6e8d651f27a3141a5110ceedf4fa2e3afeb9f8bd50803"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_137/outer_2.json",
+      "bytes": 2966,
+      "sha256": "af168078a18fb8400e1ef85ce4548ce566729cc58d9ff2f65fe2a4d9d06b8dbb"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_137/outer_3.csv",
+      "bytes": 412623,
+      "sha256": "3481b733cae6fd73e6c23f2f367efa44c233f92ea1db7989af1172722e2b5d0a"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_137/outer_3.json",
+      "bytes": 2966,
+      "sha256": "0a5c1140e64d4d5b862be397dda837f6038a8adbcd5c00309832911cd1f2c648"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_137/outer_4.csv",
+      "bytes": 412951,
+      "sha256": "722bfabb75b28678ae7379efd37b2b17664951f860f54eff9094f9d5998afe15"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_137/outer_4.json",
+      "bytes": 2966,
+      "sha256": "73914b4904ffb7db1e543e38a526df67c77f92c66a8c2e09e263f90c5ad2a381"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_314/outer_0.csv",
+      "bytes": 412910,
+      "sha256": "c0a31f5a6e8ac3658b1a1fb978f173f47c86720dc59a94a54aa6ecf41e83def7"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_314/outer_0.json",
+      "bytes": 2966,
+      "sha256": "ac6e937d2e7c8a7ea2a14b35a4e0c83a32618d478c33acd35c4caf5620fe1e4f"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_314/outer_1.csv",
+      "bytes": 412811,
+      "sha256": "33b7b80232aa5a3cf400003f52824293c28deb5b4141cce3532130652b215c89"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_314/outer_1.json",
+      "bytes": 2966,
+      "sha256": "e619535ac0c2a042709ecf0e743143d50f491b529cc5a7dc253cad147f055f44"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_314/outer_2.csv",
+      "bytes": 412854,
+      "sha256": "8653923baf472502b2f570ad9204f4997bc413b8e5e8b17a5b9dd336322a1cc9"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_314/outer_2.json",
+      "bytes": 2966,
+      "sha256": "145dc5ebdfd25a8f7ffad6a1dceebbc24123c8c49e57e4e6168c4533464b08a2"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_314/outer_3.csv",
+      "bytes": 412853,
+      "sha256": "2a3eb04c6ec4503edd08e5c13cc9d96d7b42a0c5068b550ae23d7dff7f2b4727"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_314/outer_3.json",
+      "bytes": 2966,
+      "sha256": "785ca17b144e0a3ad1e3b98ef15206ab7ca351cbf5c13f5a4c2b216f8a1e69fd"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_314/outer_4.csv",
+      "bytes": 413281,
+      "sha256": "00bded8d1ac45750c1668e1677bd20f58b72e2766ade4597cfa10a9e3e03711a"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_314/outer_4.json",
+      "bytes": 2966,
+      "sha256": "7d63d8d74626a2c8a249676afc0f348bc791ee6967dd016605117e74867610e4"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_2026/outer_0.csv",
+      "bytes": 416065,
+      "sha256": "c28bf8144c0ae96502a496f7db2c6a91921cc651ad78d47209b107c5a0f6f5da"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_2026/outer_0.json",
+      "bytes": 2973,
+      "sha256": "f0c53c6233e2c7f4b637192d4c1bff03bae840ed42d53a37f222271c02584633"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_2026/outer_1.csv",
+      "bytes": 416066,
+      "sha256": "d3465f8a074db1af6296836c779626b3867270758edd6f2acbb0b476d5264d1b"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_2026/outer_1.json",
+      "bytes": 2973,
+      "sha256": "9f9b993abae6c0f7ed2aa353325c7939a206e8fc48389037be1fb93a8d59ff9a"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_2026/outer_2.csv",
+      "bytes": 416034,
+      "sha256": "7758f7b868c5c89f59cd19ffafcebb6cb5c03dccdc78ef1daab18e091e99c231"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_2026/outer_2.json",
+      "bytes": 2973,
+      "sha256": "0a66dc644b1a995abd2e59aed8e159a3e9cee6e75dc7e3ed37eac9586b7934f9"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_2026/outer_3.csv",
+      "bytes": 416061,
+      "sha256": "faefb8afc3363cae93368fb41a4c0ee3b7c943bf138ff6f6f67c93d9c39d7df5"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_2026/outer_3.json",
+      "bytes": 2973,
+      "sha256": "748a826e26b4b57bf1018e778d24f5e5656a52e1ffd59a95e170cd6888586919"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_2026/outer_4.csv",
+      "bytes": 415999,
+      "sha256": "8c8faecad851434fca074e2460ed381ab6395acb9a919acf724cd8f90926bf5f"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_2026/outer_4.json",
+      "bytes": 2973,
+      "sha256": "7892d68a6e3b797a68c933954c602dd5ac8b24f25bd60f21c26602fe7241f444"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_3407/outer_0.csv",
+      "bytes": 416036,
+      "sha256": "30ad148c690942f87d3ba2d213d5c3fb43080b4d9bde924127a47a031c4f83a8"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_3407/outer_0.json",
+      "bytes": 2973,
+      "sha256": "7842b6c7841e5af22bb08aec2fc331c65ee64a7c4aac1aa712119d22492eed95"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_3407/outer_1.csv",
+      "bytes": 416062,
+      "sha256": "9ef1dda65646bb5efb730c64dff3f1a94ca7a7b0ec914d92d156216ed5339238"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_3407/outer_1.json",
+      "bytes": 2973,
+      "sha256": "7978314d692f9b9ae9b7eb0af7286208a73464fb8fedfde48cf2e0cfabaa7302"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_3407/outer_2.csv",
+      "bytes": 415935,
+      "sha256": "d1875bfa6a3e983d6b7afe7407512fa5f5270285c94f3059006eb07d84b5ee80"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_3407/outer_2.json",
+      "bytes": 2973,
+      "sha256": "27d77f56db3e5f9b85d9dc01546b500af466e1b8cab89efdce4daa2a93530ff4"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_3407/outer_3.csv",
+      "bytes": 415867,
+      "sha256": "e1eba19f202c422946f7ef6325f499eb7fa2e74f0d5860bcf2101d0bc023cab3"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_3407/outer_3.json",
+      "bytes": 2973,
+      "sha256": "ea4eabc101893632a57cea6f9b08f1ca1e3f85ab399d3d052d04d89f473152db"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_3407/outer_4.csv",
+      "bytes": 415887,
+      "sha256": "4e2ee5607c3dc0e8649dca3aaf0ce0db485aac3f38bb918c55ce781e44ec6c3d"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/CE_ONLY_MATCHED/seed_3407/outer_4.json",
+      "bytes": 2973,
+      "sha256": "e34d66ae23614d915626444c87db25a2c44e66d2f30c8c3dab2bfdbdd156b66c"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_42/outer_0.csv",
+      "bytes": 412537,
+      "sha256": "5b62d60468268d93c3d6010d3312bf7d3ede88a2ce8c8064310cc23d884c838b"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_42/outer_0.json",
+      "bytes": 2981,
+      "sha256": "70a80226cd554b6af1fe095584256810ac3e4a50134dc06f0cb21f09320e4124"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_42/outer_1.csv",
+      "bytes": 412622,
+      "sha256": "cfa347788aaaf005f5418a9aa542cd34195cc6739b67061b5b303691c1cb1498"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_42/outer_1.json",
+      "bytes": 2981,
+      "sha256": "6ee5c221787e5e3dd63b6fd4e8f2ad80ec6616371b6062c154d0aec287ce442d"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_42/outer_2.csv",
+      "bytes": 412558,
+      "sha256": "0cdf691d01e65b1d3dd3533779ab72c75298ce34bcf863bb6ff492d4c3a9a023"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_42/outer_2.json",
+      "bytes": 2981,
+      "sha256": "50025e34262ec5d115f49b6cf791338ba53879e57d662ac06907215915a28545"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_42/outer_3.csv",
+      "bytes": 412558,
+      "sha256": "c71d3e3a154839e9f435241e69b7016da415d569c0f29e81b3533758b4d60ca1"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_42/outer_3.json",
+      "bytes": 2981,
+      "sha256": "9fa1357af97610b849e499e8639f3dbc9b0094c49fe6710c6526ac5b065ef98e"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_42/outer_4.csv",
+      "bytes": 412632,
+      "sha256": "9082479fe0a41da738a2e8f4e48a76c535094216f666a8ef275974d3e2c1d468"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_42/outer_4.json",
+      "bytes": 2981,
+      "sha256": "9fb51977d6b35bc1d92dfb23b7093a1f418759898866ce33b2a57f870978ea9c"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_137/outer_0.csv",
+      "bytes": 415606,
+      "sha256": "6d1fb650aab76deb89d0a7a4e29be2b1d6bc5a41c763f9e15dd85a7cf8d1c7ad"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_137/outer_0.json",
+      "bytes": 2988,
+      "sha256": "58a802350eda384b7432bb03e80a24ef216f7065080d238396c2d55b15aa5727"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_137/outer_1.csv",
+      "bytes": 415673,
+      "sha256": "6b1e688c54b8cf33cfe451d96c121650366c897cb74084a79933a9c899f169ad"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_137/outer_1.json",
+      "bytes": 2988,
+      "sha256": "6a1b4a4455c73a9ea501a5363004527c9e5d4872693608b167f83c4fb72cacc7"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_137/outer_2.csv",
+      "bytes": 415723,
+      "sha256": "56a5e4b8e9ce834e0e274eedef8bf7743ef1e16a75d54968f41d6cae19fe17c1"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_137/outer_2.json",
+      "bytes": 2988,
+      "sha256": "7216f717974e1ec86a48276f5f6e86e35b89d1ed3122492eb2d7c3212248b355"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_137/outer_3.csv",
+      "bytes": 415628,
+      "sha256": "2a08c8480ed9031a1b10021764cac2d9e18e5f386df93a0f1568afec5b80a70e"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_137/outer_3.json",
+      "bytes": 2988,
+      "sha256": "c6e4ebca74279cfcc16891a04a1699f66ad6621a3974c57e9e2a2fb2b85611f1"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_137/outer_4.csv",
+      "bytes": 415789,
+      "sha256": "3b0c5081dd2556e4f4ecccdaca0422d091e07c21e877a3eb14f34cfd6ecb6df0"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_137/outer_4.json",
+      "bytes": 2988,
+      "sha256": "0a7620efeda73dc975fe51c1da8ce07262b0d36bc20f652546531f3d7a5c8c00"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_314/outer_0.csv",
+      "bytes": 415990,
+      "sha256": "afa1fa8892e5af3c3059933b68a485c6a1fb95cd3ada0c28e80c58b605808b8f"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_314/outer_0.json",
+      "bytes": 2988,
+      "sha256": "91d5c7eb2a2bd22420b3532604908d674c28c85be9d041f0796b45c38f5a759a"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_314/outer_1.csv",
+      "bytes": 415970,
+      "sha256": "3d871ac370961105cbc90587d6082eeb15b262e8e8ae413130a190178d44118d"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_314/outer_1.json",
+      "bytes": 2988,
+      "sha256": "db45fa40dcac10a5b1bd603b5367225606d56dab90529e5487509e0f514e5d27"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_314/outer_2.csv",
+      "bytes": 415823,
+      "sha256": "fe127aaf7ed99af28fa355baa5d3c9b9579be0a775c23e07232f04d53cf727ea"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_314/outer_2.json",
+      "bytes": 2988,
+      "sha256": "b1a541182afce5731cf13cab8421d85f0b8c483ba5dcfc172d62cd3ab351cce2"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_314/outer_3.csv",
+      "bytes": 415996,
+      "sha256": "c4fbea05865bed8943996182b6c5b3a74669431ce0df6c1f55af85361890a2ec"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_314/outer_3.json",
+      "bytes": 2988,
+      "sha256": "cba7d116fd4fc60f1dfd8bba392e0eade64eebb5c3d1512c44db474d043eca6a"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_314/outer_4.csv",
+      "bytes": 415860,
+      "sha256": "2d87d0beb0d1495af970c3df9254a180da7a8364f209e12f4e3f2788f93d64eb"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_314/outer_4.json",
+      "bytes": 2988,
+      "sha256": "6f58f3bcc84106c5449f469e0fb0a532b0b6638105e754eb649205da39dfc196"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_2026/outer_0.csv",
+      "bytes": 419048,
+      "sha256": "f18c5c9ede1cdf0c162e53bfe118aac7f96d5b23ba064e35b13520685abc4933"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_2026/outer_0.json",
+      "bytes": 2995,
+      "sha256": "21db024ff3a53d26ea6a135fb663be913212dd047248e5b190b2b33dea720971"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_2026/outer_1.csv",
+      "bytes": 419041,
+      "sha256": "52d0adc5746a5cd6e871819d64838bae53eebf9bd65be7d08c03deb459ae5993"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_2026/outer_1.json",
+      "bytes": 2995,
+      "sha256": "1aa7bcd36f6e8fcead30e66650e767c0aa20b88f04971e411d96b849318f8688"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_2026/outer_2.csv",
+      "bytes": 419141,
+      "sha256": "d69a1d30f69a0fce806623db9b3159feed1e31f8e5151a412a08d78e78e83332"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_2026/outer_2.json",
+      "bytes": 2995,
+      "sha256": "79293430ec7b582dd784b06a9e241a1a2a9b50fca2150180d154b71fce3c52a4"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_2026/outer_3.csv",
+      "bytes": 419103,
+      "sha256": "a26e6c093ddbc7ac170286421ba4faf77869789efe79d5a0c5cc55227e55bb50"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_2026/outer_3.json",
+      "bytes": 2995,
+      "sha256": "1e55cb84cb2a79d017be0ff77d61a69c7951919c8ea3381b120e3e7c25664e63"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_2026/outer_4.csv",
+      "bytes": 419062,
+      "sha256": "ecae54a6553786c3bbf470a7e1a7324c71b4162ecfc503040d15a48fa21e2aa8"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_2026/outer_4.json",
+      "bytes": 2995,
+      "sha256": "f0e5b9a8806bcbb66567e18abc618cea27d7c5823faa04a18f61d50226684e52"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_3407/outer_0.csv",
+      "bytes": 418918,
+      "sha256": "84baf8143ba7ed6f576a088c93d95c2b9265750444041a2d5407e744c0459a24"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_3407/outer_0.json",
+      "bytes": 2995,
+      "sha256": "2441b456f2537934786ae621897a6bb873b1f154faedf79baff1cdb98653eb6c"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_3407/outer_1.csv",
+      "bytes": 418930,
+      "sha256": "4b56a17190ffbb2e1d6bfb671e33e25ade3a5d8bd96e1f5ddbfd4dc4f88431ca"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_3407/outer_1.json",
+      "bytes": 2995,
+      "sha256": "407296d49dba2364e5ae5af9d31cff4a6b6241e23a612083e99463131ca21f43"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_3407/outer_2.csv",
+      "bytes": 418859,
+      "sha256": "838cc79afd17187603bf5ac6490ef12e6adb90ceb9e2c12f83ae2ab8c908c9aa"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_3407/outer_2.json",
+      "bytes": 2995,
+      "sha256": "a7140817791bf23176b64b967572b2933dde6e9118d0e8ebf1690d11e316dd27"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_3407/outer_3.csv",
+      "bytes": 418926,
+      "sha256": "717a8a132717157aba25c103db784e270bac677112ec1add3cbf330ebb2fa9fd"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_3407/outer_3.json",
+      "bytes": 2995,
+      "sha256": "6f8a7e0d748d7c4dc86fd7cd1cfabb357bddbc976d116bce4ec0515c53f56025"
+    },
+    {
+      "role": "transformer_prediction",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_3407/outer_4.csv",
+      "bytes": 418988,
+      "sha256": "972a9531fd2c81803310a8723faff34b204df0aa04195502524ab3b194e058cf"
+    },
+    {
+      "role": "transformer_prediction_sidecar",
+      "path": "artifacts/predictions/external_cross_corpus/preseal/bostancioglu2026_tr/SUPCON/seed_3407/outer_4.json",
+      "bytes": 2995,
+      "sha256": "0b2cde79b6426c64bc3af0093be5dbbaad853a084f44a94e6a2d9276ee858286"
+    }
+  ]
+}

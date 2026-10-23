@@ -1,0 +1,21 @@
+{
+  "schema_version": "combined-v2-lit2026-completion-integrity-v1",
+  "status": "PASS",
+  "results_unblinded": false,
+  "scientific_metrics_computed": false,
+  "verified_fits": 15,
+  "verified_predictions": 15,
+  "rows_per_fit": 600,
+  "pairs_per_fit": 300,
+  "five_outer_folds_cover_all_1500_pairs_per_seed": true,
+  "validation_split_identical_across_seeds": true,
+  "outer_test_training_use_verified_zero": true,
+  "outer_test_model_selection_use_verified_false": true,
+  "prediction_hashes_verified": true,
+  "freeze_runner_config_bindings_verified": true,
+  "finite_raw_scores_verified_without_revealing_values": true,
+  "freeze_sha256": "25600506c02907c59ec807c4b8b2112fc5a01900f63349c3cd47b02cdb79afd7",
+  "config_sha256": "86e435fb05d9c11a7285364c145077f19de46e7b7214149cd3a1acf799d3545e",
+  "runner_sha256": "6105646dfcc88cb24a8c32953a1751ece5e4daa14a3b7efacd0ddefa9f8e1d6a",
+  "next_step": "Run scripts/lit2026_reimpl_statistics.py for one-time literature-reimplementation unblinding."
+}

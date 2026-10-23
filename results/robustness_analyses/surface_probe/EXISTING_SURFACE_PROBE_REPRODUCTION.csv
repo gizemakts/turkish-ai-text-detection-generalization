@@ -1,0 +1,2 @@
+target,expected_roc_auc,reproduced_roc_auc,absolute_difference,tolerance,status
+existing_NEWSPAPER_surface_probe,0.998772,0.998772,0.0,1e-10,PASS

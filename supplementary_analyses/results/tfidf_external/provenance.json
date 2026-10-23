@@ -1,0 +1,31 @@
+{
+  "created_utc": "2026-10-15T07:28:34.457537+00:00",
+  "analysis_label": "exploratory; external corpora not used for tuning",
+  "recipe": "Exact documented M4 Condition-A recipe",
+  "external_fit_count": 0,
+  "aggregation": "metrics computed per independently fitted outer model; no score pooling",
+  "training_population": "Combined-v2 rows whose pair-disjoint outer_fold differs from fitted fold",
+  "script_sha256": "0eac98c4b20e0f6d9779bc2ae697d1cb3647301fc7e0a53c287bc4484a13e3b6",
+  "inputs": [
+    {
+      "path": "data\\study\\paired_study.csv",
+      "sha256": "ea5797ac19348957472626d1a23b740de531cd19577f613e1a73894e34d66b44"
+    },
+    {
+      "path": "data\\study\\nested_folds.csv",
+      "sha256": "16ffae53a5d9027a95e12f3975fd062f17038ef5bf8970a74dd3ef7339d9a100"
+    },
+    {
+      "path": "data\\external_prepared\\renklier2026_test_standardized.csv",
+      "sha256": "1ec79d25ae852321cd5659691643eda58e407bcc17e169e6559413587ed8acb5"
+    },
+    {
+      "path": "data\\external_prepared\\tum2024_tr_test_standardized.csv",
+      "sha256": "8ab15a4ace28674d20ce94faf4a63e1c5885254051ac2a795bd2033c961e557a"
+    },
+    {
+      "path": "data\\external_prepared\\bostancioglu2026_tr_full_standardized.csv",
+      "sha256": "dfcde6dadf0c3f7bea719e4b54a61cea8ffb7c29a47adb0413de22cba39b578c"
+    }
+  ]
+}

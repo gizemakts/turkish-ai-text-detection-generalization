@@ -1,0 +1,21 @@
+{
+  "schema_version": "meric2-fixed-model-exploratory-v1",
+  "status": "FROZEN_BEFORE_MERIC2_MODEL_SCORING",
+  "frozen_date": "2026-10-15",
+  "dataset": "REQUIRES_AUTHORIZED_LOCAL_PATH",
+  "dataset_sha256": "e9ab81061c4cb388889cb37b2e9dda3d30928a083a3227ad8641cc7baad97ec3",
+  "label_mapping": {"human": 0, "ai": 1},
+  "deduplication": "Unicode NFKC; collapse whitespace; strip; casefold; retain lowest original row index per label/hash",
+  "overlap_policy": "exclude normalized exact matches to Combined-v2 or any of the three sealed external corpora",
+  "methods": ["CE_ONLY_MATCHED", "SUPCON", "TFIDF_M4"],
+  "transformer_seeds": [42, 314, 2026],
+  "transformer_seed_restriction": "Restricted to the original external inference verifier's authorized frozen grid; seeds 137 and 3407 are not used in this Meric2 analysis.",
+  "outer_folds": [0, 1, 2, 3, 4],
+  "tfidf_source": "Combined-v2-only M4 Condition-A recipe; selected C values imported from completed Task 2 inner-OOF tuning",
+  "metrics": ["roc_auc", "average_precision", "standardized_partial_roc_auc_max_fpr_003"],
+  "word_count_strata": ["le25", "26_32", "33_40", "41_48", "49_60", "gt60"],
+  "length_matching": "Exact integer word-count matching: within each word count retain min(HUMAN,AI) per class by ascending normalized text SHA-256; pair same-rank retained records only as bootstrap blocks, not as source-lineage pairs",
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 20261015,
+  "interpretation": "Post-hoc exploratory external stress test; no Meric2 model fitting, tuning, calibration, threshold selection, or causal claims"
+}

@@ -1,0 +1,16 @@
+{
+  "status": "DOWNLOADED_SMOKE_TESTED_AND_ANALYZED",
+  "library": "stanza",
+  "library_version": "1.14.0",
+  "resources_version": "1.14.0",
+  "language": "tr",
+  "tokenize_package": "boun",
+  "ner_package": "starlang",
+  "processors": ["tokenize", "ner"],
+  "model_source": "stanfordnlp/stanza-tr release tag v1.14.0",
+  "documentation": "https://stanfordnlp.github.io/stanza/ner_models.html",
+  "download_policy": "manual only; record SHA-256 of every downloaded resource before full analysis",
+  "local_resource_path": "results/robustness_analyses/resources/stanza_tr_1.14.0",
+  "download_source_actual": "stanfordnlp/stanza-tr v1.14.0 via Stanza downloader and Hugging Face Hub",
+  "resource_hash_manifest": "results/robustness_analyses/provenance/TURKISH_NER_RESOURCE_SHA256.csv"
+}

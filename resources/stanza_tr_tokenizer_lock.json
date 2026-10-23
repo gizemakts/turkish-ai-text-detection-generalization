@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "resource_type": "stanza_tokenizer_lock",
+  "stanza_version": "1.14.0",
+  "language": "tr",
+  "processor": "tokenize",
+  "package": "imst",
+  "resources_json_sha256": "4e41c1df152146fa26ed0c006a08feea7a60bb3414bb6d57dbda24ad2e3cb99c",
+  "model_filename": "imst.pt",
+  "model_sha256": "cf40b90d1796281960359a9cfb007783155161e6125551611b2996f85296360b"
+}

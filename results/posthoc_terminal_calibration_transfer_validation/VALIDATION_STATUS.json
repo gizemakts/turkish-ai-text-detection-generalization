@@ -1,0 +1,51 @@
+{
+  "status": "CALIBRATION_TRANSFER_LIMITED",
+  "provenance_status": "PASS",
+  "authentic_terminal_predictions_identified": true,
+  "realizations_validated": 30,
+  "criteria": {
+    "terminal_median_brier_max": 0.05,
+    "terminal_median_log_loss_max": 0.2,
+    "terminal_median_ece_max": 0.05,
+    "median_brier_degradation_max": 0.02,
+    "median_log_loss_degradation_max": 0.1,
+    "median_ece_degradation_max": 0.05,
+    "median_abs_class_raw_smd_max": 0.5,
+    "p90_abs_class_raw_smd_max": 1.0,
+    "threshold_median_excess_tolerance": 0.01,
+    "threshold_realization_tolerance": 0.02,
+    "threshold_min_fraction_within_tolerance": 0.8
+  },
+  "criteria_results": {
+    "by_method": {
+      "CE_ONLY_MATCHED": {
+        "terminal_brier_median": true,
+        "terminal_log_loss_median": true,
+        "terminal_ece_median": true,
+        "brier_degradation_median": true,
+        "log_loss_degradation_median": true,
+        "ece_degradation_median": true,
+        "class_raw_smd_abs_median": true,
+        "class_raw_smd_abs_p90": false
+      },
+      "SUPCON": {
+        "terminal_brier_median": true,
+        "terminal_log_loss_median": true,
+        "terminal_ece_median": true,
+        "brier_degradation_median": true,
+        "log_loss_degradation_median": true,
+        "ece_degradation_median": true,
+        "class_raw_smd_abs_median": true,
+        "class_raw_smd_abs_p90": false
+      }
+    },
+    "metric_and_distribution_checks_all_pass": false,
+    "threshold_checks_all_pass": true,
+    "limiting_finding": "90th percentile absolute class-conditional raw-score SMD exceeded 1.0 for both methods; largest shifts were in AI scores."
+  },
+  "calibration_refit": false,
+  "external_inference": false,
+  "bootstrap_rerun": false,
+  "existing_outputs_modified": false,
+  "formal_fpr_guarantee_claimed": false
+}

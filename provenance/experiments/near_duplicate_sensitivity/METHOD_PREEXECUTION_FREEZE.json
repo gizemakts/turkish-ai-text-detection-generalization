@@ -1,0 +1,167 @@
+{
+  "schema_version": "combined-v2-near-duplicate-method-preexecution-freeze-v1",
+  "created_utc": "2026-10-04T11:57:29.067459+00:00",
+  "status": "METHOD_FROZEN_READY_TO_BUILD_CLUSTERS",
+  "experiment": "COMBINED_V2_NEAR_DUPLICATE_SENSITIVITY_V1",
+  "cluster_statistics_observed_before_method_freeze": false,
+  "model_outcomes_consulted_for_method": false,
+  "checks": {
+    "identity_pass": true,
+    "smoke_pass": true,
+    "cluster_statistics_not_computed_before_freeze": true,
+    "dataset_hash": true,
+    "historical_fold_hash": true,
+    "protocol_hash": true,
+    "jaccard_exact": true,
+    "threshold_fixed_080": true,
+    "five_word_shingles": true,
+    "label_blind": true,
+    "score_blind": true,
+    "historical_split_not_rewritten": true,
+    "planned_scientific_fits": true,
+    "bootstrap_unit_cluster": true
+  },
+  "files": {
+    "config": {
+      "path": "configs/combined_v2/near_duplicate_sensitivity_v1.json",
+      "sha256": "65f8847823c282d027b1265a8d51741038a195d632eeb086504461fdf09d0a8b",
+      "bytes": 4939
+    },
+    "builder": {
+      "path": "scripts/build_near_duplicate_clusters_v1.py",
+      "sha256": "47df8ec4bd0ded1a1ee5f009a6e1ddba510ade0676dce7d7f80d074227a096bd",
+      "bytes": 13527
+    },
+    "identity_test": {
+      "path": "tests/test_near_duplicate_method_identity.py",
+      "sha256": "3fe593094ac188ede81a5d0740629ffdab1e17dc1b191c061d2b70813ab8c940",
+      "bytes": 3394
+    },
+    "smoke_test": {
+      "path": "tests/test_near_duplicate_method_smoke.py",
+      "sha256": "e745d247583f33081737e653aee7e18ed17ed9267d54220c6993ac57f7b52b72",
+      "bytes": 5092
+    },
+    "identity_report": {
+      "path": "provenance/combined_v2/near_duplicate_sensitivity_v1/preflight/method_identity_audit.json",
+      "sha256": "9e5009b62a73a5aa61e8cec4909a7f53d63191a1b42271cbf4c7225d74f3fe1a",
+      "bytes": 841
+    },
+    "smoke_report": {
+      "path": "provenance/combined_v2/near_duplicate_sensitivity_v1/preflight/method_smoke.json",
+      "sha256": "a39b410ce1cabc4a34417b5618934da31cf9b7ebdfa787fa9fd005b721d67805",
+      "bytes": 1172
+    },
+    "dataset": {
+      "path": "data/COMBINED_V2/combined_v2.csv",
+      "sha256": "ea5797ac19348957472626d1a23b740de531cd19577f613e1a73894e34d66b44",
+      "bytes": 10739891
+    },
+    "historical_pair_aware_folds": {
+      "path": "data/COMBINED_V2/nested_folds_v2.csv",
+      "sha256": "16ffae53a5d9027a95e12f3975fd062f17038ef5bf8970a74dd3ef7339d9a100",
+      "bytes": 79934
+    },
+    "final_experiment_protocol": {
+      "path": "provenance/combined_v2/protocol/FINAL_EXPERIMENT_PROTOCOL_V1.md",
+      "sha256": "c848bae3278a69a36ed8961d6583d1c915cf199fe9f6072937b994b82c17cae8",
+      "bytes": 21736
+    }
+  },
+  "method": {
+    "unit_scored": "text row",
+    "grouping_unit": "pair_id",
+    "labels_used_for_clustering": false,
+    "model_scores_used_for_clustering": false,
+    "domain_or_generator_used_for_similarity": false,
+    "normalization": {
+      "unicode": "NFC",
+      "case": "Turkish-aware lowercase: I->ı, İ->i, then lower()",
+      "tokenization": "Unicode alphanumeric word tokens excluding underscore; punctuation acts as separator",
+      "stopword_removal": false,
+      "stemming_or_lemmatization": false,
+      "diacritic_stripping": false
+    },
+    "representation": {
+      "type": "set of contiguous word 5-shingles",
+      "shingle_size": 5,
+      "short_text_fallback": "one full-token-sequence shingle when token count is 1..4",
+      "empty_text_policy": "empty shingle set; dataset integrity requires non-empty source text"
+    },
+    "similarity": {
+      "metric": "exact Jaccard similarity on unique 5-shingle sets",
+      "threshold": 0.8,
+      "threshold_operator": ">=",
+      "approximate_hashing": false,
+      "all_rows_compared": true,
+      "same_pair_edges_ignored_for_cross_pair_clustering": true
+    },
+    "clustering": {
+      "graph_nodes": "pair_id",
+      "edge_rule": "add an edge between two distinct pair_ids when any text-row pair across those pair_ids has exact Jaccard >= 0.80",
+      "component_rule": "undirected connected components / union-find",
+      "singleton_pairs_retained": true,
+      "cluster_id": "deterministic SHA-256 digest of sorted pair_ids in component"
+    }
+  },
+  "cluster_aware_split": {
+    "historical_split_rewritten": false,
+    "sensitivity_split_only": true,
+    "n_splits": 5,
+    "algorithm": "sklearn.model_selection.StratifiedGroupKFold",
+    "shuffle": true,
+    "random_state": 42,
+    "stratification_target": "domain×generator at pair level",
+    "groups": "near_duplicate_cluster_id",
+    "pair_integrity": "all rows of a pair remain together",
+    "cluster_integrity": "all pair_ids in one near-duplicate component remain in one outer evaluation fold",
+    "feasibility_rule": "if the prespecified split cannot be constructed with five folds and every fold containing all ten domain×generator strata, stop and report NOT_FEASIBLE_AS_PRESPECIFIED; do not alter threshold, representation, or random seed"
+  },
+  "planned_scientific_evaluation": {
+    "objectives": [
+      "ce",
+      "supcon"
+    ],
+    "seeds": [
+      42,
+      137,
+      314,
+      2026,
+      3407
+    ],
+    "outer_folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "planned_fits": 50,
+    "training_recipe": "identical to COMBINED_V2_PRIMARY_ABLATION_V1 except for the cluster-aware outer split",
+    "primary_metric": "roc_auc",
+    "secondary_metrics": [
+      "average_precision",
+      "standardized_pauc_003"
+    ],
+    "calibration": false,
+    "thresholding": false,
+    "primary_sensitivity_contrasts": [
+      "CE cluster-aware minus CE historical pair-aware",
+      "SupCon cluster-aware minus SupCon historical pair-aware"
+    ],
+    "secondary_contrasts": [
+      "SupCon minus CE within cluster-aware split",
+      "difference-in-differences: (SupCon-CE)_cluster-aware minus (SupCon-CE)_historical"
+    ],
+    "inference_unit": "near_duplicate_cluster_id",
+    "bootstrap_replicates": 5000,
+    "bootstrap_seed": 2603,
+    "seed_policy": "seeds fixed and not resampled",
+    "ci": "95% percentile interval"
+  },
+  "git": {
+    "commit": null,
+    "dirty_paths": null
+  },
+  "next_command": "& \".\\.venv-gpu\\Scripts\\python.exe\" \".\\scripts\\build_near_duplicate_clusters_v1.py\""
+}

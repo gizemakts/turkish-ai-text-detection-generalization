@@ -1,0 +1,15 @@
+{
+  "created_utc": "2026-10-15T09:46:59.826215+00:00",
+  "status": "PASS_LENGTH_CONTROL_VALIDATIONS",
+  "dataset_sha256": "ea5797ac19348957472626d1a23b740de531cd19577f613e1a73894e34d66b44",
+  "fold_sha256": "16ffae53a5d9027a95e12f3975fd062f17038ef5bf8970a74dd3ef7339d9a100",
+  "prediction_cells": 50,
+  "prediction_cells_passed": 50,
+  "a2_unrestricted_cells_reconciled": 10,
+  "a2_max_absolute_metric_difference": 1.1102230246251565e-16,
+  "length_only_oof_rows": 6000,
+  "sparse_fold_cells": 0,
+  "undefined_fold_cells": 0,
+  "config_sha256": "aafc31bc75cbee9458215f3fec6190afab0980070df03d9a211894fc8a18df10",
+  "script_sha256": "b50b349f535ec6fa0040016e57fc9fa17588043ddcf0cab4ed6e5db50dde4f3b"
+}

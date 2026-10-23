@@ -1,0 +1,211 @@
+{
+  "schema_version": "combined-v2-domain-shift-preexecution-freeze-v1",
+  "created_utc": "2026-10-02T20:19:55.139482+00:00",
+  "status": "FROZEN_READY_TO_RUN",
+  "experiment": "DOMAIN_SHIFT_V1",
+  "planned_fits": 12,
+  "matrix": [
+    {
+      "direction": "abstract_to_newspaper",
+      "seed": 42,
+      "objective": "ce"
+    },
+    {
+      "direction": "abstract_to_newspaper",
+      "seed": 42,
+      "objective": "supcon"
+    },
+    {
+      "direction": "abstract_to_newspaper",
+      "seed": 314,
+      "objective": "ce"
+    },
+    {
+      "direction": "abstract_to_newspaper",
+      "seed": 314,
+      "objective": "supcon"
+    },
+    {
+      "direction": "abstract_to_newspaper",
+      "seed": 2026,
+      "objective": "ce"
+    },
+    {
+      "direction": "abstract_to_newspaper",
+      "seed": 2026,
+      "objective": "supcon"
+    },
+    {
+      "direction": "newspaper_to_abstract",
+      "seed": 42,
+      "objective": "ce"
+    },
+    {
+      "direction": "newspaper_to_abstract",
+      "seed": 42,
+      "objective": "supcon"
+    },
+    {
+      "direction": "newspaper_to_abstract",
+      "seed": 314,
+      "objective": "ce"
+    },
+    {
+      "direction": "newspaper_to_abstract",
+      "seed": 314,
+      "objective": "supcon"
+    },
+    {
+      "direction": "newspaper_to_abstract",
+      "seed": 2026,
+      "objective": "ce"
+    },
+    {
+      "direction": "newspaper_to_abstract",
+      "seed": 2026,
+      "objective": "supcon"
+    }
+  ],
+  "checks": {
+    "identity_pass": true,
+    "identity_runner_binding": true,
+    "identity_config_binding": true,
+    "smoke_pass": true,
+    "smoke_runner_binding": true,
+    "smoke_config_binding": true,
+    "smoke_no_scientific_training": true,
+    "smoke_no_scientific_scores": true,
+    "dataset_hash": true,
+    "protocol_hash": true,
+    "primary_runner_hash": true,
+    "primary_config_hash": true,
+    "primary_freeze_hash": true,
+    "primary_manifest_hash": true,
+    "primary_manifest_complete": true,
+    "generator_config_hash": true,
+    "generator_runner_hash": true,
+    "generator_freeze_hash": true,
+    "generator_manifest_hash": true,
+    "generator_manifest_complete": true,
+    "domain_shift_design_prespecified": true,
+    "domain_shift_results_seen": true,
+    "planned_fits": true,
+    "bootstrap_prespecified": true
+  },
+  "files": {
+    "config": {
+      "path": "configs/combined_v2/domain_shift_v1.json",
+      "sha256": "bf5fd8a4c099c05c42cb433d0968764a5d8ca19bf0bcec8b514bd0eece7d6fb9",
+      "bytes": 6572
+    },
+    "runner": {
+      "path": "scripts/run_domain_shift_v1.py",
+      "sha256": "2c485224cf40cdb5f0b350c9c504084b4ca1a13287ee11ca82c1d839d164e59f",
+      "bytes": 12332
+    },
+    "matrix_launcher": {
+      "path": "scripts/run_domain_shift_matrix_v1.py",
+      "sha256": "b66094d7b9629e12a64da9e51c8bf8721f77f5ee76e5aa762090b6893d5189eb",
+      "bytes": 2337
+    },
+    "statistics_module": {
+      "path": "scripts/domain_shift_statistics.py",
+      "sha256": "d5ef92d356305ac0b71faee44db6cc5050e60dccea6c3df63181da693a5ca0f4",
+      "bytes": 19165
+    },
+    "completion_verifier": {
+      "path": "scripts/verify_domain_shift_completion_v1.py",
+      "sha256": "ec525d655a24761bde8e31bef2737ffada7e4a53d88cbb87d078c02ab17864ba",
+      "bytes": 6385
+    },
+    "identity_test": {
+      "path": "tests/test_domain_shift_identity.py",
+      "sha256": "753bc4d3658a67144f4bb93a4d3c920b157ad416c64ec3d83ad716006a17a1df",
+      "bytes": 7747
+    },
+    "smoke_test": {
+      "path": "tests/test_domain_shift_smoke.py",
+      "sha256": "b91c51c94d9f0fb6961b1c8963f9aa69f4f61134d06b5bd253a7bdb34462ab25",
+      "bytes": 4540
+    },
+    "dataset": {
+      "path": "data/COMBINED_V2/combined_v2.csv",
+      "sha256": "ea5797ac19348957472626d1a23b740de531cd19577f613e1a73894e34d66b44",
+      "bytes": 10739891
+    },
+    "protocol": {
+      "path": "provenance/combined_v2/protocol/FINAL_EXPERIMENT_PROTOCOL_V1.md",
+      "sha256": "c848bae3278a69a36ed8961d6583d1c915cf199fe9f6072937b994b82c17cae8",
+      "bytes": 21736
+    },
+    "primary_runner": {
+      "path": "scripts/run_primary_ablation_v1.py",
+      "sha256": "eafe1e66c5d8324cf547571144a1a2f70f9cf1b4406c22f9eabd4e0b8587b92e",
+      "bytes": 16723
+    },
+    "primary_config": {
+      "path": "configs/combined_v2/primary_ablation_v1.json",
+      "sha256": "7e825c0f97f1763c6b4db69164feda04743f9fa30f27e254e1c52f953dd07f13",
+      "bytes": 5415
+    },
+    "primary_freeze": {
+      "path": "provenance/combined_v2/primary_ablation_v1/PREEXECUTION_FREEZE.json",
+      "sha256": "162a120d624c830e3b0f93a07504a30be58ac602f4089aa2349527d52882548e",
+      "bytes": 9501
+    },
+    "primary_final_statistics_manifest": {
+      "path": "outputs/combined_v2/primary_ablation_v1/final_statistics/final_statistics_manifest.json",
+      "sha256": "ed30975ecb16f49715352f6b11ef1c29aa6e4df2e0d2a0bf55f93a69fcc2187a",
+      "bytes": 1746
+    },
+    "generator_config": {
+      "path": "configs/combined_v2/generator_holdout_v1.json",
+      "sha256": "a606e0d775351cdc77eb43308a0cf10cf1b1a1037c2d0b5d6ddef4f21705be38",
+      "bytes": 6190
+    },
+    "generator_runner": {
+      "path": "scripts/run_generator_holdout_v1.py",
+      "sha256": "9027317d0ebfca4a22f6ce20721da091be3f3e1e853ecc686ac16ffdcef1f5d0",
+      "bytes": 12280
+    },
+    "generator_freeze": {
+      "path": "provenance/combined_v2/generator_holdout_v1/PREEXECUTION_FREEZE.json",
+      "sha256": "0ca73c48d867cb6ee8de8711de1fa877256a2a45b5903b9eabd40a36e4badbfa",
+      "bytes": 7988
+    },
+    "generator_final_statistics_manifest": {
+      "path": "outputs/combined_v2/generator_holdout_v1/final_statistics/final_statistics_manifest.json",
+      "sha256": "c56edf9dd75b2c4587068c7356071dae3c9fb492a56b8f18d5d244e36981a45e",
+      "bytes": 2598
+    },
+    "identity_report": {
+      "path": "provenance/combined_v2/domain_shift_v1/preflight/identity_audit.json",
+      "sha256": "84a38ad68b496b9fdcb872fc795321016c39a2b6ec1e694992c512e0c01d4bb3",
+      "bytes": 3205
+    },
+    "smoke_report": {
+      "path": "provenance/combined_v2/domain_shift_v1/preflight/smoke_test.json",
+      "sha256": "f451ce81e826d9efea950ad4890084599290b94f7194d5b634084aaf7b5b1a41",
+      "bytes": 1061
+    }
+  },
+  "rq1_results_already_unblinded_before_freeze": true,
+  "generator_ood_results_already_unblinded_before_freeze": true,
+  "domain_shift_results_unblinded_before_freeze": false,
+  "domain_shift_scientific_outputs_present_before_freeze": false,
+  "environment": {
+    "python": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.16.1",
+    "cuda": "12.8",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 5080 Laptop GPU"
+  },
+  "git": {
+    "commit": null,
+    "dirty_paths": null
+  },
+  "execution_command": "& \".\\.venv-gpu\\Scripts\\python.exe\" \".\\scripts\\run_domain_shift_matrix_v1.py\" --execute",
+  "preunblind_verification_command": "& \".\\.venv-gpu\\Scripts\\python.exe\" \".\\scripts\\verify_domain_shift_completion_v1.py\"",
+  "unblinding_command": "& \".\\.venv-gpu\\Scripts\\python.exe\" \".\\scripts\\domain_shift_statistics.py\""
+}

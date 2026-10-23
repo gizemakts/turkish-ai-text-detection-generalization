@@ -1,0 +1,143 @@
+{
+  "schema_version": "combined-v2-primary-ablation-v1",
+  "experiment": "COMBINED_V2_PRIMARY_ABLATION_V1",
+  "status": "PRESPECIFIED_NOT_LAUNCHED",
+  "purpose": "Matched CE-only versus 32-example SupCon discrimination experiment",
+  "condition": "A",
+  "dataset_sha256": "ea5797ac19348957472626d1a23b740de531cd19577f613e1a73894e34d66b44",
+  "fold_sha256": "16ffae53a5d9027a95e12f3975fd062f17038ef5bf8970a74dd3ef7339d9a100",
+  "backbone": {
+    "identifier": "dbmdz/bert-base-turkish-cased",
+    "revision": "b6e1de16c983e0f2c70664591ea3f22810072608",
+    "representation": "final_hidden_state_CLS",
+    "dimension": 768,
+    "truncation": "[CLS] + first 128 WordPieces + last 382 WordPieces + [SEP]",
+    "maximum_tokens": 512
+  },
+  "architecture": {
+    "classification_head": "Dropout(0.1) -> Linear(768, 2)",
+    "projection_head": "Linear(768, 256) -> GELU -> Linear(256, 128) -> L2 normalize",
+    "projection_dimension": 128,
+    "projection_use": "supervised_contrastive_objective_only",
+    "attention": false,
+    "gating": false,
+    "residual_fusion": false,
+    "external_features": false
+  },
+  "batching": {
+    "physical_batch_size": 16,
+    "gradient_accumulation_steps": 2,
+    "effective_batch_size": 32,
+    "contrastive_candidate_size": 32,
+    "sampler": "deterministic training-label-only balanced sampler",
+    "full_physical_batch_composition": "8 HUMAN + 8 AI",
+    "full_contrastive_group_composition": "16 HUMAN + 16 AI",
+    "minimum_per_represented_class": 2,
+    "validation_or_test_labels_used": false,
+    "final_partial_group_policy": "drop balanced remainder smaller than 32 after deterministic epoch shuffle; inner fits omit 4 HUMAN and 4 AI per epoch; outer fits have no remainder",
+    "per_microbatch_supcon_forbidden": true,
+    "backward_scaling_policy": "Transformers v5 Trainer handles GAS scheduling; Accelerator GAS must be 1; backpropagate the already-combined 32-example objective exactly once with accelerator.backward(total)",
+    "runtime_guard": "require trainer.accelerator.gradient_accumulation_steps == 1",
+    "sampler_seed": "run seed",
+    "objective_grouping": "two physical 16-row microbatches -> one 32-row mean objective"
+  },
+  "training": {
+    "learning_rate": 2e-05,
+    "epochs": 3,
+    "evaluation_batch_size": 32,
+    "warmup_steps": 0.1,
+    "warmup_interpretation": "10% of total optimizer steps under installed Transformers v5 API",
+    "weight_decay": 0.01,
+    "dropout": 0.1,
+    "early_stopping": false,
+    "hyperparameter_sweep": false,
+    "seed_policy": "run seed",
+    "calibration_in_primary": false,
+    "thresholding_in_primary": false
+  },
+  "objectives": {
+    "CE_ONLY_MATCHED": {
+      "loss": "cross_entropy",
+      "lambda_supcon": 0.0,
+      "temperature": null,
+      "projection_forward_computed": true,
+      "projection_loss_used": false,
+      "notes": "Projection branch remains architecturally present and is computed by the shared model forward, but its output is not part of the CE loss graph."
+    },
+    "SUPCON": {
+      "loss": "cross_entropy + lambda_supcon * supervised_contrastive_loss",
+      "lambda_supcon": 0.1,
+      "temperature": 0.07,
+      "projection_forward_computed": true,
+      "projection_loss_used": true,
+      "positive_rule": "same binary label",
+      "negative_rule": "different binary label",
+      "self_pairs_excluded": true
+    }
+  },
+  "seeds": [
+    42,
+    137,
+    314,
+    2026,
+    3407
+  ],
+  "outer_folds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "planned_fits": 50,
+  "fit_definition": "5 outer folds x 5 seeds x 2 objectives",
+  "primary_metric": "roc_auc",
+  "secondary_metrics": [
+    "average_precision",
+    "standardized_pauc_003"
+  ],
+  "raw_score": "logit_AI - logit_HUMAN",
+  "outer_test_use": "final discrimination evaluation only; no calibration or threshold fitting",
+  "matched_design": {
+    "same_dataset": true,
+    "same_outer_split": true,
+    "same_text_condition": true,
+    "same_backbone_revision": true,
+    "same_model_initialization_given_seed": true,
+    "same_classifier_architecture": true,
+    "same_projection_architecture": true,
+    "same_balanced_sampler": true,
+    "same_physical_batch": true,
+    "same_effective_batch": true,
+    "same_optimizer": true,
+    "same_learning_rate": true,
+    "same_scheduler_warmup": true,
+    "same_epochs": true,
+    "same_weight_decay": true,
+    "same_dropout": true,
+    "same_mixed_precision_policy": true,
+    "same_evaluation": true,
+    "only_causal_difference": "SupCon contribution to the loss"
+  },
+  "pre_result_blinding": {
+    "outer_test_metrics_during_training": "computed and written to sidecar but not printed by the fit runner",
+    "matrix_child_output": "captured on successful runs; only safe completion metadata printed",
+    "trainer_logging_strategy": "no",
+    "unblinding": "only after all 50 fits pass completeness/integrity checks via turkish_ai_detection.experiments.primary.summarize_statistics"
+  },
+  "statistics": {
+    "bootstrap_unit": "pair_id",
+    "bootstrap_replicates": 5000,
+    "bootstrap_seed": 2602,
+    "paired_across_objectives": true,
+    "paired_across_seeds": true,
+    "primary_delta": "SUPCON minus CE_ONLY_MATCHED",
+    "metrics": [
+      "roc_auc",
+      "average_precision",
+      "standardized_pauc_003"
+    ],
+    "ci": "95% percentile interval",
+    "seed_summary": "per-seed pooled OOF metric, then mean and standard deviation across five seeds"
+  }
+}

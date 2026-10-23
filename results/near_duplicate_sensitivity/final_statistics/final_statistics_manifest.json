@@ -1,0 +1,26 @@
+{
+  "schema_version": "combined-v2-near-duplicate-final-statistics-v1",
+  "status": "COMPLETE",
+  "unblinded": true,
+  "fits_verified": 50,
+  "bootstrap_unit": "near_duplicate_cluster_id",
+  "bootstrap_clusters": 1499,
+  "seeds": [
+    42,
+    137,
+    314,
+    2026,
+    3407
+  ],
+  "config_sha256": "65f8847823c282d027b1265a8d51741038a195d632eeb086504461fdf09d0a8b",
+  "freeze_sha256": "438cd925555de7c95fe5e194b05d289a075cffed819d0cc83be60bff51bd1f69",
+  "integrity_report_sha256": "dd4c7513d73d9f7d0d4ee16a22e8975f36068d8bf7db25b0ca830b7504149eaf",
+  "outputs": {
+    "cluster_bootstrap_draws.csv": "dcb0d53d3fa7729896440a59bd7081cb79404b765b351d123c6acc96ac7a7ce1",
+    "cluster_bootstrap_summary.csv": "2b1f04e0e156e7e6529a31873fc80952b7b6d2db76300deb23130af7688a6fdb",
+    "contrast_seed_summary.csv": "11d2e09ee539160754481d4b626b3b55c0d6f06207b055182f71ed18d7cc92e1",
+    "method_seed_summary.csv": "d621c04af022d48d73bcd0eaf0614a3687eb836854afcfd118092df1b206655e",
+    "per_seed_contrasts.csv": "0ab778922dea65cffa19cdb28b18beafb02d025425232d9996c61746e62d0665",
+    "per_seed_pooled_metrics.csv": "0b541d479b5aeb4c49f0165f72a57264e2d73f9c6bdacc26ae60fcce3826ad9a"
+  }
+}

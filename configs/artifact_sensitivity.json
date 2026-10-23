@@ -1,0 +1,147 @@
+{
+  "schema_version": "combined-v2-condition-b-sensitivity-v1",
+  "experiment": "CONDITION_B_SENSITIVITY_V1",
+  "status": "PRESPECIFIED_NOT_LAUNCHED",
+  "research_question": "RQ3 — shortcut/artifact sensitivity",
+  "condition": "B",
+  "dataset_sha256": "ea5797ac19348957472626d1a23b740de531cd19577f613e1a73894e34d66b44",
+  "fold_sha256": "16ffae53a5d9027a95e12f3975fd062f17038ef5bf8970a74dd3ef7339d9a100",
+  "protocol_origin": {
+    "path": "provenance/history/study_development/legacy_workflow_records/protocol/FINAL_EXPERIMENT_PROTOCOL_V1.md",
+    "sha256": "c848bae3278a69a36ed8961d6583d1c915cf199fe9f6072937b994b82c17cae8",
+    "section": "16. RQ3 — Artifact sensitivity",
+    "design_prespecified_before_primary_generator_and_domain_results": true,
+    "implementation_frozen_after_rq1_rq2_results": true,
+    "condition_b_results_seen_before_this_freeze": false
+  },
+  "transparency": {
+    "rq1_results_already_unblinded": true,
+    "generator_ood_results_already_unblinded": true,
+    "domain_shift_results_already_unblinded": true,
+    "statement": "Condition B, five outer folds, seeds [42,314,2026], CE/SupCon comparison and the 30-fit design were specified in the pre-result protocol. Exact paired bootstrap, difference-in-differences reporting and integrity implementation are frozen here before any Condition-B scientific result is inspected."
+  },
+  "condition_b_definition": {
+    "authoritative_function": "turkish_ai_detection_core.artifact_neutral_text",
+    "via": "turkish_ai_detection.evaluation.metrics.condition_text(data, 'B')",
+    "description": "canonicalizes selected typography, removes structured headings, removes whitespace tokens containing decimal digits, and removes numeric/symbol-only parenthetical groups",
+    "not_artifact_free": true,
+    "preserves_possible_shortcuts": [
+      "case patterns",
+      "punctuation frequencies",
+      "lexical choices",
+      "discourse phrases"
+    ]
+  },
+  "dependency_lineage": {
+    "evaluation_metrics_sha256": "d5c79575c2db678a7a2bee72ea6d56a5de461c96a1f27144b0749a6155ee6f77",
+    "turkish_ai_detection_core_sha256": "c634da0aecbca737f1b44e2ddb8b3cc494b57f675fda0a0e8ebc55d37a076870",
+    "supcon_runner_sha256": "a50e2f0f36df5c0c5caf09c74360dede17af6b85b7d9c2b78de7ba1ada4f2ce4",
+    "berturk_helpers_sha256": "f4cd040913f8867d836dff5b1c207ffa8ded46615e35c6a430af340d074c3f53"
+  },
+  "primary_condition_a_reference": {
+    "primary_config_sha256": "7e825c0f97f1763c6b4db69164feda04743f9fa30f27e254e1c52f953dd07f13",
+    "primary_runner_sha256": "eafe1e66c5d8324cf547571144a1a2f70f9cf1b4406c22f9eabd4e0b8587b92e",
+    "primary_preexecution_freeze_sha256": "162a120d624c830e3b0f93a07504a30be58ac602f4089aa2349527d52882548e",
+    "primary_final_statistics_manifest_sha256": "ed30975ecb16f49715352f6b11ef1c29aa6e4df2e0d2a0bf55f93a69fcc2187a",
+    "reference_seeds": [
+      42,
+      314,
+      2026
+    ],
+    "reference_outer_folds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "used_for": [
+      "Condition-A matched reference",
+      "B-minus-A sensitivity",
+      "change in SupCon-minus-CE delta from A to B"
+    ]
+  },
+  "prior_stage_provenance": {
+    "generator_ood_final_statistics_manifest_sha256": "c56edf9dd75b2c4587068c7356071dae3c9fb492a56b8f18d5d244e36981a45e",
+    "domain_shift_final_statistics_manifest_sha256": "4f6d35a98603d51fe2542fd0dd1a68ff0210fb7e2a6c404fe4a632337fe874e9",
+    "used_for_condition_b_statistics": false,
+    "provenance_only": true
+  },
+  "seeds": [
+    42,
+    314,
+    2026
+  ],
+  "outer_folds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "objectives": {
+    "ce": {
+      "scientific_name": "CE_ONLY_MATCHED",
+      "lambda_supcon": 0.0
+    },
+    "supcon": {
+      "scientific_name": "SUPCON",
+      "lambda_supcon": 0.1,
+      "temperature": 0.07,
+      "implementation": "32-example combined cross-entropy and supervised contrastive objective"
+    }
+  },
+  "training": {
+    "shared_authoritative_trainer": "src/turkish_ai_detection/experiments/primary/run_fit.py",
+    "same_true32_path_for_ce_and_supcon": true,
+    "physical_batch_size": 16,
+    "effective_batch_size": 32,
+    "gradient_accumulation_steps": 2,
+    "learning_rate": 2e-05,
+    "epochs": 3,
+    "weight_decay": 0.01,
+    "warmup_steps": 0.1,
+    "early_stopping": false,
+    "hyperparameter_sweep": false,
+    "calibration": false,
+    "thresholding": false,
+    "outer_test_used_for_training": false,
+    "outer_test_used_for_model_selection": false
+  },
+  "planned_fits": 30,
+  "fit_definition": "5 outer folds x 3 seeds x 2 objectives",
+  "metrics": {
+    "primary": "roc_auc",
+    "secondary": [
+      "average_precision",
+      "standardized_pauc_003"
+    ],
+    "raw_score": "logit_AI - logit_HUMAN",
+    "condition_b_method_delta": "SupCon minus CE under Condition B",
+    "condition_effect_per_method": "Condition B minus Condition A",
+    "primary_rq3_comparison": "(SupCon minus CE under Condition B) minus (SupCon minus CE under Condition A)",
+    "interpretation": "The primary RQ3 comparison asks whether the CE-vs-SupCon objective delta changes after the predefined artifact-reduction transform; absolute B-vs-A performance changes are also reported separately."
+  },
+  "statistics": {
+    "bootstrap_unit": "pair_id",
+    "bootstrap_replicates": 5000,
+    "bootstrap_seed": 2605,
+    "same_resampled_pairs_across_conditions_objectives_and_seeds": true,
+    "paired_across_objectives": true,
+    "paired_across_conditions": true,
+    "paired_across_three_seeds": true,
+    "condition_b_delta": "SupCon_B - CE_B",
+    "condition_a_delta": "SupCon_A - CE_A",
+    "delta_change": "(SupCon_B - CE_B) - (SupCon_A - CE_A)",
+    "ce_condition_effect": "CE_B - CE_A",
+    "supcon_condition_effect": "SupCon_B - SupCon_A",
+    "ci": "95% percentile interval",
+    "seed_summary": "per-seed pooled five-fold OOF metric, then mean and SD across three seeds",
+    "inference_scope": "pair-sampling uncertainty conditional on the frozen 1,500-pair corpus and the three tested seeds; seed-to-seed variability is reported separately and is not resampled"
+  },
+  "pre_result_blinding": {
+    "condition_b_metrics_printed_during_training": false,
+    "matrix_success_output": "safe completion metadata only",
+    "unblinding": "only after all 30 fits pass post-run pre-unblinding integrity verification"
+  }
+}

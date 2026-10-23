@@ -1,0 +1,63 @@
+{
+  "completed_at": "2026-10-14T15:07:49.520105+03:00",
+  "analysis_status": "COMPLETE",
+  "stanza_version": "1.14.0",
+  "language": "tr",
+  "tokenize_package": "boun",
+  "ner_package": "starlang",
+  "download_source": "stanfordnlp/stanza-tr release v1.14.0 via Stanza downloader/Hugging Face Hub",
+  "resource_path": "results/robustness_analyses/resources/stanza_tr_1.14.0",
+  "resource_file_count": 10,
+  "bootstrap_seed": 20261014,
+  "bootstrap_replicates": 5000,
+  "input_files": [
+    {
+      "path": "data/study/paired_study.csv",
+      "sha256": "ea5797ac19348957472626d1a23b740de531cd19577f613e1a73894e34d66b44"
+    },
+    {
+      "path": "Turkish_AI_Text_Detection_Exploratory_Analysis_Review/analysis_A1/corpus_shortcut_features.csv",
+      "sha256": "7ce248eb7d0727a76bd612af845272b09544c79e679c0f59c13a000bf305e407"
+    },
+    {
+      "path": "provenance/experiments/author_disjoint_newspaper_20261013/author_disjoint_folds.csv",
+      "sha256": "a4fdcde6400216ceb6687b899e33ff85bfcb01e341fddc82834e762517b8c201"
+    },
+    {
+      "path": "results/robustness_analyses/ANALYSIS_PLAN_FROZEN.md",
+      "sha256": "ff0ce8b7714a3b7c7b462fd2b0cce0815f4211a8258b30071a46206d239b3d32"
+    },
+    {
+      "path": "results/robustness_analyses/code/finalize_turkish_ner.py",
+      "sha256": "251bdd834eda277944aee666dcbb863fed0c312c7745fcf3c8ef423c764426ad"
+    },
+    {
+      "path": "results/robustness_analyses/code/complete_turkish_ner.py",
+      "sha256": "338b54169ae6182f508f6c58a28ebb6f5ed937ca02ad48961e518fdce7164068"
+    },
+    {
+      "path": "results/robustness_analyses/newspaper_cues/TURKISH_NER_MODEL_SPEC.json",
+      "sha256": "c0c729b14ec61b72d55acd6afffbed5faae411070ba49dc7ea953200ce6751d0"
+    },
+    {
+      "path": "results/robustness_analyses/provenance/TURKISH_NER_RESOURCE_SHA256.csv",
+      "sha256": "e2b25fc90edd57d7f21d2af28cf311fc84a92348459ac9ecc1fde4026b9f88af"
+    }
+  ],
+  "sample_accounting": {
+    "newspaper_documents": 1000,
+    "pairs": 500,
+    "authors": 10,
+    "exclusions": 0
+  },
+  "validation": {
+    "all_cue_features_nonmissing": true,
+    "author_disjoint_all_folds": true,
+    "scaling_fit_training_only": true,
+    "existing_surface_probe_reproduced": 0.998772,
+    "label_dependent_feature_engineering": false
+  },
+  "removed_existing_features_for_p2": [
+    "year_date_per_100_words"
+  ]
+}

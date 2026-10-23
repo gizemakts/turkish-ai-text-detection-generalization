@@ -1,0 +1,101 @@
+{
+  "schema_version": "combined-v2-supcon-v2-config-v1",
+  "experiment": "COMBINED_V2_SUPCON_V2",
+  "model_id": "C1R",
+  "model_name": "Supervised Contrastive BERTurk",
+  "status": "PRESPECIFIED_NOT_LAUNCHED",
+  "condition": "A",
+  "condition_B_authorized": false,
+  "dataset_sha256": "ea5797ac19348957472626d1a23b740de531cd19577f613e1a73894e34d66b44",
+  "fold_sha256": "16ffae53a5d9027a95e12f3975fd062f17038ef5bf8970a74dd3ef7339d9a100",
+  "freeze_sha256": "12fe84d69e96fd3d0ffba37e8572257ee1ab428fa481d6ab0ddc28db4a44e040",
+  "seed": 42,
+  "data_seed": 42,
+  "backbone": {
+    "identifier": "dbmdz/bert-base-turkish-cased",
+    "revision": "b6e1de16c983e0f2c70664591ea3f22810072608",
+    "representation": "final_hidden_state_CLS",
+    "dimension": 768,
+    "truncation": "[CLS] + first 128 WordPieces + last 382 WordPieces + [SEP]",
+    "maximum_tokens": 512
+  },
+  "architecture": {
+    "classification_head": "Dropout(0.1) -> Linear(768, 2)",
+    "projection_head": "Linear(768, 256) -> GELU -> Linear(256, 128) -> L2 normalize",
+    "projection_dimension": 128,
+    "projection_use": "supervised_contrastive_objective_only",
+    "attention": false,
+    "gating": false,
+    "residual_fusion": false,
+    "external_features": false
+  },
+  "objective": {
+    "formula": "cross_entropy + lambda_supcon * supervised_contrastive_loss",
+    "lambda_supcon": 0.1,
+    "temperature": 0.07,
+    "positive_rule": "same binary label",
+    "negative_rule": "different binary label",
+    "self_pairs_excluded": true,
+    "pair_id_used": false,
+    "generator_used": false,
+    "domain_used": false
+  },
+  "batching": {
+    "physical_batch_size": 16,
+    "gradient_accumulation_steps": 2,
+    "effective_batch_size": 32,
+    "contrastive_candidate_size": 32,
+    "sampler": "deterministic training-label-only balanced sampler",
+    "full_physical_batch_composition": "8 HUMAN + 8 AI",
+    "full_contrastive_group_composition": "16 HUMAN + 16 AI",
+    "minimum_per_represented_class": 2,
+    "validation_or_test_labels_used": false,
+    "final_partial_group_policy": "drop balanced remainder smaller than 32 after deterministic epoch shuffle; inner fits omit 4 HUMAN and 4 AI per epoch; outer fits have no remainder",
+    "per_microbatch_supcon_forbidden": true,
+    "backward_scaling_policy": "Transformers v5 Trainer handles GAS scheduling; Accelerator GAS must be 1; backpropagate the already-combined 32-example objective exactly once with accelerator.backward(total)",
+    "runtime_guard": "require trainer.accelerator.gradient_accumulation_steps == 1"
+  },
+  "training": {
+    "learning_rate": 2e-05,
+    "epochs": 3,
+    "evaluation_batch_size": 32,
+    "warmup_steps": 0.1,
+    "warmup_interpretation": "10% of total optimizer steps under installed Transformers v5 API",
+    "weight_decay": 0.01,
+    "dropout": 0.1,
+    "early_stopping": false,
+    "hyperparameter_sweep": false
+  },
+  "protocol": {
+    "outer_folds": 5,
+    "inner_folds": 4,
+    "grouping_unit": "pair_id",
+    "inner_fits": 20,
+    "outer_training_fits": 5,
+    "total_fine_tunes": 25,
+    "calibration": "Platt logistic calibration on outer-training inner-OOF raw decisions only",
+    "threshold": "existing Combined v2 training-side low-FPR order-statistic rule",
+    "outer_test_use": "evaluation and post-fit representation diagnostics only"
+  },
+  "representation_diagnostics": {
+    "cls": "per-dimension count/sum/sumsq/min/max summaries",
+    "projection": "per-sample normalized 128-dimensional representation",
+    "metrics": [
+      "within_class_cosine_similarity",
+      "between_class_cosine_similarity",
+      "class_centroid_cosine_distance",
+      "human_ai_centroid_euclidean_separation"
+    ],
+    "selection_use": false
+  },
+  "bootstrap": {
+    "unit": "pair_id",
+    "replicates": 2000,
+    "seed": 42,
+    "comparators": [
+      "M5",
+      "M4",
+      "F1"
+    ]
+  }
+}

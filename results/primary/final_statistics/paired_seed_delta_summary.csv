@@ -1,0 +1,4 @@
+comparison,metric,mean_paired_delta_across_seeds,sd_paired_delta_across_seeds,n_seeds
+supcon_minus_ce,roc_auc,-0.00014213333333337185,0.00023351408871762883,5
+supcon_minus_ce,average_precision,-0.00024272702598475692,0.00038760798892881996,5
+supcon_minus_ce,standardized_pauc_003,-0.00243955630757664,0.004002633751527719,5

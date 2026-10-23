@@ -1,0 +1,275 @@
+{
+  "schema_version": "combined-v2-generator-holdout-preexecution-freeze-v1",
+  "created_utc": "2026-10-02T17:34:29.166025+00:00",
+  "status": "FROZEN_READY_TO_RUN",
+  "experiment": "GENERATOR_HOLDOUT_V1",
+  "planned_fits": 30,
+  "matrix": [
+    {
+      "heldout_generator": "Claude",
+      "seed": 42,
+      "objective": "ce"
+    },
+    {
+      "heldout_generator": "Claude",
+      "seed": 42,
+      "objective": "supcon"
+    },
+    {
+      "heldout_generator": "Claude",
+      "seed": 314,
+      "objective": "ce"
+    },
+    {
+      "heldout_generator": "Claude",
+      "seed": 314,
+      "objective": "supcon"
+    },
+    {
+      "heldout_generator": "Claude",
+      "seed": 2026,
+      "objective": "ce"
+    },
+    {
+      "heldout_generator": "Claude",
+      "seed": 2026,
+      "objective": "supcon"
+    },
+    {
+      "heldout_generator": "GPT",
+      "seed": 42,
+      "objective": "ce"
+    },
+    {
+      "heldout_generator": "GPT",
+      "seed": 42,
+      "objective": "supcon"
+    },
+    {
+      "heldout_generator": "GPT",
+      "seed": 314,
+      "objective": "ce"
+    },
+    {
+      "heldout_generator": "GPT",
+      "seed": 314,
+      "objective": "supcon"
+    },
+    {
+      "heldout_generator": "GPT",
+      "seed": 2026,
+      "objective": "ce"
+    },
+    {
+      "heldout_generator": "GPT",
+      "seed": 2026,
+      "objective": "supcon"
+    },
+    {
+      "heldout_generator": "Gemini",
+      "seed": 42,
+      "objective": "ce"
+    },
+    {
+      "heldout_generator": "Gemini",
+      "seed": 42,
+      "objective": "supcon"
+    },
+    {
+      "heldout_generator": "Gemini",
+      "seed": 314,
+      "objective": "ce"
+    },
+    {
+      "heldout_generator": "Gemini",
+      "seed": 314,
+      "objective": "supcon"
+    },
+    {
+      "heldout_generator": "Gemini",
+      "seed": 2026,
+      "objective": "ce"
+    },
+    {
+      "heldout_generator": "Gemini",
+      "seed": 2026,
+      "objective": "supcon"
+    },
+    {
+      "heldout_generator": "Kimi",
+      "seed": 42,
+      "objective": "ce"
+    },
+    {
+      "heldout_generator": "Kimi",
+      "seed": 42,
+      "objective": "supcon"
+    },
+    {
+      "heldout_generator": "Kimi",
+      "seed": 314,
+      "objective": "ce"
+    },
+    {
+      "heldout_generator": "Kimi",
+      "seed": 314,
+      "objective": "supcon"
+    },
+    {
+      "heldout_generator": "Kimi",
+      "seed": 2026,
+      "objective": "ce"
+    },
+    {
+      "heldout_generator": "Kimi",
+      "seed": 2026,
+      "objective": "supcon"
+    },
+    {
+      "heldout_generator": "Qwen",
+      "seed": 42,
+      "objective": "ce"
+    },
+    {
+      "heldout_generator": "Qwen",
+      "seed": 42,
+      "objective": "supcon"
+    },
+    {
+      "heldout_generator": "Qwen",
+      "seed": 314,
+      "objective": "ce"
+    },
+    {
+      "heldout_generator": "Qwen",
+      "seed": 314,
+      "objective": "supcon"
+    },
+    {
+      "heldout_generator": "Qwen",
+      "seed": 2026,
+      "objective": "ce"
+    },
+    {
+      "heldout_generator": "Qwen",
+      "seed": 2026,
+      "objective": "supcon"
+    }
+  ],
+  "checks": {
+    "identity_pass": true,
+    "identity_runner_binding": true,
+    "identity_config_binding": true,
+    "smoke_pass": true,
+    "smoke_runner_binding": true,
+    "smoke_config_binding": true,
+    "smoke_no_scientific_ood_training": true,
+    "smoke_no_scientific_ood_scores": true,
+    "dataset_hash": true,
+    "protocol_hash": true,
+    "primary_runner_hash": true,
+    "primary_config_hash": true,
+    "primary_freeze_hash": true,
+    "primary_manifest_hash": true,
+    "primary_manifest_complete": true,
+    "generator_ood_protocol_prespecified": true,
+    "generator_ood_results_seen": true,
+    "planned_fits": true,
+    "bootstrap_prespecified": true
+  },
+  "files": {
+    "config": {
+      "path": "configs/combined_v2/generator_holdout_v1.json",
+      "sha256": "a606e0d775351cdc77eb43308a0cf10cf1b1a1037c2d0b5d6ddef4f21705be38",
+      "bytes": 6190
+    },
+    "runner": {
+      "path": "scripts/run_generator_holdout_v1.py",
+      "sha256": "9027317d0ebfca4a22f6ce20721da091be3f3e1e853ecc686ac16ffdcef1f5d0",
+      "bytes": 12280
+    },
+    "matrix_launcher": {
+      "path": "scripts/run_generator_holdout_matrix_v1.py",
+      "sha256": "b2b520340f8fac71a4eab92534ba6c4d71b477f98027cd728d35c6fffd243767",
+      "bytes": 2363
+    },
+    "statistics_module": {
+      "path": "scripts/generator_holdout_statistics.py",
+      "sha256": "c181d1874539bf794913eee2982786d4b62b4328b45c019a06449b8d179354bc",
+      "bytes": 18699
+    },
+    "completion_verifier": {
+      "path": "scripts/verify_generator_holdout_completion_v1.py",
+      "sha256": "f229f12cbea047d8b4f2d83b3f9c2618ea27fd5f9da10bbf72ae9d1a65f53d83",
+      "bytes": 5955
+    },
+    "identity_test": {
+      "path": "tests/test_generator_holdout_identity.py",
+      "sha256": "42ec54d6de308792c2d4de232b8aae04fb39f1314d5158a6899966dbbcfca75c",
+      "bytes": 5590
+    },
+    "smoke_test": {
+      "path": "tests/test_generator_holdout_smoke.py",
+      "sha256": "33394688801d3a61b6d307984b8c5e99342539dc7c47f27ccd9c49062d124c9d",
+      "bytes": 4558
+    },
+    "dataset": {
+      "path": "data/COMBINED_V2/combined_v2.csv",
+      "sha256": "ea5797ac19348957472626d1a23b740de531cd19577f613e1a73894e34d66b44",
+      "bytes": 10739891
+    },
+    "protocol": {
+      "path": "provenance/combined_v2/protocol/FINAL_EXPERIMENT_PROTOCOL_V1.md",
+      "sha256": "c848bae3278a69a36ed8961d6583d1c915cf199fe9f6072937b994b82c17cae8",
+      "bytes": 21736
+    },
+    "primary_runner": {
+      "path": "scripts/run_primary_ablation_v1.py",
+      "sha256": "eafe1e66c5d8324cf547571144a1a2f70f9cf1b4406c22f9eabd4e0b8587b92e",
+      "bytes": 16723
+    },
+    "primary_config": {
+      "path": "configs/combined_v2/primary_ablation_v1.json",
+      "sha256": "7e825c0f97f1763c6b4db69164feda04743f9fa30f27e254e1c52f953dd07f13",
+      "bytes": 5415
+    },
+    "primary_freeze": {
+      "path": "provenance/combined_v2/primary_ablation_v1/PREEXECUTION_FREEZE.json",
+      "sha256": "162a120d624c830e3b0f93a07504a30be58ac602f4089aa2349527d52882548e",
+      "bytes": 9501
+    },
+    "primary_final_statistics_manifest": {
+      "path": "outputs/combined_v2/primary_ablation_v1/final_statistics/final_statistics_manifest.json",
+      "sha256": "ed30975ecb16f49715352f6b11ef1c29aa6e4df2e0d2a0bf55f93a69fcc2187a",
+      "bytes": 1746
+    },
+    "identity_report": {
+      "path": "provenance/combined_v2/generator_holdout_v1/preflight/identity_audit.json",
+      "sha256": "204697a46a9bc590bd1f55c8f0349b226841d03d92054250bf91b4d1cbfea928",
+      "bytes": 3307
+    },
+    "smoke_report": {
+      "path": "provenance/combined_v2/generator_holdout_v1/preflight/smoke_test.json",
+      "sha256": "f49434b1af7e4efa33648555334f1ed8b467f373d534400b34b40ac97bf49636",
+      "bytes": 1049
+    }
+  },
+  "primary_rq1_results_already_unblinded_before_rq2_freeze": true,
+  "generator_ood_results_unblinded_before_freeze": false,
+  "generator_ood_scientific_outputs_present_before_freeze": false,
+  "environment": {
+    "python": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.16.1",
+    "cuda": "12.8",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 5080 Laptop GPU"
+  },
+  "git": {
+    "commit": null,
+    "dirty_paths": null
+  },
+  "execution_command": "& \".\\.venv-gpu\\Scripts\\python.exe\" \".\\scripts\\run_generator_holdout_matrix_v1.py\" --execute",
+  "preunblind_verification_command": "& \".\\.venv-gpu\\Scripts\\python.exe\" \".\\scripts\\verify_generator_holdout_completion_v1.py\"",
+  "unblinding_command": "& \".\\.venv-gpu\\Scripts\\python.exe\" \".\\scripts\\generator_holdout_statistics.py\""
+}

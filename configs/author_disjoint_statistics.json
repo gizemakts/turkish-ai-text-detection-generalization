@@ -1,0 +1,14 @@
+{
+  "design": "author_disjoint_newspaper",
+  "primary_bootstrap": {
+    "label": "PRIMARY_AUTHOR_CLUSTER_BOOTSTRAP",
+    "replicates": 5000,
+    "seed": 2602
+  },
+  "secondary_bootstrap": {
+    "label": "SECONDARY_PAIR_LEVEL_SENSITIVITY",
+    "replicates": 5000,
+    "seed": 2602
+  },
+  "mandatory_limitation": "Only 10 held-out authors are available; author-level uncertainty is based on a small number of source clusters."
+}

@@ -1,0 +1,5 @@
+# Constraints do not install packages. Preserve the verified CUDA stack when
+# resolving transitive dependencies (stanza, transformers, accelerate).
+torch==2.11.0+cu128
+torchvision==0.26.0+cu128
+torchaudio==2.11.0+cu128

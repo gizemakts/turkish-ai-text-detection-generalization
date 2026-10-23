@@ -1,0 +1,62 @@
+{
+  "renklier2026_test": {
+    "dataset": "renklier2026_bertturkdata",
+    "rows": 2398,
+    "label_counts": {
+      "ai": 1798,
+      "human": 600
+    },
+    "unique_text_hashes": 2398,
+    "rows_in_duplicate_groups": 0,
+    "extra_exact_duplicate_rows": 0,
+    "conflicting_label_text_hashes": 0
+  },
+  "tum2024_tr_test": {
+    "dataset": "tum2024_neural_news_benchmark",
+    "rows": 3600,
+    "label_counts": {
+      "ai": 1800,
+      "human": 1800
+    },
+    "unique_text_hashes": 3580,
+    "rows_in_duplicate_groups": 37,
+    "extra_exact_duplicate_rows": 20,
+    "conflicting_label_text_hashes": 0
+  },
+  "tum2024_tr_test_exact_dedup": {
+    "dataset": "tum2024_neural_news_benchmark",
+    "rows": 3580,
+    "label_counts": {
+      "human": 1800,
+      "ai": 1780
+    },
+    "unique_text_hashes": 3580,
+    "rows_in_duplicate_groups": 0,
+    "extra_exact_duplicate_rows": 0,
+    "conflicting_label_text_hashes": 0
+  },
+  "bostancioglu2026_tr_full": {
+    "dataset": "bostancioglu2026_multilingual_ai_human",
+    "rows": 3104,
+    "label_counts": {
+      "human": 1560,
+      "ai": 1544
+    },
+    "unique_text_hashes": 3092,
+    "rows_in_duplicate_groups": 24,
+    "extra_exact_duplicate_rows": 12,
+    "conflicting_label_text_hashes": 0
+  },
+  "bostancioglu2026_tr_exact_dedup": {
+    "dataset": "bostancioglu2026_multilingual_ai_human",
+    "rows": 3092,
+    "label_counts": {
+      "human": 1559,
+      "ai": 1533
+    },
+    "unique_text_hashes": 3092,
+    "rows_in_duplicate_groups": 0,
+    "extra_exact_duplicate_rows": 0,
+    "conflicting_label_text_hashes": 0
+  }
+}

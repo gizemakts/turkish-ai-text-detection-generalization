@@ -1,0 +1,29 @@
+{
+  "status": "FROZEN_BEFORE_LENGTH_CONTROL_ANALYSIS",
+  "analysis_class": "POST_HOC_EXPLORATORY_SENSITIVITY",
+  "dataset": "data/study/paired_study.csv",
+  "folds": "data/study/nested_folds.csv",
+  "seeds": [42, 137, 314, 2026, 3407],
+  "methods": {"CE_ONLY_MATCHED": "ce", "SUPCON": "supcon"},
+  "word_count_source": "authoritative paired_study.csv word_count; cross-checked against validated A2",
+  "length_only_model": "StandardScaler plus LogisticRegression(C=1, L2, liblinear, random_state=261015)",
+  "length_only_populations": ["COMBINED", "ABSTRACT", "NEWSPAPER"],
+  "matching_rules": {
+    "UNRESTRICTED": "all pairs",
+    "ABS_LE_5": "abs(ai_word_count-human_word_count) <= 5",
+    "ABS_LE_10": "abs(ai_word_count-human_word_count) <= 10",
+    "ABS_LE_15": "abs(ai_word_count-human_word_count) <= 15",
+    "REL_LE_10PCT": "abs(ai-human) / max((ai+human)/2, 1) <= 0.10"
+  },
+  "primary_transformer_aggregation": "pool the five pair-disjoint outer-fold predictions within seed, then summarize five seed AUCs",
+  "fold_diagnostics": "AUC for each seed x outer fold; sparse if either class has fewer than 20 observations",
+  "length_only_uncertainty": "2000 deterministic pair-cluster bootstrap draws for pooled OOF AUC; conditional on fixed folds and baseline specification",
+  "transformer_uncertainty": "sample SD and range across five training seeds; fold results are diagnostics and are not independent replicates",
+  "bootstrap_seed": 261015,
+  "minimum_per_class_for_reliable_fold_auc": 20,
+  "tokenizer": "dbmdz/bert-base-turkish-cased",
+  "tokenizer_revision": "b6e1de16c983e0f2c70664591ea3f22810072608",
+  "max_model_tokens": 512,
+  "head_wordpieces": 128,
+  "tail_wordpieces": 382
+}

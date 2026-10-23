@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "roc_auc_reconciliation": "9/9 PASS at six decimals",
+  "realization_metric_rows": 165,
+  "transformer_prediction_cells": 150,
+  "m4_prediction_cells": 15,
+  "model_training_performed": false,
+  "table_s23_source": "TABLE_S23_SOURCE.md"
+}

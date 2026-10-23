@@ -1,0 +1,31 @@
+{
+  "schema_version": "external_standard_v1_1",
+  "label_contract": {
+    "human": 0,
+    "ai": 1
+  },
+  "primary_external_sets": {
+    "renklier2026": "renklier2026_test_standardized.csv",
+    "tum2024": "tum2024_tr_test_standardized.csv",
+    "bostancioglu2026": "bostancioglu2026_tr_full_standardized.csv"
+  },
+  "supplementary_sensitivity_sets": {
+    "tum2024_exact_dedup": "tum2024_tr_test_exact_dedup_standardized.csv",
+    "bostancioglu2026_exact_dedup": "bostancioglu2026_tr_exact_dedup_standardized.csv"
+  },
+  "text_field_policy": {
+    "renklier2026": "text",
+    "tum2024": "body",
+    "bostancioglu2026": "text"
+  },
+  "notes": [
+    "RAW datasets are never modified by this preparation procedure.",
+    "TUM primary external evaluation preserves the official test partition and filters language=tr only.",
+    "Bostancioglu released Turkish XLSX does not contain row-level source-document IDs or published train/validation/test assignments; no new random split is created.",
+    "Bostancioglu full released corpus remains primary; exact-deduplicated data are retained only as a sensitivity variant."
+  ],
+  "duplicate_policy": {
+    "primary": "Preserve released corpus exactly; do not remove exact duplicate rows solely because they are duplicated.",
+    "sensitivity": "Retain first occurrence of identical text_sha256 + binary_label and recompute duplicate metadata."
+  }
+}

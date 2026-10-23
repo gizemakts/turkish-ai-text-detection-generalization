@@ -1,0 +1,14 @@
+{
+  "recipe": "documented_M4_condition_A",
+  "preprocessing": ["normalize_text", "turkish_lower"],
+  "word_ngram_range": [1, 2],
+  "char_analyzer": "char_wb",
+  "char_ngram_range": [2, 5],
+  "min_df": 2,
+  "sublinear_tf": true,
+  "norm": "l2",
+  "C_grid": [0.01, 0.03, 0.1, 0.3, 1.0, 3.0, 10.0],
+  "inner_folds": 4,
+  "selection_metric": "standardized_partial_ROC_AUC_max_fpr_0.03",
+  "classifier": "LogisticRegression(penalty=l2, solver=liblinear, max_iter=5000, random_state=42)"
+}

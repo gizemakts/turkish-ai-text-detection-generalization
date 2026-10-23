@@ -1,0 +1,53 @@
+# Restricted or unavailable data
+data/**/*.csv
+data/**/*.tsv
+data/**/*.jsonl
+data/**/*.parquet
+data/**/*.xlsx
+!data/study/nested_folds.csv
+!data/study/cluster_aware_folds_v1.csv
+!data/study/near_duplicate_clusters_v1.csv
+!data/abstract/ai_abstracts_1000.csv
+!data/newspaper/ai_newspaper_columns_500.csv
+
+# Models and serialized state
+*.safetensors
+*.pt
+*.pth
+*.bin
+*.pkl
+*.pickle
+*.joblib
+*.npy
+*.npz
+artifacts/checkpoints/
+artifacts/models/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.*
+
+# Local environments, caches, logs, and generated archives
+.venv*/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+logs/
+*.log
+*.zip
+*.7z
+*.tar
+*.gz
+
+# Editor and OS state
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

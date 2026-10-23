@@ -1,0 +1,4 @@
+contrast,estimate,ci95_low,ci95_high,bootstrap_unit,interpretation
+P1_minus_baseline,-0.11285600000000007,-0.2072421000000002,-0.04228490000000025,newspaper_author,descriptive paired contrast
+P2_minus_baseline,-0.00041999999999997595,-0.0012360000000000149,7.2000000000072e-05,newspaper_author,descriptive paired contrast
+P3_minus_P2,0.0016000000000000458,-0.0003839999999999427,0.004383999999999946,newspaper_author,descriptive paired contrast

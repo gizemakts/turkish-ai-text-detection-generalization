@@ -1,0 +1,48 @@
+{
+  "schema_version": "combined-v2-condition-b-final-statistics-v1",
+  "status": "COMPLETE",
+  "unblinded": true,
+  "fits_verified": 30,
+  "seeds": [
+    42,
+    314,
+    2026
+  ],
+  "outer_folds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "statistics_config": {
+    "bootstrap_unit": "pair_id",
+    "bootstrap_replicates": 5000,
+    "bootstrap_seed": 2605,
+    "same_resampled_pairs_across_conditions_objectives_and_seeds": true,
+    "paired_across_objectives": true,
+    "paired_across_conditions": true,
+    "paired_across_three_seeds": true,
+    "condition_b_delta": "SupCon_B - CE_B",
+    "condition_a_delta": "SupCon_A - CE_A",
+    "delta_change": "(SupCon_B - CE_B) - (SupCon_A - CE_A)",
+    "ce_condition_effect": "CE_B - CE_A",
+    "supcon_condition_effect": "SupCon_B - SupCon_A",
+    "ci": "95% percentile interval",
+    "seed_summary": "per-seed pooled five-fold OOF metric, then mean and SD across three seeds",
+    "inference_scope": "pair-sampling uncertainty conditional on the frozen 1,500-pair corpus and the three tested seeds; seed-to-seed variability is reported separately and is not resampled"
+  },
+  "config_sha256": "eaea667604f6649aaed8332dd0e8b6d55f2d47e959adede9957fb9453f5d744d",
+  "runner_sha256": "b9f237390f0dea5c29b31c1d9a560888440e37456b9800a4f61d9affb72e759b",
+  "statistics_sha256": "09fd0d734557fc319a87f9db60969583ec24d97851b79a51d312be899103ada4",
+  "freeze_sha256": "5210baf7ae82e4c233b089d93b737118656e5286da004866e72ccc24cd957809",
+  "primary_condition_a_reference_manifest_sha256": "ed30975ecb16f49715352f6b11ef1c29aa6e4df2e0d2a0bf55f93a69fcc2187a",
+  "outputs": {
+    "per_seed_condition_metrics.csv": "d92d014f100bbf30a941650030dd1e8627972a2ed309f5e85e42175ba60afab3",
+    "method_condition_summary.csv": "a772059e9bdb289e82069a0e7bced08b502bfe8b3f27a2ed38ddf5492b5a322c",
+    "condition_seed_deltas.csv": "e7a0284e1fc884c0ab228db653c7d277721bc3111e807b4a40a2ccda6fa60d52",
+    "paired_delta_summary.csv": "37c6a966b5a7b3eafe6fc74c5e70313aa82a660ff10517a6963c51cdaad7f35a",
+    "paired_pair_bootstrap_draws.csv": "2c5221745aed7529a7256e7057f7b8e987251cd7250e356a2fc254a2eea64779",
+    "paired_pair_bootstrap_summary.csv": "8b5832c9561abad55a08ee953727f2021cc870ffef458097ae6267655a59230b"
+  }
+}

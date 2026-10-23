@@ -1,0 +1,18 @@
+{
+  "schema_version": "external-cross-corpus-v2-five-seed-extension-v1",
+  "status": "FROZEN_NOT_EXECUTED",
+  "frozen_local_time": "2026-10-14T10:55:42.3678354+03:00",
+  "analysis_plan_sha256": "ff0ce8b7714a3b7c7b462fd2b0cce0815f4211a8258b30071a46206d239b3d32",
+  "base_terminal_protocol": "configs/external_cross_corpus.json",
+  "base_terminal_protocol_sha256": "0a1314ee51fe79f820404ec7cd4e845709411a43ff0388376170f602f300d76c",
+  "unchanged_recipe_runner": "src/turkish_ai_detection/experiments/external_cross_corpus/rerun_fit.py",
+  "added_seeds": [137, 3407],
+  "outer_folds": [0, 1, 2, 3, 4],
+  "objectives": ["ce", "supcon"],
+  "training_runs": 20,
+  "external_corpora": ["renklier2026", "tum2024_tr", "bostancioglu2026_tr"],
+  "external_inference_runs": 60,
+  "scientific_change": "seed grid only; terminal checkpoint recipe, data, folds, model, tokenizer revision, objective, hyperparameters, truncation, and score contract are unchanged",
+  "primary_cv_checkpoint_substitution": false,
+  "lit2026_extension": false
+}

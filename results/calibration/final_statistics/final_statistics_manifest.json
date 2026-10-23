@@ -1,0 +1,64 @@
+{
+  "schema_version": "combined-v2-calibration-final-statistics-v1",
+  "created_utc": "2026-10-04T11:33:48.934364+00:00",
+  "status": "COMPLETE",
+  "results_are_now_unblinded": true,
+  "verified_inner_fits": 200,
+  "source_primary_outer_inputs": 50,
+  "freeze_sha256": "30010ce41e7cf4983482372e9da6d0831499b3fc0648aa15ca33d92eef24a137",
+  "config_sha256": "8184e8f792969e5f4e1ec5f2bdf2d424bfa140fbfe16692f43b67c5e8c582797",
+  "runner_sha256": "57cb1a3d4ceb5b9a19348db74ff5f30b6eb23d5a194bc11948e96ca9a3de62a5",
+  "statistics_sha256": "bdafb907dd70b979c3e09cce23a8ee9091a69b1d8471fb76952da7fcdc1e0b1a",
+  "preunblinding_integrity_sha256": "4457750865524d517b2530ae5f5a8767baa5835bf2647a23341eb0f826ee86f9",
+  "calibration": "Platt logistic on outer-training inner-OOF only",
+  "ece": "10 equal-width bins",
+  "operating_point_rule": "training-side NP-inspired order-statistic threshold on calibrated OOF HUMAN probabilities",
+  "nominal_fpr_alpha": [
+    0.01,
+    0.02,
+    0.03,
+    0.05
+  ],
+  "delta": 0.05,
+  "bootstrap": {
+    "unit": "pair_id",
+    "replicates": 5000,
+    "seed": 2604,
+    "seeds_resampled": false,
+    "point_estimate": "observed paired mean; bootstrap quantiles for CI"
+  },
+  "outputs": {
+    "calibration_parameters_and_thresholds.csv": {
+      "sha256": "d294364c4aa01628378ae68614b9b82851d4d9b7c95da01e455f4a1e6078e84d",
+      "bytes": 9966
+    },
+    "method_calibration_operating_summary.csv": {
+      "sha256": "6c8706a221485addb14d1739ef914483782036da019d12722b7e311bc7c6e1ef",
+      "bytes": 1664
+    },
+    "paired_pair_bootstrap_draws.csv": {
+      "sha256": "31a702ce600c4ab4a133049b16abe69a45a461311f36ae501564c8accaab6e0b",
+      "bytes": 2415584
+    },
+    "paired_pair_bootstrap_summary.csv": {
+      "sha256": "2cff5b943d94e5f96a127ba2bf41efeca00478bf01708492cb73643c17b80209",
+      "bytes": 1523
+    },
+    "paired_seed_deltas.csv": {
+      "sha256": "0c713e8bbbc23a72f07e06e224eabbe23ce2974bdb8c6e5c36a9768cfe9aa1d4",
+      "bytes": 3740
+    },
+    "per_seed_calibration_operating_metrics.csv": {
+      "sha256": "59a8134addfa46e19a313df84d861c3578ab27b0f8503f9095f0ca8772547600",
+      "bytes": 5857
+    },
+    "reliability_bins_method_summary.csv": {
+      "sha256": "69d4f8d0d598fb8bf64cb0d9767a000747a82b82afe87e6f29bc5faa165d736d",
+      "bytes": 2126
+    },
+    "reliability_bins_per_seed.csv": {
+      "sha256": "05b000613b046d1cb382f1732f4b575037a9766abf595e63e9c0e0fd06d8f339",
+      "bytes": 5500
+    }
+  }
+}

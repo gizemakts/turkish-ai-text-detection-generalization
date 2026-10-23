@@ -1,0 +1,5 @@
+variant,roc_auc,ci95_low,ci95_high,n_documents,n_authors,n_features,split,ner_completeness,scaling
+BASELINE_EXISTING_FULL_SURFACE_AUTHOR_DISJOINT,0.997424,0.9945958,1.0,1000,10,14,author-disjoint; ABSTRACT + other-eight-author NEWSPAPER training,COMPLETE_STANZA_TR_STARLANG,fit on training fold only
+P1_CUE_ONLY,0.8845679999999999,0.7902878,0.9563783,1000,10,26,author-disjoint; ABSTRACT + other-eight-author NEWSPAPER training,COMPLETE_STANZA_TR_STARLANG,fit on training fold only
+P2_EXISTING_MINUS_CUE,0.997004,0.9936077999999999,1.0,1000,10,13,author-disjoint; ABSTRACT + other-eight-author NEWSPAPER training,COMPLETE_STANZA_TR_STARLANG,fit on training fold only
+P3_FULL,0.998604,0.9964159000000001,0.9999439999999999,1000,10,39,author-disjoint; ABSTRACT + other-eight-author NEWSPAPER training,COMPLETE_STANZA_TR_STARLANG,fit on training fold only

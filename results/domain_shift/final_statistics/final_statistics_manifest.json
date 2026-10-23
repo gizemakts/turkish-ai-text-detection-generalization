@@ -1,0 +1,43 @@
+{
+  "schema_version": "combined-v2-domain-shift-final-statistics-v1",
+  "status": "COMPLETE",
+  "unblinded": true,
+  "fits_verified": 12,
+  "directions": [
+    "abstract_to_newspaper",
+    "newspaper_to_abstract"
+  ],
+  "seeds": [
+    42,
+    314,
+    2026
+  ],
+  "statistics_config": {
+    "bootstrap_unit": "pair_id within target domain",
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 2604,
+    "same_resampled_pairs_for_ce_and_supcon": true,
+    "same_resampled_pairs_across_three_seeds_within_direction": true,
+    "overall_delta": "for each replicate and metric, compute SupCon-minus-CE cross-domain delta for each direction and seed, then equally average across 2 directions and 3 seeds",
+    "direction_specific_delta": "within each direction, average paired SupCon-minus-CE delta across 3 seeds",
+    "robustness_delta": "CE(ID-cross-domain degradation) - SupCon(ID-cross-domain degradation), averaged across directions and seeds",
+    "ci": "95% percentile interval",
+    "inference_scope": "pair-sampling uncertainty conditional on the two tested domains; not a superpopulation confidence interval over all possible future text domains"
+  },
+  "config_sha256": "bf5fd8a4c099c05c42cb433d0968764a5d8ca19bf0bcec8b514bd0eece7d6fb9",
+  "runner_sha256": "2c485224cf40cdb5f0b350c9c504084b4ca1a13287ee11ca82c1d839d164e59f",
+  "statistics_sha256": "d5ef92d356305ac0b71faee44db6cc5050e60dccea6c3df63181da693a5ca0f4",
+  "freeze_sha256": "da9d18fd979721e96dd1e43e32118fea30548da7544eb45477accd59a5095cfd",
+  "primary_reference_manifest_sha256": "ed30975ecb16f49715352f6b11ef1c29aa6e4df2e0d2a0bf55f93a69fcc2187a",
+  "outputs": {
+    "per_direction_seed_metrics.csv": "7773df369cc6f34500b9393bbca37eec2b6fd1293ba490bfa22fff0fcfea4bec",
+    "macro_seed_metrics.csv": "37b36eb89e067de66adb0045539f29df34440faab1415e7ce1c6a2d9ce5b215a",
+    "direction_seed_deltas.csv": "347d8579d6b76973b1ce73acaee601074e0735e5e841c6a8c4d98a45e27ada21",
+    "method_macro_summary.csv": "29f29c9dcbe27747c46288907ecc573fd4a0218010127acf6b388a6571451188",
+    "direction_summary.csv": "e6c51cac8444d0becc63f87116ceca8bb5032d458af34f2c3b9b290e5d0c2d5a",
+    "paired_delta_summary.csv": "d9d5b771ecc3ad3556f24730aad0e05667c4f591c158c33e9f636263e61c66fb",
+    "paired_pair_bootstrap_draws.csv": "12bcd840449ae4483357af502a275b9f96bd5de3eefd78ff0323bad443a3d8d3",
+    "paired_pair_bootstrap_direction_draws.csv": "d25eddfc245339724b379f20dca318a6c67eda250bc1ecfba6831360ee7900ad",
+    "paired_pair_bootstrap_summary.csv": "5bc497e44e4f86a17e40036c009cee8337263a5790b97261bb96c31239f6d8f9"
+  }
+}

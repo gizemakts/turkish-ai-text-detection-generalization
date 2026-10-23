@@ -1,0 +1,81 @@
+{
+  "schema_version": "combined-v2-config-v1",
+  "study": "Cross-corpus Turkish AI-generated text detection (Combined-v2)",
+  "sources": {
+    "abstract_base": "data/abstract/PROCESSED_V2/abstract_dataset_base_v2.csv",
+    "newspaper_human": "data/newspaper/RAW/human_newspaper_columns_500.csv",
+    "newspaper_ai": "data/newspaper/RAW/ai_newspaper_columns_500.csv"
+  },
+  "source_sha256": {
+    "abstract_base": "c098814c0bfdf2d87514cbb7ec856cad04d7f5eb046e651bbd539d9eb4197a99",
+    "newspaper_human": "b6a0acafa96b42348b07cbe5dcb295b7c4bf19eb5068e454f5da72f5e0c5fd9d",
+    "newspaper_ai": "908185903f00dbabee6098d97f54c037d90fb77ac74adccc4b0272b7c91e8024"
+  },
+  "outputs": {
+    "data_dir": "data/study",
+    "output_dir": "results/historical/model_evaluation/baseline",
+    "provenance_dir": "provenance/history/study_development/legacy_workflow_records"
+  },
+  "protocol": {
+    "seed": 42,
+    "outer_folds": 5,
+    "inner_folds": 4,
+    "group": "pair_id",
+    "strata": [
+      "domain",
+      "generator"
+    ],
+    "threshold": {
+      "method": "Neyman-Pearson order statistic",
+      "alpha": 0.03,
+      "delta": 0.05
+    }
+  },
+  "conditions": {
+    "A": "Existing minimal-normalization primary condition, unchanged",
+    "B": "Existing typography/structured-heading normalization; digit-token removal only for M3/M4/M5, unchanged"
+  },
+  "models": {
+    "M1": {
+      "definition": "Historical 13-feature surface baseline (not part of the final article)",
+      "conditions": [
+        "A",
+        "B"
+      ]
+    },
+    "M2": {
+      "definition": "Historical reduced-feature baseline (not part of the final article)",
+      "conditions": [
+        "A"
+      ]
+    },
+    "M3": {
+      "definition": "12 surface rates, log1p, L2 logistic regression",
+      "conditions": [
+        "A",
+        "B"
+      ]
+    },
+    "M4": {
+      "definition": "word (1,2) plus char_wb (2,5) TF-IDF, L2 logistic regression",
+      "conditions": [
+        "A",
+        "B"
+      ]
+    },
+    "M5": {
+      "identifier": "dbmdz/bert-base-turkish-cased",
+      "revision": "b6e1de16c983e0f2c70664591ea3f22810072608",
+      "learning_rate": 2e-05,
+      "epochs": 3,
+      "batch_size": 16,
+      "warmup_ratio": 0.1,
+      "weight_decay": 0.01,
+      "truncation": "head128+tail382",
+      "conditions": [
+        "A",
+        "B"
+      ]
+    }
+  }
+}

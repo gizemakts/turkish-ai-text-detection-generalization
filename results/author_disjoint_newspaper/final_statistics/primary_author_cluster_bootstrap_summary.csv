@@ -1,0 +1,4 @@
+analysis_label,estimand,top_level_sampling_unit,replicates,bootstrap_seed,bootstrap_mean,ci95_lower,ci95_upper
+PRIMARY_AUTHOR_CLUSTER_BOOTSTRAP,ce_mean_auc,author,5000,2602,0.999994016,0.9999760000000001,1.0
+PRIMARY_AUTHOR_CLUSTER_BOOTSTRAP,supcon_mean_auc,author,5000,2602,0.9999832381333333,0.9999333333333333,1.0
+PRIMARY_AUTHOR_CLUSTER_BOOTSTRAP,supcon_minus_ce,author,5000,2602,-1.077786666666678e-05,-4.399999999993298e-05,0.0

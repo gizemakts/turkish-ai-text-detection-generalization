@@ -1,0 +1,71 @@
+{
+  "schema_version": "author-disjoint-newspaper-v1",
+  "experiment": "NEWSPAPER_AUTHOR_DISJOINT_SENSITIVITY_V1",
+  "status": "FROZEN_NOT_EXECUTED",
+  "analysis_label": "post-hoc, outcome-blind frozen sensitivity analysis",
+  "confirmatory": false,
+  "preregistered": false,
+  "source_dataset": "data/study/paired_study.csv",
+  "source_dataset_sha256": "ea5797ac19348957472626d1a23b740de531cd19577f613e1a73894e34d66b44",
+  "fold_assignment": "provenance/experiments/author_disjoint_newspaper_20261013/author_disjoint_folds.csv",
+  "fold_assignment_sha256": "a4fdcde6400216ceb6687b899e33ff85bfcb01e341fddc82834e762517b8c201",
+  "assignment_rule": "NFC-normalize the 10 exact HUMAN NEWSPAPER author values, sort ascending by UTF-8 bytes, assign consecutive pairs to folds 0..4; AI inherits its matched HUMAN author and fold via pair_id",
+  "test_population": "all HUMAN and AI rows for the two held-out NEWSPAPER authors",
+  "training_population": "all ABSTRACT pairs plus all NEWSPAPER pairs from the other eight authors",
+  "seeds": [42, 314, 2026],
+  "outer_folds": [0, 1, 2, 3, 4],
+  "methods": ["CE_ONLY_MATCHED", "SUPCON"],
+  "planned_training_runs": 30,
+  "condition": "A",
+  "backbone": {
+    "identifier": "dbmdz/bert-base-turkish-cased",
+    "revision": "b6e1de16c983e0f2c70664591ea3f22810072608",
+    "tokenizer": "same pinned backbone tokenizer",
+    "representation": "final_hidden_state_CLS",
+    "truncation": "[CLS] + first 128 WordPieces + last 382 WordPieces + [SEP]",
+    "maximum_tokens": 512
+  },
+  "training": {
+    "learning_rate": 0.00002,
+    "epochs": 3,
+    "physical_batch_size": 16,
+    "gradient_accumulation_steps": 2,
+    "effective_batch_size": 32,
+    "evaluation_batch_size": 32,
+    "weight_decay": 0.01,
+    "warmup_steps": 0.1,
+    "dropout": 0.1,
+    "optimizer_and_scheduler": "unchanged authoritative primary implementation",
+    "sampler": "deterministic training-label-only balanced sampler",
+    "persistent_checkpoint_policy": "none; matches authoritative primary run_fit save_strategy=no; predictions and hash-bound run sidecars are resumability authority"
+  },
+  "objectives": {
+    "CE_ONLY_MATCHED": {"cli": "ce", "loss": "cross_entropy", "lambda_supcon": 0.0, "temperature": null},
+    "SUPCON": {"cli": "supcon", "loss": "cross_entropy + 0.1 * supervised_contrastive_loss", "lambda_supcon": 0.1, "temperature": 0.07}
+  },
+  "prediction_schema": ["text_id", "pair_id", "label", "domain", "generator", "author", "author_fold", "seed", "objective", "condition", "raw_decision_score"],
+  "output_naming": "results/author_disjoint_newspaper/{ce|supcon}/seed_{seed}/fold_{fold}_{predictions.csv|run.json}",
+  "scratch_naming": "artifacts/checkpoints/author_disjoint_newspaper/{objective}_seed_{seed}_fold_{fold}/ (no persistent checkpoint under frozen save_strategy=no)",
+  "statistics": {
+    "primary_outcome": "NEWSPAPER author-disjoint ROC-AUC",
+    "fold_level": true,
+    "seed_level": "pooled held-out predictions across five author folds",
+    "method_level": "mean and sample SD across the three seed-level ROC-AUC values",
+    "primary_delta": "SUPCON minus CE_ONLY_MATCHED",
+    "bootstrap_unit": "pair_id",
+    "bootstrap_replicates": 5000,
+    "bootstrap_seed": 2602,
+    "same_resample_across_methods_and_seeds": true,
+    "ci": "95% percentile interval"
+  },
+  "m4_diagnostic": {
+    "label": "diagnostic corpus-separability baseline",
+    "main_comparison_member": false,
+    "features": "word(1,2) + char_wb(2,5) TF-IDF, min_df=2, sublinear_tf, L2 Logistic Regression",
+    "leakage_rule": "TF-IDF fit only on the current training population; test is transform-only",
+    "c_grid": [0.01, 0.03, 0.1, 0.3, 1.0, 3.0, 10.0]
+  },
+  "interpretation_if_high": "The same author appearing in training and test does not appear necessary for high discrimination; temporal, prompt/generation-procedure, and other corpus-construction confounding remain.",
+  "interpretation_if_drop": "Source/author dependence will be reported as a contributing factor to internal discrimination and the scope of the primary pair-disjoint interpretation will be narrowed.",
+  "outcome_adaptive_changes_forbidden": true
+}

@@ -1,0 +1,349 @@
+{
+  "schema_version": "author-disjoint-newspaper-final-statistics-v1",
+  "status": "COMPLETE",
+  "training_runs_verified": 30,
+  "prediction_files_verified": 30,
+  "predictions_modified": false,
+  "folds_modified": false,
+  "statistics_code_path": "src/turkish_ai_detection/experiments/author_disjoint_newspaper/summarize_author_cluster_statistics.py",
+  "observed_author_clusters": 10,
+  "small_cluster_limitation": "Only 10 held-out authors are available; author-level uncertainty is based on a small number of source clusters.",
+  "primary_uncertainty": {
+    "label": "PRIMARY_AUTHOR_CLUSTER_BOOTSTRAP",
+    "top_level_sampling_unit": "author",
+    "observed_author_clusters": 10,
+    "sampled_clusters_per_replicate": 10,
+    "with_replacement": true,
+    "include_all_pairs_within_sampled_author": true,
+    "nested_pair_resampling": false,
+    "identical_sampled_authors_across_methods_and_seeds": true,
+    "replicates": 5000,
+    "seed": 2602,
+    "interval": "95% percentile",
+    "estimands": [
+      "CE mean ROC-AUC",
+      "SupCon mean ROC-AUC",
+      "SupCon minus CE mean ROC-AUC"
+    ]
+  },
+  "secondary_uncertainty": {
+    "label": "SECONDARY_PAIR_LEVEL_SENSITIVITY",
+    "sampling_unit": "pair_id",
+    "identical_sampled_pairs_across_methods_and_seeds": true,
+    "replicates": 5000,
+    "seed": 2602,
+    "interval": "95% percentile",
+    "primary_author_generalization_interval": false,
+    "draws_path": "results/author_disjoint_newspaper/final_statistics/paired_pair_bootstrap_draws.csv",
+    "summary_path": "results/author_disjoint_newspaper/final_statistics/paired_pair_bootstrap_summary.csv",
+    "presentation_role": "secondary sensitivity only; not the primary author-generalization interval"
+  },
+  "seed_level_estimand": "ROC-AUC from complete out-of-fold NEWSPAPER predictions pooled across all five author-disjoint folds",
+  "author_specific_reporting": {
+    "required": true,
+    "authors": 10,
+    "pairs_per_author": 50,
+    "observations_per_author": 100,
+    "report_per_seed": true,
+    "report_mean_and_sample_sd_across_seeds": true
+  },
+  "paired_alignment": {
+    "identical_authors": true,
+    "identical_folds": true,
+    "identical_seeds": true,
+    "identical_text_ids": true,
+    "identical_pair_ids": true,
+    "identical_labels": true
+  },
+  "prediction_bindings": [
+    {
+      "objective": "ce",
+      "seed": 42,
+      "author_fold": 0,
+      "prediction_path": "results/author_disjoint_newspaper/ce/seed_42/fold_0_predictions.csv",
+      "prediction_sha256": "65691baf06dceef7ad0bac34b6196e9336df6be4589a12a8e55ff4be7eb34947",
+      "run_path": "results/author_disjoint_newspaper/ce/seed_42/fold_0_run.json",
+      "run_sha256": "dd41e67279d8457610dc4b5e3fcf46b7066f30771db2c8da72e27d0cb3074bde"
+    },
+    {
+      "objective": "ce",
+      "seed": 42,
+      "author_fold": 1,
+      "prediction_path": "results/author_disjoint_newspaper/ce/seed_42/fold_1_predictions.csv",
+      "prediction_sha256": "3fb4989fbcfa65dfe1c4337c44ef3e40babb0f6ac0d67922a11d87a2042a5575",
+      "run_path": "results/author_disjoint_newspaper/ce/seed_42/fold_1_run.json",
+      "run_sha256": "12a2c5a21f71ad3d99468c8e9db060e2b296560383ce16e628d40c536150590c"
+    },
+    {
+      "objective": "ce",
+      "seed": 42,
+      "author_fold": 2,
+      "prediction_path": "results/author_disjoint_newspaper/ce/seed_42/fold_2_predictions.csv",
+      "prediction_sha256": "ff7b47dfebd66cbd46dcd91cde1bb83960b739aecf75f92c54c4e9bc6aed8e28",
+      "run_path": "results/author_disjoint_newspaper/ce/seed_42/fold_2_run.json",
+      "run_sha256": "3047f906da604fa363353fc3b50cf7f81408a60f6924fb901c264d3f1b5cfdfb"
+    },
+    {
+      "objective": "ce",
+      "seed": 42,
+      "author_fold": 3,
+      "prediction_path": "results/author_disjoint_newspaper/ce/seed_42/fold_3_predictions.csv",
+      "prediction_sha256": "6a639dfb441acf36bc4a4147c3f896208a5bc398926bec8496e3ded9460abe9d",
+      "run_path": "results/author_disjoint_newspaper/ce/seed_42/fold_3_run.json",
+      "run_sha256": "054572b15543abaf913cb5a7414bd479714fa57541a558162bb2e467ae23a512"
+    },
+    {
+      "objective": "ce",
+      "seed": 42,
+      "author_fold": 4,
+      "prediction_path": "results/author_disjoint_newspaper/ce/seed_42/fold_4_predictions.csv",
+      "prediction_sha256": "b1236dff7ce93fcfcfb10c152015e74c8461cc718dd663f91f75f9f7ed899c3c",
+      "run_path": "results/author_disjoint_newspaper/ce/seed_42/fold_4_run.json",
+      "run_sha256": "b171533f7bf643ce9c50ae4c3032a72f7bb17cb0bae87c36945c2357188432f0"
+    },
+    {
+      "objective": "ce",
+      "seed": 314,
+      "author_fold": 0,
+      "prediction_path": "results/author_disjoint_newspaper/ce/seed_314/fold_0_predictions.csv",
+      "prediction_sha256": "af745691879a26eb8d5ff6024b40f3a2784be1118f78b7688bd6f0c332c8b2fa",
+      "run_path": "results/author_disjoint_newspaper/ce/seed_314/fold_0_run.json",
+      "run_sha256": "0084ecea2b7503345e1f22900b1c3e295115384b03c7492641d2877be2dd4d64"
+    },
+    {
+      "objective": "ce",
+      "seed": 314,
+      "author_fold": 1,
+      "prediction_path": "results/author_disjoint_newspaper/ce/seed_314/fold_1_predictions.csv",
+      "prediction_sha256": "ba3c0828c0013b71e919014bb975f21d0828c3c1275f89b6af9363fc031cf07b",
+      "run_path": "results/author_disjoint_newspaper/ce/seed_314/fold_1_run.json",
+      "run_sha256": "de985e310fd8187d1aeb4ff2052c2dfdcb89a41ec69bdf165e3b364274e5f01d"
+    },
+    {
+      "objective": "ce",
+      "seed": 314,
+      "author_fold": 2,
+      "prediction_path": "results/author_disjoint_newspaper/ce/seed_314/fold_2_predictions.csv",
+      "prediction_sha256": "42aef7584fc7cf5fc786c4b8dbaa8c2d255fee4aa5d7d34961667e43bf048054",
+      "run_path": "results/author_disjoint_newspaper/ce/seed_314/fold_2_run.json",
+      "run_sha256": "351f2bf87d66729ab2a00dc08fc8bc27862d5e536d268be0a26aa1b66d8538ed"
+    },
+    {
+      "objective": "ce",
+      "seed": 314,
+      "author_fold": 3,
+      "prediction_path": "results/author_disjoint_newspaper/ce/seed_314/fold_3_predictions.csv",
+      "prediction_sha256": "85e0e7108b462309dab198d05476950d07353e25994f14b9e35337f2debfcf60",
+      "run_path": "results/author_disjoint_newspaper/ce/seed_314/fold_3_run.json",
+      "run_sha256": "86be2f6e3afacdc8c7d81fe484fb861988d540004782b724b0fb213aeadf1059"
+    },
+    {
+      "objective": "ce",
+      "seed": 314,
+      "author_fold": 4,
+      "prediction_path": "results/author_disjoint_newspaper/ce/seed_314/fold_4_predictions.csv",
+      "prediction_sha256": "127c4fccd46f991d27aa2b308ae6e1fe4eaf4948f8adc7227f8d020d2fb673fe",
+      "run_path": "results/author_disjoint_newspaper/ce/seed_314/fold_4_run.json",
+      "run_sha256": "1247e5782edcf477184db25eccc99611000867218120fe734a1b27ef25a8de14"
+    },
+    {
+      "objective": "ce",
+      "seed": 2026,
+      "author_fold": 0,
+      "prediction_path": "results/author_disjoint_newspaper/ce/seed_2026/fold_0_predictions.csv",
+      "prediction_sha256": "d90709414979c37d8b832c25dddb42c630b7fb1a7be611c802f3c7547acc847b",
+      "run_path": "results/author_disjoint_newspaper/ce/seed_2026/fold_0_run.json",
+      "run_sha256": "670efb41ae761692618e4825b5670af41dd7f08e73cc2f27d046c1de8ed1bc5a"
+    },
+    {
+      "objective": "ce",
+      "seed": 2026,
+      "author_fold": 1,
+      "prediction_path": "results/author_disjoint_newspaper/ce/seed_2026/fold_1_predictions.csv",
+      "prediction_sha256": "99688f44356894d6a90e75cf2d5af88f4cb2cdbe4e582dce9f9dc7c2a4ee9ab7",
+      "run_path": "results/author_disjoint_newspaper/ce/seed_2026/fold_1_run.json",
+      "run_sha256": "43d7d7525eb743e81e8412779e4408df8a877b60fb9457f95ed6275d38b02d93"
+    },
+    {
+      "objective": "ce",
+      "seed": 2026,
+      "author_fold": 2,
+      "prediction_path": "results/author_disjoint_newspaper/ce/seed_2026/fold_2_predictions.csv",
+      "prediction_sha256": "bb156ca48488fd89fe47ac5432a1df33d54227f0d10d66848619fcfd5c785c86",
+      "run_path": "results/author_disjoint_newspaper/ce/seed_2026/fold_2_run.json",
+      "run_sha256": "650e25456984c35a7eab57d64c8cd2d779e62b3fe765272cbdf7ff32e4933f1f"
+    },
+    {
+      "objective": "ce",
+      "seed": 2026,
+      "author_fold": 3,
+      "prediction_path": "results/author_disjoint_newspaper/ce/seed_2026/fold_3_predictions.csv",
+      "prediction_sha256": "7a26b127f22b64693802a888e314396ec3b4587d2c376c7380abaf930a1ca33b",
+      "run_path": "results/author_disjoint_newspaper/ce/seed_2026/fold_3_run.json",
+      "run_sha256": "7f4d3f418edd2b4c22f59ae236bf52a896f742cafbd69e27b0a9c8f47009e419"
+    },
+    {
+      "objective": "ce",
+      "seed": 2026,
+      "author_fold": 4,
+      "prediction_path": "results/author_disjoint_newspaper/ce/seed_2026/fold_4_predictions.csv",
+      "prediction_sha256": "c7cd6b0843f7681b9d06873943baa5a7b779af8034f2422d3dbd066758eb8c3c",
+      "run_path": "results/author_disjoint_newspaper/ce/seed_2026/fold_4_run.json",
+      "run_sha256": "7310ecdf3cc15c57fd4b5c9afab84959e0f00561ce42c065861d7d931f298350"
+    },
+    {
+      "objective": "supcon",
+      "seed": 42,
+      "author_fold": 0,
+      "prediction_path": "results/author_disjoint_newspaper/supcon/seed_42/fold_0_predictions.csv",
+      "prediction_sha256": "6bfc356eca352fb829a07bbecf46b2325ea5e8d4e556df5bd561a9302386b8c5",
+      "run_path": "results/author_disjoint_newspaper/supcon/seed_42/fold_0_run.json",
+      "run_sha256": "d2dbc4bacc2ab7f54542239a699010ffb877f2038df3de056519791cae6de8e6"
+    },
+    {
+      "objective": "supcon",
+      "seed": 42,
+      "author_fold": 1,
+      "prediction_path": "results/author_disjoint_newspaper/supcon/seed_42/fold_1_predictions.csv",
+      "prediction_sha256": "f5c78a2e657d10ecb8abbd727d3218c7b971effa205b33c59ee33deb7f65aa41",
+      "run_path": "results/author_disjoint_newspaper/supcon/seed_42/fold_1_run.json",
+      "run_sha256": "44c037d40ecd42d828b9b227c335039c46de38d7a6553b88f309b3584feb3c06"
+    },
+    {
+      "objective": "supcon",
+      "seed": 42,
+      "author_fold": 2,
+      "prediction_path": "results/author_disjoint_newspaper/supcon/seed_42/fold_2_predictions.csv",
+      "prediction_sha256": "4e13707f742059d9a7c0fa5cbdc4381c9b0124bef8ed44fdece216113ebcb0f2",
+      "run_path": "results/author_disjoint_newspaper/supcon/seed_42/fold_2_run.json",
+      "run_sha256": "619a62aae3df69486100a964667ab45669a6885d8b048432509b6a884f68394f"
+    },
+    {
+      "objective": "supcon",
+      "seed": 42,
+      "author_fold": 3,
+      "prediction_path": "results/author_disjoint_newspaper/supcon/seed_42/fold_3_predictions.csv",
+      "prediction_sha256": "90f49942cf8d2818c052c8a099a7660cef21b6f834a312673f16be5890cd06d4",
+      "run_path": "results/author_disjoint_newspaper/supcon/seed_42/fold_3_run.json",
+      "run_sha256": "1200066f643bae3c05fbeb4c0100a8f8cab029b85724e73e6d4eb2ad923cf574"
+    },
+    {
+      "objective": "supcon",
+      "seed": 42,
+      "author_fold": 4,
+      "prediction_path": "results/author_disjoint_newspaper/supcon/seed_42/fold_4_predictions.csv",
+      "prediction_sha256": "6ab5c3c9bde46ede729186a16896fb33a34fc2279b87165f15cf4bf211380caf",
+      "run_path": "results/author_disjoint_newspaper/supcon/seed_42/fold_4_run.json",
+      "run_sha256": "ebcf24c3ee62ff13c69c5ee8b40c9afaad32930224f713ca614667838d9268ed"
+    },
+    {
+      "objective": "supcon",
+      "seed": 314,
+      "author_fold": 0,
+      "prediction_path": "results/author_disjoint_newspaper/supcon/seed_314/fold_0_predictions.csv",
+      "prediction_sha256": "9664abb61525a9b25648d494b1ef8ddf18a852eebf251620527e63ac08c6c4b6",
+      "run_path": "results/author_disjoint_newspaper/supcon/seed_314/fold_0_run.json",
+      "run_sha256": "5acb36951397be6afac961475bc710d9ff68eba3df18823fc9ea8017fe6ada7f"
+    },
+    {
+      "objective": "supcon",
+      "seed": 314,
+      "author_fold": 1,
+      "prediction_path": "results/author_disjoint_newspaper/supcon/seed_314/fold_1_predictions.csv",
+      "prediction_sha256": "861c904560fdba25f62bfad8193ae4c22ca4acddeb092e64092b41e264f8da79",
+      "run_path": "results/author_disjoint_newspaper/supcon/seed_314/fold_1_run.json",
+      "run_sha256": "f8681513040a1daaff23e3c31fa3c0ca8891fa72f1d4030744a8a2b9321c1eb9"
+    },
+    {
+      "objective": "supcon",
+      "seed": 314,
+      "author_fold": 2,
+      "prediction_path": "results/author_disjoint_newspaper/supcon/seed_314/fold_2_predictions.csv",
+      "prediction_sha256": "28cff2b8c7f3769c5024e7df146945c3649637ec30a1541e4e930a8666e61fac",
+      "run_path": "results/author_disjoint_newspaper/supcon/seed_314/fold_2_run.json",
+      "run_sha256": "2dc526fb13b9ef08423f9021fc07e448160afe7a4d4097a83e7e7ee72e5d6670"
+    },
+    {
+      "objective": "supcon",
+      "seed": 314,
+      "author_fold": 3,
+      "prediction_path": "results/author_disjoint_newspaper/supcon/seed_314/fold_3_predictions.csv",
+      "prediction_sha256": "0d6690e0747c3123921657748207fb83b184b2ec362e50954ec9b3d573b6433a",
+      "run_path": "results/author_disjoint_newspaper/supcon/seed_314/fold_3_run.json",
+      "run_sha256": "3a003d0414741481809306f3cc3e8e02440f4dbe0ad0b561ab42884cae859edd"
+    },
+    {
+      "objective": "supcon",
+      "seed": 314,
+      "author_fold": 4,
+      "prediction_path": "results/author_disjoint_newspaper/supcon/seed_314/fold_4_predictions.csv",
+      "prediction_sha256": "49e56429fc94a2cea714aa2d9913326a9c544dfc853536c5f31a0f2e512d6275",
+      "run_path": "results/author_disjoint_newspaper/supcon/seed_314/fold_4_run.json",
+      "run_sha256": "9d5d3c32e94a4f42a5ad45f80180f05c9c6846fccc3838498c635315ba111282"
+    },
+    {
+      "objective": "supcon",
+      "seed": 2026,
+      "author_fold": 0,
+      "prediction_path": "results/author_disjoint_newspaper/supcon/seed_2026/fold_0_predictions.csv",
+      "prediction_sha256": "07625e8b8e3403d31653b72f6c71e8c6e863450dbb85ac34cb0ee2d31ce0cb5e",
+      "run_path": "results/author_disjoint_newspaper/supcon/seed_2026/fold_0_run.json",
+      "run_sha256": "13f3657b8bf89cc455bc5758cfe831787557a19d753246bb0203b85ea8dfed28"
+    },
+    {
+      "objective": "supcon",
+      "seed": 2026,
+      "author_fold": 1,
+      "prediction_path": "results/author_disjoint_newspaper/supcon/seed_2026/fold_1_predictions.csv",
+      "prediction_sha256": "372bcd8f3dafacf14a598729868458a9f112fcd2f32e4e1fdacf9f82c9f6f7b9",
+      "run_path": "results/author_disjoint_newspaper/supcon/seed_2026/fold_1_run.json",
+      "run_sha256": "ba7e820baf3b56d3e97e335878a0d7623bccf536bcee146884cf43bcb5222ac4"
+    },
+    {
+      "objective": "supcon",
+      "seed": 2026,
+      "author_fold": 2,
+      "prediction_path": "results/author_disjoint_newspaper/supcon/seed_2026/fold_2_predictions.csv",
+      "prediction_sha256": "a16a816066bc5165c21503e8b7355ab5d044f38f5696ec1781a8aac157e04c43",
+      "run_path": "results/author_disjoint_newspaper/supcon/seed_2026/fold_2_run.json",
+      "run_sha256": "da99821bbebf4f0c43fb88c3f6828d1b57e2a5578d65cdaafe00430e97e3ed85"
+    },
+    {
+      "objective": "supcon",
+      "seed": 2026,
+      "author_fold": 3,
+      "prediction_path": "results/author_disjoint_newspaper/supcon/seed_2026/fold_3_predictions.csv",
+      "prediction_sha256": "b1cd70fe0533456c2344a2057d918706d0a24f994e7b75ba3550eecf1f03246d",
+      "run_path": "results/author_disjoint_newspaper/supcon/seed_2026/fold_3_run.json",
+      "run_sha256": "de0447911f54c473e4c04ee85b24e793f95c7d58dfc47787b2e764f72210515d"
+    },
+    {
+      "objective": "supcon",
+      "seed": 2026,
+      "author_fold": 4,
+      "prediction_path": "results/author_disjoint_newspaper/supcon/seed_2026/fold_4_predictions.csv",
+      "prediction_sha256": "92b69d2fc763fb8ded7f42dfd1a96d361c0e0279434d6723daa594b2d84eef26",
+      "run_path": "results/author_disjoint_newspaper/supcon/seed_2026/fold_4_run.json",
+      "run_sha256": "6d662fa1fd6e79fa90a4627317677c7db3efb24b4ff4332efcef135fd04bce79"
+    }
+  ],
+  "outputs": {
+    "fold_metrics.csv": "937608bd685d50039c1a0013182582c49812893055d7d8dfc68a138a1686c23a",
+    "seed_metrics.csv": "d9eade7e35099b75fed758102b4e0719c62f3be40e8907c10e983d4bf6b74cab",
+    "method_summary.csv": "136a2a414ae4b4bb7364442323569deecd6adb7a0f45de035de0c1fe3dd5a12f",
+    "paired_seed_differences.csv": "ffee3031bf90460900dd93f10b8d31e3ad058504fc9f18d6d3be598afdbdf689",
+    "primary_author_cluster_bootstrap_draws.csv": "b0f96cc80d75ba55bc5d17ee8e1d449d50901ec3b02ea912a4051341569d4d5d",
+    "primary_author_cluster_bootstrap_summary.csv": "aa931d0cda7437c74c39447674b08b2e8d898548fed94190681d763b22ffd3d4",
+    "per_author_seed_metrics.csv": "bd4f59aa98872f0dbc6a3c070c629f7b59a0b5505dd04d8fa40efc62b19a1d61",
+    "per_author_method_summary.csv": "4eb7ea0fd859d4fc41da85ff19aef53a474aa09770f2404b07f1944c07f7dfda",
+    "paired_pair_bootstrap_draws.csv": "b63f1590253ffe6ebc181e4982da0b714f5862a9da91d9ca58f74edf3ac636eb",
+    "paired_pair_bootstrap_summary.csv": "d90decf879db9bb7d97ea300d04296f75b8de6eeb6cf12146fc85b92b69d1440"
+  },
+  "numerical_validation": {
+    "matches_previous_read_only_recomputation": true,
+    "absolute_tolerance": 1e-15,
+    "per_author_cells_checked": 60,
+    "primary_bootstrap_estimands_checked": 3
+  },
+  "statistics_config_path": "configs/author_disjoint_statistics.json"
+}

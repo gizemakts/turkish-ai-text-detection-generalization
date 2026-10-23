@@ -1,0 +1,12 @@
+{
+  "status": "SUPPLEMENTARY_CALIBRATION_COMPLETE",
+  "external_labels_read_after_parameter_freeze": true,
+  "external_predictions_rerun": false,
+  "external_prediction_seal_modified": false,
+  "lit2026": "UNAVAILABLE_BY_DESIGN",
+  "limitations": [
+    "Metrics are exploratory and post-hoc; nominal internal FPR does not guarantee external FPR.",
+    "Realization summaries describe five dependent outer folds per seed, not independent texts.",
+    "Bootstrap uncertainty is not reported where the existing protocol does not define a valid paired resampling estimand."
+  ]
+}

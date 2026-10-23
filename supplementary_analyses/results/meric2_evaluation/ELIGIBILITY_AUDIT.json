@@ -1,0 +1,65 @@
+{
+  "created_utc": "2026-10-15T08:38:17.397831+00:00",
+  "status": "PASS_ELIGIBLE_FIXED_COMBINED_V2_CHECKPOINTS_AUTHORIZED_3SEED_GRID",
+  "authorized_transformer_seeds": [
+    42,
+    314,
+    2026
+  ],
+  "excluded_seeds_due_to_verifier_grid": [
+    137,
+    3407
+  ],
+  "expected_transformer_cells": 30,
+  "analysis_config_sha256": "fae3aa9fda6ef27db4591bcf52fa22b931376fd239a792c6469271e90043f653",
+  "audit_script_sha256": "9300de96e0fd7daea97f8f010449b5f57477bf1c1f828ed106a0ef57a03246ad",
+  "dataset_sha256": "e9ab81061c4cb388889cb37b2e9dda3d30928a083a3227ad8641cc7baad97ec3",
+  "combined_v2_sha256": "ea5797ac19348957472626d1a23b740de531cd19577f613e1a73894e34d66b44",
+  "fold_manifest_sha256": "16ffae53a5d9027a95e12f3975fd062f17038ef5bf8970a74dd3ef7339d9a100",
+  "raw_rows": 11600,
+  "missing_text": 1,
+  "invalid_labels": 0,
+  "duplicate_excess": 24,
+  "eligible_rows": 11575,
+  "eligible_by_label": {
+    "ai": 5799,
+    "human": 5776
+  },
+  "word_count": {
+    "ai": {
+      "mean": 39.3642007242628,
+      "median": 39.0,
+      "min": 7,
+      "max": 69
+    },
+    "human": {
+      "mean": 39.829120498614955,
+      "median": 40.0,
+      "min": 22,
+      "max": 55
+    }
+  },
+  "overlap": {
+    "Combined-v2": 0,
+    "Renklier2026": 0,
+    "TUM2024_TR": 0,
+    "Bostancioglu2026_TR": 0
+  },
+  "overlap_excluded": 0,
+  "length_matched_rows": 7938,
+  "length_matched_by_label": {
+    "human": 3969,
+    "ai": 3969
+  },
+  "physical_checkpoint_cells": 30,
+  "eligible_checkpoint_cells": 30,
+  "pilot": {
+    "used_meric2_for_training": true,
+    "model": "CE seed 42 outer 0 augmented pilot only",
+    "meric2_training_rows": 2400,
+    "checkpoint_sha256": "d70777cdc8251ab4b6fe9209f72abb97448738b6f80da2aaf6ff127c31ae5549",
+    "excluded_from_new_grid": true,
+    "prior_outcome_known": "no measurable improvement; this makes the new analysis post-hoc exploratory"
+  },
+  "conclusion": "Contamination excluded for the 30 verifier-authorized frozen terminal cells through Combined-v2 primary-reference hashes, pair hashes, payload hashes, and exclusion of the distinct Meric2-augmented pilot checkpoint."
+}

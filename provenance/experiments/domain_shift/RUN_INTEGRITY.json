@@ -1,0 +1,26 @@
+{
+  "schema_version": "combined-v2-domain-shift-completion-integrity-v1",
+  "status": "PASS",
+  "results_unblinded": false,
+  "scientific_metrics_computed": false,
+  "verified_fits": 12,
+  "verified_predictions": 12,
+  "direction_target_rows": {
+    "abstract_to_newspaper": 1000,
+    "newspaper_to_abstract": 2000
+  },
+  "two_target_domains_cover_all_1500_pairs_per_seed_objective": true,
+  "heldout_domain_training_rows_verified_zero": true,
+  "heldout_domain_model_selection_use_verified_false": true,
+  "test_training_use_verified_zero": true,
+  "calibration_absent": true,
+  "thresholding_absent": true,
+  "prediction_hashes_verified": true,
+  "freeze_runner_config_bindings_verified": true,
+  "paired_ce_supcon_alignment_verified": true,
+  "finite_raw_scores_verified_without_revealing_values": true,
+  "freeze_sha256": "da9d18fd979721e96dd1e43e32118fea30548da7544eb45477accd59a5095cfd",
+  "config_sha256": "bf5fd8a4c099c05c42cb433d0968764a5d8ca19bf0bcec8b514bd0eece7d6fb9",
+  "runner_sha256": "2c485224cf40cdb5f0b350c9c504084b4ca1a13287ee11ca82c1d839d164e59f",
+  "next_step": "Run scripts/domain_shift_statistics.py for one-time domain-shift unblinding."
+}

@@ -1,0 +1,127 @@
+{
+  "schema_version": "combined-v2-generator-holdout-v1.1",
+  "experiment": "GENERATOR_HOLDOUT_V1",
+  "status": "PRESPECIFIED_OOD_NOT_LAUNCHED",
+  "research_question": "RQ2 — Distribution-shift generalization under unseen AI generator",
+  "condition": "A",
+  "dataset_sha256": "ea5797ac19348957472626d1a23b740de531cd19577f613e1a73894e34d66b44",
+  "nested_fold_sha256_provenance_only": "16ffae53a5d9027a95e12f3975fd062f17038ef5bf8970a74dd3ef7339d9a100",
+  "nested_fold_file_used_for_generator_split": false,
+  "protocol_origin": {
+    "path": "provenance/history/study_development/legacy_workflow_records/protocol/FINAL_EXPERIMENT_PROTOCOL_V1.md",
+    "sha256": "c848bae3278a69a36ed8961d6583d1c915cf199fe9f6072937b994b82c17cae8",
+    "generator_holdout_prespecified_before_primary_results": true,
+    "protocol_section": "14. RQ2 — Generator holdout",
+    "implementation_frozen_after_primary_rq1_unblinding": true,
+    "generator_ood_results_seen_before_this_freeze": false,
+    "post_rq1_implementation_detail": "Macro-over-generator aggregation, result blinding, exact integrity gates, and paired bootstrap implementation are fixed here before any generator-OOD result is inspected."
+  },
+  "primary_rq1_lineage": {
+    "primary_config_sha256": "7e825c0f97f1763c6b4db69164feda04743f9fa30f27e254e1c52f953dd07f13",
+    "primary_runner_sha256": "eafe1e66c5d8324cf547571144a1a2f70f9cf1b4406c22f9eabd4e0b8587b92e",
+    "primary_preexecution_freeze_sha256": "162a120d624c830e3b0f93a07504a30be58ac602f4089aa2349527d52882548e",
+    "primary_final_statistics_manifest_sha256": "ed30975ecb16f49715352f6b11ef1c29aa6e4df2e0d2a0bf55f93a69fcc2187a",
+    "primary_results_already_unblinded": true,
+    "training_implementation_reused": "src/turkish_ai_detection/experiments/primary/run_fit.py",
+    "primary_final_statistics_manifest_internal_self_hash_stale": "b1c729a754cef3120ac7ca5bd12c5fdcb56c73608de58141407cdc46a233e909",
+    "manifest_self_hash_note": "The primary final-statistics manifest contains a stale self-reference under outputs.final_statistics_manifest.json because the manifest was included in the directory hash enumeration before it was overwritten. The authoritative whole-file SHA-256 is the external Get-FileHash value recorded here. Scientific CSV output hashes and frozen config/runner/freeze lineage remain unchanged."
+  },
+  "heldout_generators": [
+    "Claude",
+    "GPT",
+    "Gemini",
+    "Kimi",
+    "Qwen"
+  ],
+  "seeds": [
+    42,
+    314,
+    2026
+  ],
+  "objectives": {
+    "ce": {
+      "scientific_name": "CE_ONLY_MATCHED",
+      "loss": "cross_entropy",
+      "lambda_supcon": 0.0
+    },
+    "supcon": {
+      "scientific_name": "SUPCON",
+      "loss": "cross_entropy + 0.1 * supervised_contrastive_loss",
+      "lambda_supcon": 0.1,
+      "temperature": 0.07
+    }
+  },
+  "split_contract": {
+    "unit": "pair_id",
+    "generator_field": "generator",
+    "pair_generator_consistency_required": true,
+    "test_definition": "all 300 HUMAN-AI pairs assigned to the held-out generator",
+    "train_definition": "all 1200 HUMAN-AI pairs assigned to the other four generators",
+    "train_rows": 2400,
+    "test_rows": 600,
+    "train_pairs": 1200,
+    "test_pairs": 300,
+    "train_human": 1200,
+    "train_ai": 1200,
+    "test_human": 300,
+    "test_ai": 300,
+    "test_abstract_pairs": 200,
+    "test_newspaper_pairs": 100,
+    "heldout_generator_training_rows": 0,
+    "train_test_pair_overlap": 0,
+    "heldout_generator_used_for_model_selection": false
+  },
+  "training": {
+    "shared_authoritative_runner": "src/turkish_ai_detection/experiments/primary/run_fit.py",
+    "same_model_initialization_given_seed": true,
+    "same_true32_training_path": true,
+    "physical_batch_size": 16,
+    "effective_batch_size": 32,
+    "gradient_accumulation_steps": 2,
+    "learning_rate": 2e-05,
+    "epochs": 3,
+    "weight_decay": 0.01,
+    "warmup_steps": 0.1,
+    "warmup_interpretation": "10% of total optimizer steps under installed Transformers v5 API",
+    "early_stopping": false,
+    "hyperparameter_sweep": false,
+    "calibration": false,
+    "thresholding": false
+  },
+  "planned_fits": 30,
+  "fit_definition": "5 held-out generators x 3 seeds x 2 objectives",
+  "metrics": {
+    "primary": "roc_auc",
+    "secondary": [
+      "average_precision",
+      "standardized_pauc_003"
+    ],
+    "raw_score": "logit_AI - logit_HUMAN",
+    "primary_aggregation": "compute metric separately for each held-out generator, then macro-average the five generator-specific metrics within each seed",
+    "reason_not_to_make_cross_generator_raw_score_pooling_primary": "raw decision-score scales may differ across separately trained holdout models"
+  },
+  "id_to_ood_degradation": {
+    "id_reference": "for the same objective, seed, generator and pair subset, use the frozen primary RQ1 out-of-fold predictions where that generator was seen in training",
+    "degradation_definition": "ID metric - OOD metric",
+    "positive_degradation_means": "performance decreased under generator holdout",
+    "relative_robustness_delta": "CE degradation - SupCon degradation",
+    "positive_relative_robustness_delta_means": "SupCon degraded less than CE"
+  },
+  "statistics": {
+    "bootstrap_unit": "pair_id",
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 2603,
+    "same_resampled_pairs_for_ce_and_supcon": true,
+    "same_resampled_pairs_across_three_seeds_within_generator": true,
+    "overall_delta": "for each replicate and metric, compute SupCon-minus-CE OOD delta for each generator and seed, then average across 5 generators and 3 seeds",
+    "generator_specific_delta": "within each generator, average the paired SupCon-minus-CE delta across 3 seeds",
+    "robustness_delta": "CE(ID-OOD degradation) - SupCon(ID-OOD degradation), averaged across generators and seeds",
+    "ci": "95% percentile interval",
+    "inference_scope": "pair-sampling uncertainty conditional on the five tested generator families; not a superpopulation confidence interval over all possible future generators"
+  },
+  "pre_result_blinding": {
+    "ood_metrics_printed_during_training": false,
+    "matrix_success_output": "safe completion metadata only",
+    "unblinding": "only after 30/30 fits pass post-run pre-unblinding integrity verification"
+  }
+}

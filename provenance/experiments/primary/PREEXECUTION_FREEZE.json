@@ -1,0 +1,379 @@
+{
+  "schema_version": "combined-v2-primary-ablation-preexecution-freeze-v1",
+  "created_utc": "2026-10-02T13:01:45.307090+00:00",
+  "status": "FROZEN_READY_TO_RUN",
+  "experiment": "COMBINED_V2_PRIMARY_ABLATION_V1",
+  "condition": "A",
+  "scientific_primary_outputs_present_before_freeze": false,
+  "results_unblinded_before_freeze": false,
+  "planned_fits": 50,
+  "matrix": [
+    {
+      "objective": "ce",
+      "seed": 42,
+      "outer_fold": 0
+    },
+    {
+      "objective": "supcon",
+      "seed": 42,
+      "outer_fold": 0
+    },
+    {
+      "objective": "ce",
+      "seed": 42,
+      "outer_fold": 1
+    },
+    {
+      "objective": "supcon",
+      "seed": 42,
+      "outer_fold": 1
+    },
+    {
+      "objective": "ce",
+      "seed": 42,
+      "outer_fold": 2
+    },
+    {
+      "objective": "supcon",
+      "seed": 42,
+      "outer_fold": 2
+    },
+    {
+      "objective": "ce",
+      "seed": 42,
+      "outer_fold": 3
+    },
+    {
+      "objective": "supcon",
+      "seed": 42,
+      "outer_fold": 3
+    },
+    {
+      "objective": "ce",
+      "seed": 42,
+      "outer_fold": 4
+    },
+    {
+      "objective": "supcon",
+      "seed": 42,
+      "outer_fold": 4
+    },
+    {
+      "objective": "ce",
+      "seed": 137,
+      "outer_fold": 0
+    },
+    {
+      "objective": "supcon",
+      "seed": 137,
+      "outer_fold": 0
+    },
+    {
+      "objective": "ce",
+      "seed": 137,
+      "outer_fold": 1
+    },
+    {
+      "objective": "supcon",
+      "seed": 137,
+      "outer_fold": 1
+    },
+    {
+      "objective": "ce",
+      "seed": 137,
+      "outer_fold": 2
+    },
+    {
+      "objective": "supcon",
+      "seed": 137,
+      "outer_fold": 2
+    },
+    {
+      "objective": "ce",
+      "seed": 137,
+      "outer_fold": 3
+    },
+    {
+      "objective": "supcon",
+      "seed": 137,
+      "outer_fold": 3
+    },
+    {
+      "objective": "ce",
+      "seed": 137,
+      "outer_fold": 4
+    },
+    {
+      "objective": "supcon",
+      "seed": 137,
+      "outer_fold": 4
+    },
+    {
+      "objective": "ce",
+      "seed": 314,
+      "outer_fold": 0
+    },
+    {
+      "objective": "supcon",
+      "seed": 314,
+      "outer_fold": 0
+    },
+    {
+      "objective": "ce",
+      "seed": 314,
+      "outer_fold": 1
+    },
+    {
+      "objective": "supcon",
+      "seed": 314,
+      "outer_fold": 1
+    },
+    {
+      "objective": "ce",
+      "seed": 314,
+      "outer_fold": 2
+    },
+    {
+      "objective": "supcon",
+      "seed": 314,
+      "outer_fold": 2
+    },
+    {
+      "objective": "ce",
+      "seed": 314,
+      "outer_fold": 3
+    },
+    {
+      "objective": "supcon",
+      "seed": 314,
+      "outer_fold": 3
+    },
+    {
+      "objective": "ce",
+      "seed": 314,
+      "outer_fold": 4
+    },
+    {
+      "objective": "supcon",
+      "seed": 314,
+      "outer_fold": 4
+    },
+    {
+      "objective": "ce",
+      "seed": 2026,
+      "outer_fold": 0
+    },
+    {
+      "objective": "supcon",
+      "seed": 2026,
+      "outer_fold": 0
+    },
+    {
+      "objective": "ce",
+      "seed": 2026,
+      "outer_fold": 1
+    },
+    {
+      "objective": "supcon",
+      "seed": 2026,
+      "outer_fold": 1
+    },
+    {
+      "objective": "ce",
+      "seed": 2026,
+      "outer_fold": 2
+    },
+    {
+      "objective": "supcon",
+      "seed": 2026,
+      "outer_fold": 2
+    },
+    {
+      "objective": "ce",
+      "seed": 2026,
+      "outer_fold": 3
+    },
+    {
+      "objective": "supcon",
+      "seed": 2026,
+      "outer_fold": 3
+    },
+    {
+      "objective": "ce",
+      "seed": 2026,
+      "outer_fold": 4
+    },
+    {
+      "objective": "supcon",
+      "seed": 2026,
+      "outer_fold": 4
+    },
+    {
+      "objective": "ce",
+      "seed": 3407,
+      "outer_fold": 0
+    },
+    {
+      "objective": "supcon",
+      "seed": 3407,
+      "outer_fold": 0
+    },
+    {
+      "objective": "ce",
+      "seed": 3407,
+      "outer_fold": 1
+    },
+    {
+      "objective": "supcon",
+      "seed": 3407,
+      "outer_fold": 1
+    },
+    {
+      "objective": "ce",
+      "seed": 3407,
+      "outer_fold": 2
+    },
+    {
+      "objective": "supcon",
+      "seed": 3407,
+      "outer_fold": 2
+    },
+    {
+      "objective": "ce",
+      "seed": 3407,
+      "outer_fold": 3
+    },
+    {
+      "objective": "supcon",
+      "seed": 3407,
+      "outer_fold": 3
+    },
+    {
+      "objective": "ce",
+      "seed": 3407,
+      "outer_fold": 4
+    },
+    {
+      "objective": "supcon",
+      "seed": 3407,
+      "outer_fold": 4
+    }
+  ],
+  "checks": {
+    "equivalence_pass": true,
+    "equivalence_bound_to_current_supcon_runner": true,
+    "equivalence_bound_to_current_supcon_config": true,
+    "supcon_readiness_pass": true,
+    "supcon_readiness_bound_to_current_runner": true,
+    "supcon_readiness_bound_to_current_config": true,
+    "supcon_smoke_pass": true,
+    "supcon_smoke_bound_to_current_runner": true,
+    "supcon_smoke_bound_to_current_config": true,
+    "primary_identity_pass": true,
+    "primary_identity_bound_to_current_runner": true,
+    "primary_identity_bound_to_current_config": true,
+    "primary_smoke_pass": true,
+    "primary_smoke_bound_to_current_runner": true,
+    "primary_smoke_bound_to_current_config": true,
+    "scientific_training_not_launched_in_smoke": true,
+    "scientific_outer_test_not_used_in_smoke": true,
+    "dataset_hash": true,
+    "fold_hash": true,
+    "planned_fits": true,
+    "prespecified_seeds": true,
+    "prespecified_outer_folds": true,
+    "bootstrap_prespecified": true,
+    "pre_result_blinding_prespecified": true
+  },
+  "files": {
+    "primary_config": {
+      "path": "configs/combined_v2/primary_ablation_v1.json",
+      "sha256": "7e825c0f97f1763c6b4db69164feda04743f9fa30f27e254e1c52f953dd07f13",
+      "bytes": 5415
+    },
+    "primary_runner": {
+      "path": "scripts/run_primary_ablation_v1.py",
+      "sha256": "eafe1e66c5d8324cf547571144a1a2f70f9cf1b4406c22f9eabd4e0b8587b92e",
+      "bytes": 16723
+    },
+    "matrix_launcher": {
+      "path": "scripts/run_primary_ablation_matrix_v1.py",
+      "sha256": "62f7719615e7d7c1b6dfcdf0d162ad26f5b7c13bda9795110246ccd9a4e41035",
+      "bytes": 2505
+    },
+    "statistics_module": {
+      "path": "scripts/combined_v2_statistics.py",
+      "sha256": "4fb7f563f0e2126125d27f9994ee62b6dc90614e602b9b3c6c04c7225f582482",
+      "bytes": 11112
+    },
+    "identity_test": {
+      "path": "tests/test_primary_ablation_identity.py",
+      "sha256": "f095cf92f5f2069e426f9e0db5319237e8f3ecae3cebcc6edeac5276831ee62f",
+      "bytes": 4011
+    },
+    "smoke_test": {
+      "path": "tests/test_primary_ablation_smoke.py",
+      "sha256": "c9345d964c40fd2ddf731211c25b5e8570b6b50ca98f87533eef97d65ac4b9b8",
+      "bytes": 6890
+    },
+    "dataset": {
+      "path": "data/COMBINED_V2/combined_v2.csv",
+      "sha256": "ea5797ac19348957472626d1a23b740de531cd19577f613e1a73894e34d66b44",
+      "bytes": 10739891
+    },
+    "folds": {
+      "path": "data/COMBINED_V2/nested_folds_v2.csv",
+      "sha256": "16ffae53a5d9027a95e12f3975fd062f17038ef5bf8970a74dd3ef7339d9a100",
+      "bytes": 79934
+    },
+    "supcon_runner": {
+      "path": "scripts/run_combined_v2_supcon_v2.py",
+      "sha256": "a50e2f0f36df5c0c5caf09c74360dede17af6b85b7d9c2b78de7ba1ada4f2ce4",
+      "bytes": 42554
+    },
+    "supcon_config": {
+      "path": "configs/combined_v2/supcon_v2.json",
+      "sha256": "08b29958cbf240fdb965d80be99dbe10680d16cc0065e1dfc3a3c270a9b816b3",
+      "bytes": 4252
+    },
+    "true32_equivalence_report": {
+      "path": "outputs/combined_v2/supcon_v2/true32_gradient_equivalence_report.json",
+      "sha256": "11caaa088c52f222b38df9998b49a21f3a91ff01e70f11df2dc6b6568cebdd28",
+      "bytes": 7656
+    },
+    "supcon_readiness_report": {
+      "path": "outputs/combined_v2/supcon_v2/readiness_audit.json",
+      "sha256": "b9544e982c9d21582cdb8b904a20d69793552c38d1ff3cc4d9a4638f93476da8",
+      "bytes": 19600
+    },
+    "supcon_smoke_report": {
+      "path": "outputs/combined_v2/supcon_v2/smoke_test_report.json",
+      "sha256": "82683f62173b6ef77d27a7530af53dbe087890e13ed651f071dbe6534f7f57bc",
+      "bytes": 2611
+    },
+    "primary_identity_report": {
+      "path": "provenance/combined_v2/primary_ablation_v1/preflight/identity_audit.json",
+      "sha256": "7d85281488be69cdef039389d8e5419bb6a230ea5fe627d3a80c77c65795ae8b",
+      "bytes": 916
+    },
+    "primary_smoke_report": {
+      "path": "provenance/combined_v2/primary_ablation_v1/preflight/smoke_test.json",
+      "sha256": "0bb126eb725694f4ec3f60f3cd68267e6011f994b189c55f40f6d5ec84a97d82",
+      "bytes": 1716
+    }
+  },
+  "environment": {
+    "python": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.16.1",
+    "cuda": "12.8",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 5080 Laptop GPU"
+  },
+  "git": {
+    "commit": null,
+    "dirty_paths": null
+  },
+  "execution_command": "& \".\\.venv-gpu\\Scripts\\python.exe\" \".\\scripts\\run_primary_ablation_matrix_v1.py\" --execute",
+  "unblinding_command_after_50_complete_fits": "& \".\\.venv-gpu\\Scripts\\python.exe\" \".\\scripts\\combined_v2_statistics.py\""
+}

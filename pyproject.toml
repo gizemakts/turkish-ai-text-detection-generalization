@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "turkish-ai-text-detection-generalization"
+version = "0.1.0"
+description = "Research implementations for Turkish AI-generated text detection, training objectives and cross-corpus generalization"
+readme = "README.md"
+requires-python = ">=3.13"
+license = "MIT"
+authors = [
+  {name = "Gizem Aktaş"},
+  {name = "Murat Gök"},
+]
+keywords = ["Turkish NLP", "AI-generated text detection", "cross-corpus generalization", "supervised contrastive learning"]
+
+[project.scripts]
+turkish-ai-detection = "turkish_ai_detection.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["turkish_ai_detection*"]

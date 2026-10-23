@@ -1,0 +1,139 @@
+{
+  "schema_version": "combined-v2-lit2026-reimpl-v1.1",
+  "experiment": "LIT2026_REIMPL_V1_1",
+  "status": "PRESPECIFIED_NOT_LAUNCHED",
+  "research_question": "RQ4 — same-data literature-recipe comparison",
+  "condition": "A",
+  "dataset_sha256": "ea5797ac19348957472626d1a23b740de531cd19577f613e1a73894e34d66b44",
+  "fold_sha256": "16ffae53a5d9027a95e12f3975fd062f17038ef5bf8970a74dd3ef7339d9a100",
+  "protocol_origin": {
+    "path": "provenance/history/study_development/legacy_workflow_records/protocol/FINAL_EXPERIMENT_PROTOCOL_V1.md",
+    "sha256": "c848bae3278a69a36ed8961d6583d1c915cf199fe9f6072937b994b82c17cae8",
+    "section": "18.B Same-data literature recipe",
+    "design_prespecified_before_prior_results": true,
+    "lit2026_results_seen_before_this_freeze": false
+  },
+  "authoritative_literature_source": {
+    "title": "BERTurk tabanlı çok modelli yapay zekâ üretimli Türkçe metin tespiti",
+    "authors": [
+      "Ayhan Renklier",
+      "Ömer Faruk Sarıtaş"
+    ],
+    "year": 2026,
+    "publication_date": "2026-09-09",
+    "doi": "10.28948/ngumuh.1930411",
+    "source_transcription_path": "provenance/experiments/literature_comparison/LIT2026_SOURCE_TRANSCRIPTION.md",
+    "source_transcription_sha256": "06a91336f2b37f5c99f334914170f4c6ae06f4edff1eef481c97ab59861de83c",
+    "published_context_only": {
+      "test_accuracy": 0.9754,
+      "test_f1": 0.9837,
+      "test_roc_auc": 0.9931,
+      "five_fold_group_aware_mean_roc_auc": 0.9966,
+      "five_fold_group_aware_sd_roc_auc": 0.0015,
+      "warning": "Different dataset; contextual only, not a direct head-to-head comparison."
+    }
+  },
+  "literature_recipe_verbatim_values": {
+    "model": "dbmdz/bert-base-turkish-cased",
+    "classification_head": "linear 768 -> 2 on [CLS]",
+    "learning_rate": 2e-05,
+    "batch_size": 8,
+    "max_epochs": 5,
+    "early_stopping_patience": 2,
+    "early_stopping_metric": "validation F1",
+    "max_sequence_length": 512,
+    "truncation": "first 512 tokens",
+    "weight_decay": 0.01,
+    "warmup_steps": 500,
+    "mixed_precision": "FP16",
+    "optimizer": "AdamW",
+    "all_model_weights_finetuned": true
+  },
+  "same_data_adaptations": {
+    "outer_test": "frozen pair-disjoint Turkish AI-Generated Text Detection Study outer fold, 300 pairs / 600 rows",
+    "inner_validation": "deterministic 150-pair / 300-row validation subset from the 1200-pair outer-training pool; generator×domain stratified; identical across seeds",
+    "train_after_validation": "1050 pairs / 2100 rows",
+    "overall_ratio": "70% train / 10% validation / 20% test",
+    "paper_preprocessing_not_applied": "No <30-word filtering, duplicate removal, or literature-dataset markdown filtering is applied; the frozen Condition-A common evaluation population is preserved.",
+    "adamw_implementation": "transformers TrainingArguments optim='adamw_torch'",
+    "lr_scheduler": "linear scheduler with 500 warmup steps",
+    "gradient_clipping": "disabled because not reported by the paper",
+    "label_smoothing": 0.0,
+    "class_weighting": false,
+    "dropout_override": null
+  },
+  "seeds": [
+    42,
+    314,
+    2026
+  ],
+  "outer_folds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "planned_fits": 15,
+  "fit_definition": "5 frozen outer folds x 3 seeds x one literature recipe",
+  "evaluation": {
+    "primary": "roc_auc",
+    "secondary": [
+      "average_precision",
+      "standardized_pauc_003",
+      "accuracy",
+      "balanced_accuracy",
+      "precision_ai",
+      "recall_ai",
+      "f1_ai",
+      "macro_f1"
+    ],
+    "raw_score": "logit_AI - logit_HUMAN",
+    "same_seed_primary_references": [
+      "CE_ONLY_MATCHED",
+      "SUPCON"
+    ],
+    "contextual_published_metrics_directly_comparable": false
+  },
+  "statistics": {
+    "bootstrap_unit": "pair_id",
+    "bootstrap_replicates": 5000,
+    "bootstrap_seed": 2606,
+    "same_resampled_pairs_across_lit_ce_supcon_and_seeds": true,
+    "paired_deltas": [
+      "LIT2026_REIMPL - CE",
+      "LIT2026_REIMPL - SupCon"
+    ],
+    "ci": "95% percentile interval",
+    "seed_summary": "pooled five-fold OOF metric per seed, then mean and SD across three seeds",
+    "inference_scope": "pair-sampling uncertainty conditional on the frozen 1,500-pair corpus and the three tested seeds; seed variability is reported separately and is not resampled"
+  },
+  "prior_stage_provenance": {
+    "primary_final_statistics_manifest_sha256": "ed30975ecb16f49715352f6b11ef1c29aa6e4df2e0d2a0bf55f93a69fcc2187a",
+    "generator_ood_final_statistics_manifest_sha256": "c56edf9dd75b2c4587068c7356071dae3c9fb492a56b8f18d5d244e36981a45e",
+    "domain_shift_final_statistics_manifest_sha256": "4f6d35a98603d51fe2542fd0dd1a68ff0210fb7e2a6c404fe4a632337fe874e9",
+    "condition_b_final_statistics_manifest_sha256": "06e9d41c8e0dccabf30afec9687770d7d16b9f25076a648b09916a633e2bb05e",
+    "used_for_lit2026_statistics": [
+      "primary CE/SupCon only"
+    ],
+    "generator_domain_condition_b": "provenance only"
+  },
+  "pre_result_blinding": {
+    "lit2026_metrics_printed_during_training": false,
+    "matrix_success_output": "safe completion metadata only",
+    "unblinding": "only after 15/15 fits pass post-run pre-unblinding integrity verification"
+  },
+  "model_revision_pin": {
+    "repository": "dbmdz/bert-base-turkish-cased",
+    "revision": "b6e1de16c983e0f2c70664591ea3f22810072608",
+    "reason": "Pin exact Hugging Face repository revision before scientific execution for reproducibility.",
+    "scientific_recipe_changed": false
+  },
+  "superseded_preexecution_freeze": {
+    "experiment": "LIT2026_REIMPL_V1",
+    "freeze_sha256": "5dfd9125312a2464d0110b24396e9bac02cf15cfcf35a57524088ccdd5a90b92",
+    "scientific_training_launched_under_superseded_freeze": false,
+    "scientific_results_unblinded_under_superseded_freeze": false,
+    "reason": "V1 was sealed before noticing that model/tokenizer revision was not pinned."
+  }
+}
